@@ -1,6 +1,7 @@
 #!/bin/bash
-# Install dependencies for Python scripts
-pip install requests
+
+# Install Python dependencies
+pip install -r requirements.txt
 
 # Generate the static HTML pages from Sanity data
 python generate_details_pages.py
