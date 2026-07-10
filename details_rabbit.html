@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishcart - Rabbit Meat Details</title>
+  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="fish.css?v=22">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0057FF;
+      --light-blue: #EAF2FF;
+      --border-color: #E5E7EB;
+      --text-main: #1F2937;
+      --text-light: #6B7280;
+      --bg-color: #F8FAFC;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      margin: 0;
+      font-size: 13px;
+      overflow-x: hidden;
+    }
+
+    .app-layout {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* --- SIDEBAR --- */
+    .sidebar { width: 200px; background: white; border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+    .sidebar-logo { padding: 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-color); }
+    .sidebar-logo svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .sidebar-logo .logo-title { font-weight: 800; font-size: 1.1rem; color: var(--primary-blue); }
+    .sidebar-logo .logo-subtitle { font-size: 0.65rem; color: var(--text-light); display: block; }
+    .sidebar-nav { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+    .nav-item { display: flex; align-items: center; gap: 8px; padding: 8px; text-decoration: none; color: var(--text-main); border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+    .nav-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .nav-item.active { background: var(--light-blue); color: var(--primary-blue); font-weight: 600; }
+    .sidebar-cta { margin: auto 12px 12px 12px; padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; text-align: center; }
+    .sidebar-cta h4 { margin: 0 0 8px 0; color: var(--primary-blue); font-size: 0.8rem; }
+    .btn-join { background: var(--primary-blue); color: white; border: none; padding: 8px; border-radius: 6px; font-weight: 600; font-size: 0.8rem; cursor: pointer; width: 100%; }
+
+    /* --- MAIN CONTENT --- */
+    .main-wrapper { flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; height: 100%; }
+    .top-section-row { display: grid; grid-template-columns: 1fr 1fr 220px; gap: 8px; align-items: start; }
+
+    /* Column 1: Info */
+    .product-info-col { max-height: 320px; overflow-y: auto; padding-right: 4px; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-light); margin-bottom: 12px; }
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+    .badge-premium { align-self: flex-start; background: #FEF3C7; color: #D97706; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px; }
+    .prod-title { font-size: 1.8rem; font-weight: 800; margin: 0 0 8px 0; letter-spacing: -0.5px; }
+    .prod-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.4; margin-bottom: 12px; }
+    .star-rating { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 500; color: var(--text-light); margin-bottom: 4px; }
+    .star-rating svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .star-rating span { color: var(--text-light); margin-left: 4px; font-size: 0.8rem; }
+    .feature-icons-list { display: flex; flex-direction: column; gap: 4px; }
+    .feature-icon-row { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-main); }
+    .icon-circle { width: 28px; height: 28px; background: var(--light-blue); color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-circle svg { width: 14px; height: 14px; }
+
+    /* Column 2: Image */
+    .product-image-col { display: flex; flex-direction: column; gap: 6px; }
+    .hero-image-container { width: 100%; aspect-ratio: 16/9; max-height: 220px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+    .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-slider { display: flex; align-items: center; gap: 8px; }
+    .gallery-arrow { width: 20px; height: 20px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+    .gallery-arrow svg { width: 12px; height: 12px; }
+    .gallery-thumbnails { display: flex; gap: 8px; overflow: hidden; flex: 1; }
+    .thumb { width: calc(100% / 6 - 7px); aspect-ratio: 1; border-radius: 4px; object-fit: cover; border: 2px solid transparent; opacity: 0.7; cursor: pointer; }
+    .thumb.active { border-color: var(--primary-blue); opacity: 1; }
+
+    /* Column 3: Purchase Panel */
+    .purchase-panel { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; box-shadow: 0 1px 5px rgba(0,0,0,0.04); display: flex; flex-direction: column; max-height: 320px; overflow-y: auto; }
+    .purchase-price { font-size: 1.1rem; font-weight: 800; margin-bottom: 2px; display: flex; align-items: baseline; gap: 4px; }
+    .purchase-price span { font-size: 0.8rem; color: var(--text-light); }
+    .panel-section-title { font-size: 0.75rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px; margin-top: 4px; }
+    .selector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 16px; }
+    .selector-btn { border: 1px solid var(--border-color); background: white; padding: 6px; border-radius: 4px; font-weight: 500; font-size: 0.75rem; text-align: center; cursor: pointer; }
+    .selector-btn.active { background: var(--light-blue); border-color: var(--primary-blue); color: var(--primary-blue); }
+    .serves-indicator { display: flex; align-items: center; gap: 6px; padding: 8px; background: #F3F4F6; border-radius: 4px; margin-bottom: 16px; font-weight: 500; font-size: 0.8rem; }
+    .serves-indicator svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn-primary-buy { background: var(--primary-blue); color: white; width: 100%; padding: 6px; border: none; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; cursor: pointer; }
+    .guarantee-card { background: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; padding: 4px; border-radius: 4px; display: flex; align-items: center; gap: 4px; font-size: 0.65rem; font-weight: 600; margin-bottom: 6px; }
+    .guarantee-card svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .action-buttons { display: flex; gap: 4px; margin-bottom: 6px; }
+    .btn-action { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; font-weight: 500; font-size: 0.8rem; background: white; cursor: pointer; }
+    .btn-action svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn-action.saved { background: #FEE2E2; color: #EF4444; border-color: #FECACA; }
+    .btn-action.saved svg { fill: #EF4444; stroke: #EF4444; }
+    .contact-card { background: var(--light-blue); padding: 4px; border-radius: 6px; text-align: center; font-size: 0.75rem; }
+    .contact-card p { margin: 0 0 8px 0; color: var(--primary-blue); font-weight: 600; font-size: 0.8rem; }
+    .contact-card button { background: white; color: var(--primary-blue); border: 1px solid var(--primary-blue); padding: 6px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; width: 100%; cursor: pointer; }
+
+    /* --- TABS --- */
+    .tabs-nav { display: flex; gap: 12px; border-bottom: 1px solid var(--border-color); margin-bottom: 4px; overflow-x: auto; padding-bottom: 2px; }
+    .tab-item { padding: 8px 0; color: var(--text-light); font-weight: 500; position: relative; cursor: pointer; }
+    .tab-item.active { color: var(--primary-blue); font-weight: 600; }
+    .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary-blue); }
+
+    /* --- TAB CONTENT PANES --- */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* --- INFO GRID CARDS (Overview Tab) --- */
+    .info-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
+    .info-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; height: 140px; max-height: 220px; display: flex; flex-direction: column; box-shadow: 0 1px 3px rgba(0,0,0,0.02); overflow: hidden; }
+    .info-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .info-card-header svg { width: 16px; height: 16px; color: var(--primary-blue); flex-shrink: 0; }
+    .info-card h3 { font-size: 0.85rem; margin: 0; color: var(--primary-blue); font-weight: 600; }
+    .info-card-content { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .info-card p { margin: 0; color: var(--text-main); line-height: 1.3; font-size: 0.8rem; }
+    .card-small-img { width: 100%; height: 60px; object-fit: cover; border-radius: 4px; background: #F3F4F6; }
+    .info-card.allergy { border-left: 3px solid #EF4444; }
+    .info-card.allergy h3, .info-card.allergy svg { color: #EF4444 !important; }
+
+    /* --- COOKING TAB --- */
+    .cooking-section { display: flex; flex-direction: column; gap: 20px; }
+    .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .video-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+    .video-iframe-container { position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ }
+    .video-iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-info { padding: 12px; }
+    .video-info h4 { margin: 0 0 4px 0; font-size: 0.9rem; color: var(--text-main); }
+    .video-info p { margin: 0; font-size: 0.75rem; color: var(--text-light); }
+    .cooking-instructions { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; }
+    .cooking-instructions h3 { margin: 0 0 12px 0; font-size: 1rem; color: var(--primary-blue); border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+    .cooking-instructions ol { margin: 0; padding-left: 20px; color: var(--text-main); font-size: 0.85rem; line-height: 1.6; }
+    .cooking-instructions li { margin-bottom: 8px; }
+
+    /* --- GENERIC TAB CONTENT --- */
+    .generic-tab-content { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px; text-align: center; color: var(--text-light); }
+    .generic-tab-content h3 { color: var(--primary-blue); margin-top: 0; }
+
+    /* --- BOTTOM FEATURES ROW --- */
+    .bottom-features-row { display: flex; justify-content: space-between; background: white; padding: 12px 24px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 16px; margin-top: 16px;}
+    .bottom-feature-item { text-align: center; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .bottom-feature-item svg { color: var(--primary-blue); width: 16px; height: 16px; flex-shrink: 0; }
+    .bottom-feature-item span { font-weight: 600; font-size: 0.8rem; }
+
+    /* --- TOAST NOTIFICATIONS --- */
+    .toast-container { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 10px; z-index: 9999; }
+    .toast { background: #1F2937; color: white; padding: 12px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: slideInRight 0.3s forwards; }
+    .toast.hide { animation: fadeOut 0.3s forwards; }
+    .toast svg { width: 16px; height: 16px; color: #10B981; }
+    @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+    /* --- MODALS --- */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal-box { background: white; width: 400px; border-radius: 12px; padding: 24px; position: relative; transform: translateY(20px); transition: transform 0.2s; }
+    .modal-overlay.active .modal-box { transform: translateY(0); }
+    .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; color: var(--text-light); }
+    .modal-box h2 { margin: 0 0 16px 0; font-size: 1.2rem; color: var(--primary-blue); }
+    .modal-box p { margin: 0 0 20px 0; font-size: 0.85rem; color: var(--text-light); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 0.8rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit; }
+    .btn-submit { background: var(--primary-blue); color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    .mobile-header { display: none; }
+    .sidebar-overlay { display: none; }
+
+    @media (max-width: 768px) {
+      body { overflow-y: auto; height: auto; font-size: 14px; }
+      .app-layout { flex-direction: column; height: auto; }
+      
+      .mobile-header {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 12px 16px; background: white; border-bottom: 1px solid var(--border-color);
+        position: sticky; top: 0; z-index: 90; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      .mobile-logo-text { font-weight: 800; font-size: 1.25rem; color: var(--primary-blue); display: flex; align-items: center; gap: 8px; }
+      .hamburger-btn { background: none; border: none; padding: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+      
+      .sidebar {
+        position: fixed; top: 0; left: 0; bottom: 0; z-index: 100;
+        transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100vh; overflow-y: auto; width: 240px;
+      }
+      .sidebar.open { transform: translateX(0); }
+      
+      .sidebar-overlay {
+        display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+      }
+      .sidebar-overlay.show { opacity: 1; pointer-events: auto; }
+
+      .main-wrapper { flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; height: 100%; }
+      
+      /* Detail Page Specific Layout Reshuffle */
+      .top-section-row { display: grid; grid-template-columns: 1fr 1fr 220px; gap: 8px; align-items: start; }
+      
+      .product-image-col { display: flex; flex-direction: column; gap: 6px; }
+      .product-info-col { max-height: 320px; overflow-y: auto; padding-right: 4px; }
+      .purchase-panel { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; box-shadow: 0 1px 5px rgba(0,0,0,0.04); display: flex; flex-direction: column; max-height: 320px; overflow-y: auto; }
+      
+      /* Ensure Tabs can scroll horizontally */
+      .tabs-nav { display: flex; gap: 12px; border-bottom: 1px solid var(--border-color); margin-bottom: 4px; overflow-x: auto; padding-bottom: 2px; }
+      .tabs-nav::-webkit-scrollbar { display: none; }
+      
+      /* Info Grid Cards */
+      .info-grid-layout { grid-template-columns: 1fr; gap: 12px; }
+      .info-card { height: auto; max-height: none; }
+      
+      /* Cooking */
+      .videos-grid { grid-template-columns: 1fr; }
+      
+      /* Bottom Features */
+      .bottom-features-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .bottom-feature-item { width: 100%; justify-content: flex-start; }
+      
+      /* Touch Targets */
+      .nav-item { min-height: 44px; padding: 12px 8px; }
+      .selector-btn { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+      .btn-action { min-height: 44px; }
+      .tab-item { min-height: 44px; display: flex; align-items: center; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <div class="mobile-header">
+      <div class="mobile-logo-text">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5z"/></svg>
+        FISHCART
+      </div>
+      <button class="hamburger-btn" onclick="toggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/><path d="M21 6l-6 6 6 6"/></svg>
+        <div class="logo-text"><span class="logo-title">FISHCART</span><span class="logo-subtitle">Daily Fresh Partner</span></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home</a>
+        <a href="index.html#fish" class="nav-item " onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12c-3.6 0-6.6-2.5-7.5-6a7.5 7.5 0 0 0-9 9 7.5 7.5 0 0 0 9 9c.9-3.5 3.9-6 7.5-6z"></path></svg>Fish</a>
+        <a href="index.html#meat" class="nav-item active" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>Meat</a>
+        <a href="index.html#chicken" class="nav-item " onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-2.5-3-2.5-8c0-5 3-9 3-9a3 3 0 0 0-6 0c0 0 3 4 3 9 0 5-2.5 8-2.5 8"></path></svg>Chicken</a>
+        <a href="index.html#eggs" class="nav-item " onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="6"></circle></svg>Eggs</a>
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+        <a href="how_to_cook.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>How to Cook</a>
+        <a href="benefits.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>Benefits</a>
+        <a href="our_stories.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>Our Stories</a>
+        <a href="about_us.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>About Us</a>
+        <a href="#" class="nav-item" onclick="openContactModal(); toggleSidebar();"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Contact Us</a>
+      </nav>
+      <div class="sidebar-cta">
+        <h4>Join Our Community</h4>
+        <div class="qr-placeholder">QR Code</div>
+        <button class="btn-join">Join Us</button>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <!-- TOP 3 COLUMNS ROW -->
+      <div class="top-section-row">
+        <!-- [1] Product Info -->
+        <div class="product-info-col">
+          <div class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="index.html#meat">Meat</a> &gt; <span style="font-weight: 500; color: var(--text-main);">Rabbit Meat</span></div>
+          <div class="badge-premium">⭐ Premium Choice</div>
+          <h1 class="prod-title" id="product-title">Rabbit Meat</h1>
+          <p class="prod-desc">Farm • Whole. Sourced fresh and handled with care.</p>
+          <div class="star-rating">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>4.8 (124)</span>
+          </div>
+          <div class="feature-icons-list">
+            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>100% Fresh Never Frozen</div>
+            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>Hygienically Handled</div>
+            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>Sourced Responsibly</div>
+          </div>
+        </div>
+
+        <!-- [2] Main Fish Image -->
+        <div class="product-image-col">
+          <div class="hero-image-container"><img id="main-hero-img" src="assets/rabbit.jpg" alt="Rabbit Meat"></div>
+          <div class="gallery-slider">
+            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+            <div class="gallery-thumbnails">
+              <img src="assets/rabbit.jpg" class="thumb active" onclick="changeHeroImage(this.src, this)">
+              <img src="assets/rabbit.jpg" class="thumb" onclick="changeHeroImage(this.src, this)">
+              <img src="assets/rabbit.jpg" class="thumb" onclick="changeHeroImage(this.src, this)">
+              <img src="assets/rabbit.jpg" class="thumb" onclick="changeHeroImage(this.src, this)">
+              <img src="assets/rabbit.jpg" class="thumb" onclick="changeHeroImage(this.src, this)">
+              <img src="assets/rabbit.jpg" class="thumb" onclick="changeHeroImage(this.src, this)">
+            </div>
+            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+        </div>
+
+        <!-- [3] Purchase Panel -->
+        <div class="purchase-panel">
+          <div class="purchase-price"><span id="display-price">£12.50</span> <span style="font-size:0.8rem">/ kg</span></div>
+          <div class="panel-section-title">Select Size</div>
+          <div class="selector-grid" id="size-selector">
+            <div class="selector-btn" onclick="selectOption(this, 'size')">Small</div>
+            <div class="selector-btn active" onclick="selectOption(this, 'size')">Medium</div>
+            <div class="selector-btn" onclick="selectOption(this, 'size')">Large</div>
+            <div class="selector-btn" onclick="selectOption(this, 'size')">X-Large</div>
+          </div>
+          <div class="panel-section-title">Cut Options</div>
+          <div class="selector-grid" id="cut-selector" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="selector-btn active" onclick="selectOption(this, 'cut')">Fillet</div>
+            <div class="selector-btn" onclick="selectOption(this, 'cut')">Steak</div>
+            <div class="selector-btn" onclick="selectOption(this, 'cut')">Whole</div>
+          </div>
+          <div class="serves-indicator"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Serves: 2-4 People</div>
+          <button class="btn-primary-buy" onclick="addToCart()">Add to Cart</button>
+          <div class="guarantee-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Freshness Guaranteed</div>
+          <div class="action-buttons">
+            <button class="btn-action" onclick="shareProduct()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>Share</button>
+            <button class="btn-action" id="save-btn" onclick="saveProduct()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>Save</button>
+          </div>
+          <div class="contact-card">
+            <p>Need help ordering?</p>
+            <button onclick="openContactModal()">Contact Us</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABS NAV -->
+      <div class="tabs-nav">
+        <div class="tab-item active" onclick="switchTab('overview', this)">Overview</div>
+        <div class="tab-item" onclick="switchTab('nutrition', this)">Nutrition</div>
+        <div class="tab-item" onclick="switchTab('cooking', this)">Cooking</div>
+        <div class="tab-item" onclick="switchTab('details', this)">Details</div>
+        <div class="tab-item" onclick="switchTab('sizes', this)">Sizes & Cuts</div>
+        <div class="tab-item" onclick="switchTab('allergy', this)">Allergy Info</div>
+      </div>
+
+      <!-- TAB CONTENT: OVERVIEW -->
+      <div id="tab-overview" class="tab-pane active">
+        <!-- INFO GRID CARDS (8 cards) -->
+        <div class="info-grid-layout">
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><h3>Source</h3></div>
+            <div class="info-card-content"><p>UK Farms.</p><img src="assets/rabbit.jpg" class="card-small-img" alt="Map"></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><h3>Best For</h3></div>
+            <div class="info-card-content"><p>Stews, Braising.</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><h3>Specialty</h3></div>
+            <div class="info-card-content"><p>Very lean white meat.</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><h3>Famous On</h3></div>
+            <div class="info-card-content"><p>French Cuisine.</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg><h3>Nutrition</h3></div>
+            <div class="info-card-content"><p>28g, 5g, 160 kcal</p><img src="assets/rabbit.jpg" class="card-small-img" alt="Chart"></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><h3>Good For</h3></div>
+            <div class="info-card-content"><p>Heart health, muscle, and immunity.</p></div>
+          </div>
+          <div class="info-card allergy">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h3>Allergy Info</h3></div>
+            <div class="info-card-content"><p>No known allergens.</p></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><h3>How To Cook</h3></div>
+            <div class="info-card-content"><p>Braise slowly.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: COOKING -->
+      <div id="tab-cooking" class="tab-pane">
+        <div class="cooking-section">
+          <div class="videos-grid">
+            <div class="video-card">
+              <div class="video-iframe-container">
+                <iframe src="" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <h4>Meat Preparation Guide</h4>
+                <p>Learn the basics of preparing and cooking this item.</p>
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="video-iframe-container">
+                <iframe src="" allowfullscreen></iframe>
+              </div>
+              <div class="video-info">
+                <h4>Chef's Special Rabbit Meat Recipe</h4>
+                <p>A gourmet recipe to elevate your meal.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cooking-instructions">
+            <h3>Cooking Instructions & Preparation Steps</h3>
+            <ol>
+              <li>Braise in white wine.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: NUTRITION (CMS Placeholder) -->
+      <div id="tab-nutrition" class="tab-pane">
+        <div class="generic-tab-content">
+          <h3>Nutritional Information</h3>
+          <p>Detailed nutritional breakdown will be injected here by the CMS.</p>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: DETAILS (CMS Placeholder) -->
+      <div id="tab-details" class="tab-pane">
+        <div class="generic-tab-content">
+          <h3>Product Details</h3>
+          <p>Extended description and sourcing information will be injected here by the CMS.</p>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: SIZES (CMS Placeholder) -->
+      <div id="tab-sizes" class="tab-pane">
+        <div class="generic-tab-content">
+          <h3>Sizes & Cuts Guide</h3>
+          <p>Detailed sizing charts and cut explanations will be injected here by the CMS.</p>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: ALLERGY (CMS Placeholder) -->
+      <div id="tab-allergy" class="tab-pane">
+        <div class="generic-tab-content">
+          <h3>Comprehensive Allergy Information</h3>
+          <p>Full allergen disclosures and cross-contamination warnings will be injected here by the CMS.</p>
+        </div>
+      </div>
+
+      <!-- BOTTOM FEATURES -->
+      <div class="bottom-features-row">
+        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>100% Fresh</span></div>
+        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>Hygienic & Safe</span></div>
+        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span>Fast Delivery</span></div>
+        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span>Best Quality</span></div>
+        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span>Sustainable</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- CONTACT US MODAL -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeContactModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      <h2>Contact Us</h2>
+      <p>Have a question about the Rabbit Meat? Send us a message and our team will get back to you shortly.</p>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Your Email">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="How can we help?"></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitContactForm()">Send Message</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function toggleSidebar() {
+      if (window.innerWidth <= 768) {
+        document.querySelector('.sidebar').classList.toggle('open');
+        document.querySelector('.sidebar-overlay').classList.toggle('show');
+      }
+    }
+
+    // Handle Image Gallery
+    function changeHeroImage(src, element) {
+      document.getElementById('main-hero-img').src = src;
+      document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // Handle Tab Switching
+    function switchTab(tabId, element) {
+      // Hide all panes
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+      // Remove active class from all tabs
+      document.querySelectorAll('.tab-item').forEach(tab => tab.classList.remove('active'));
+      
+      // Show selected pane and set tab active
+      document.getElementById('tab-' + tabId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    // Handle Size/Cut Selectors
+    function selectOption(element, group) {
+      const parent = document.getElementById(group + '-selector');
+      parent.querySelectorAll('.selector-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // Toast Notification System
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> ${message}`;
+      
+      container.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Functional Buttons
+    function addToCart() {
+      const size = document.querySelector('#size-selector .active').innerText;
+      const cut = document.querySelector('#cut-selector .active').innerText;
+      const title = document.getElementById('product-title').innerText;
+      
+      // Prepare for backend cart API integration
+      console.log(`Adding to cart: ${title} | Size: ${size} | Cut: ${cut}`);
+      showToast(`Successfully added ${size} ${cut} ${title} to cart!`);
+    }
+
+    function shareProduct() {
+      const url = window.location.href;
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: url
+        }).catch(console.error);
+      } else {
+        navigator.clipboard.writeText(url);
+        showToast("Product link copied to clipboard!");
+      }
+    }
+
+    function saveProduct() {
+      const btn = document.getElementById('save-btn');
+      btn.classList.toggle('saved');
+      if (btn.classList.contains('saved')) {
+        showToast("Product saved to favorites!");
+      } else {
+        showToast("Product removed from favorites.");
+      }
+    }
+
+    // Contact Modal Logic
+    function openContactModal() {
+      document.getElementById('contact-modal').classList.add('active');
+    }
+
+    function closeContactModal() {
+      document.getElementById('contact-modal').classList.remove('active');
+    }
+
+    function submitContactForm() {
+      closeContactModal();
+      showToast("Message sent successfully. We will be in touch!");
+    }
+  </script>
+</body>
+</html>
