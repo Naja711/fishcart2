@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fishcart - Venison Details</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text y=\".9em\" font-size=\"90\">🐟</text></svg>">
   <link rel="stylesheet" href="styles.css?v=8">
   <link rel="stylesheet" href="fish.css?v=22">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -199,6 +200,17 @@
 
       .main-wrapper { flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; height: 100%; }
       
+
+      /* DETAIL PAGE MOBILE OVERRIDES */
+      .top-section-row { grid-template-columns: 1fr !important; }
+      .tabs-nav { overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; }
+      .tab-item { display: inline-block; }
+      .info-grid-layout { grid-template-columns: 1fr; }
+
+      .product-info-col { max-height: none !important; }
+      .tab-buttons-container { overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
+      .tab-buttons { display: flex; gap: 10px; width: max-content; }
+
       /* Detail Page Specific Layout Reshuffle */
       .top-section-row { display: grid; grid-template-columns: 1fr 1fr 220px; gap: 8px; align-items: start; }
       
