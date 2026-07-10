@@ -1,6 +1,6 @@
 import re
 
-with open(r'd:\fishcart2\index.html', 'r', encoding='utf-8') as f:
+with open("index.html", "r", encoding="utf-8") as f:
     html = f.read()
 
 def replacer(match):
@@ -14,7 +14,7 @@ def replacer(match):
 
 new_html = re.sub(r'<div class="fp-card">.*?<img class="fp-cimg" src="assets/([^.]+)\.jpg".*?</div></div></div>', replacer, html, flags=re.DOTALL)
 
-with open(r'd:\fishcart2\index.html', 'w', encoding='utf-8') as f:
+with open("index.html", "w", encoding="utf-8") as f:
     f.write(new_html)
 
 print('Updated links in index.html')

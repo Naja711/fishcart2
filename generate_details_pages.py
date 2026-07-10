@@ -209,7 +209,7 @@ try:
 except Exception as e:
     print('Failed to fetch from Sanity, using local fallback.', e)
 
-template_path = r"d:\fishcart\product_template.html"
+template_path = r"product_template.html"
 with open(template_path, "r", encoding="utf-8") as f:
     template = f.read()
 
@@ -251,7 +251,7 @@ for id, p in data.items():
     html = html.replace("{{CHICKEN_ACTIVE}}", "active" if p["category"] == "Chicken" else "")
     html = html.replace("{{EGGS_ACTIVE}}", "active" if p["category"] == "Eggs" else "")
 
-    file_name = f"d:\\fishcart2\\details_{id}.html"
+    file_name = f"details_{id}.html"
     with open(file_name, "w", encoding="utf-8") as out:
         out.write(html)
         print(f"Generated {file_name}")

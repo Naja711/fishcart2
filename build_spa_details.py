@@ -214,7 +214,7 @@ except Exception as e:
     print('Failed to fetch from Sanity, using local fallback.', e)
 
 
-template_path = r"d:\fishcart\product_template.html"
+template_path = r"product_template.html"
 with open(template_path, "r", encoding="utf-8") as f:
     template = f.read()
 
@@ -307,7 +307,7 @@ function showDetails(id) {{
 </script>
 """
 
-with open(r'd:\fishcart2\index.html', 'r', encoding='utf-8') as f:
+with open(r'.\index.html', 'r', encoding='utf-8') as f:
     index_html = f.read()
 
 # 1. Update the A tags back to div tags with onclick=showDetails(id)
@@ -345,7 +345,7 @@ if 'id="page-details"' not in index_html:
 if 'const pdData =' not in index_html:
     index_html = index_html.replace('</body>', js_block + '\n</body>')
 
-with open(r'd:\fishcart2\index.html', 'w', encoding='utf-8') as f:
+with open(r'.\index.html', 'w', encoding='utf-8') as f:
     f.write(index_html)
 
 print('Updated index.html to inject SPA product details')

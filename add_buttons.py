@@ -1,6 +1,6 @@
 import re
 
-with open(r'd:\fishcart2\index.html', 'r', encoding='utf-8') as f:
+with open(r'.\index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
 def replacer(card):
@@ -41,7 +41,7 @@ for card in cards[1:]:
 
 new_html = '<div class="fp-card">'.join(new_cards)
 
-with open(r'd:\fishcart2\index.html', 'w', encoding='utf-8') as f:
+with open(r'.\index.html', 'w', encoding='utf-8') as f:
     f.write(new_html)
 
 print('Added missing View Details buttons')

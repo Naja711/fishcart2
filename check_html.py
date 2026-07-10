@@ -1,6 +1,6 @@
 import json
 
-with open(r'd:\fishcart2\index.html', 'r', encoding='utf-8') as f:
+with open(r'.\index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
 import re
