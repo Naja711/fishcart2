@@ -13,3 +13,4 @@ pip install -r requirements.txt
 python generate_details_pages.py
 python build_spa_details.py
 python update_links.py
+python generate_recipes.py

@@ -21,6 +21,7 @@ export default {
     { name: 'famous_for', title: 'Famous For', type: 'string' },
     { name: 'allergy', title: 'Allergy Info', type: 'string' },
     { name: 'how_to_cook', title: 'How to Cook', type: 'string' },
+    { name: 'recipe_url', title: 'Recipe URL (For Navbar Recipe Section)', type: 'url' },
     { name: 'video1', title: 'Video 1 URL', type: 'url' },
     { name: 'video2', title: 'Video 2 URL', type: 'url' },
     { name: 'instructions', title: 'Instructions (HTML)', type: 'text' }
