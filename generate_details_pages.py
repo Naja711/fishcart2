@@ -211,6 +211,15 @@ try:
                             parts = ref.split('-')
                             if len(parts) >= 4:
                                 data[prod_id]['image'] = f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}"
+                        elif k == 'gallery' and v and isinstance(v, list):
+                            gallery_urls = []
+                            for img_obj in v:
+                                if img_obj and isinstance(img_obj, dict) and 'asset' in img_obj:
+                                    ref = img_obj['asset']['_ref']
+                                    parts = ref.split('-')
+                                    if len(parts) >= 4:
+                                        gallery_urls.append(f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}")
+                            data[prod_id]['gallery'] = gallery_urls
                         else:
                             data[prod_id][k] = v
 except Exception as e:
@@ -233,7 +242,26 @@ for id, p in data.items():
     html = html.replace("{{SUBTITLE}}", p["subtitle"])
     html = html.replace("{{PRICE}}", p["price"])
     html = html.replace("{{UNIT}}", p["unit"])
-    html = html.replace("{{IMAGE}}", p["image"] if p["image"].startswith("http") else "assets/" + p["image"])
+    import re
+    # Handle gallery thumbs
+    if "gallery" in p and p["gallery"]:
+        thumbs_html = '<div class="gallery-thumbnails">'
+        for i, imgUrl in enumerate(p["gallery"]):
+            active = 'active' if i == 0 else ''
+            thumbs_html += f'<img src="{imgUrl}" class="thumb {active}" onclick="changeHeroImage(this.src, this)">'
+        thumbs_html += '</div>'
+        html = html.replace("{{IMAGE}}", p["gallery"][0])
+    else:
+        img_src = p["image"] if p["image"].startswith("http") else "assets/" + p["image"]
+        thumbs_html = '<div class="gallery-thumbnails">'
+        for i in range(6):
+            active = 'active' if i == 0 else ''
+            thumbs_html += f'<img src="{img_src}" class="thumb {active}" onclick="changeHeroImage(this.src, this)">'
+        thumbs_html += '</div>'
+        html = html.replace("{{IMAGE}}", img_src)
+        
+    html = re.sub(r'<div class="gallery-thumbnails">.*?</div>', thumbs_html, html, flags=re.DOTALL)
+    
     html = html.replace("{{CATEGORY}}", p["category"])
     html = html.replace("{{CATEGORY_URL}}", p["category_url"])
     html = html.replace("{{ORIGIN_LABEL}}", p["origin_label"])

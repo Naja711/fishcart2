@@ -7,6 +7,7 @@ export default {
     { name: 'price', title: 'Price', type: 'string' },
     { name: 'unit', title: 'Unit', type: 'string' },
     { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
+    { name: 'gallery', title: 'Gallery Images', type: 'array', of: [{ type: 'image', options: { hotspot: true } }], validation: Rule => Rule.max(7).warning('You can only add up to 7 images.') },
     { name: 'category', title: 'Category', type: 'reference', to: [{type: 'category'}] },
     { name: 'origin_label', title: 'Origin Label', type: 'string' },
     { name: 'origin', title: 'Origin', type: 'string' },

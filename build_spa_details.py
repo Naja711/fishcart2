@@ -213,6 +213,15 @@ try:
                             parts = ref.split('-')
                             if len(parts) >= 4:
                                 data[prod_id]['image'] = f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}"
+                        elif k == 'gallery' and v and isinstance(v, list):
+                            gallery_urls = []
+                            for img_obj in v:
+                                if img_obj and isinstance(img_obj, dict) and 'asset' in img_obj:
+                                    ref = img_obj['asset']['_ref']
+                                    parts = ref.split('-')
+                                    if len(parts) >= 4:
+                                        gallery_urls.append(f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}")
+                            data[prod_id]['gallery'] = gallery_urls
                         else:
                             data[prod_id][k] = v
 except Exception as e:
@@ -289,8 +298,15 @@ function showDetails(id) {{
     const thumbs = document.getElementById('pd-thumbs');
     if(thumbs) {{
         thumbs.innerHTML = '';
-        for(let i=0; i<6; i++) {{
-            thumbs.innerHTML += `<img src="${{d.image}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)">`;
+        if (d.gallery && d.gallery.length > 0) {{
+            for(let i=0; i<d.gallery.length; i++) {{
+                thumbs.innerHTML += `<img src="${{d.gallery[i]}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)">`;
+            }}
+            document.getElementById('pd-img').src = d.gallery[0];
+        }} else {{
+            for(let i=0; i<6; i++) {{
+                thumbs.innerHTML += `<img src="${{d.image}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)">`;
+            }}
         }}
     }}
     
