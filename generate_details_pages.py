@@ -205,7 +205,14 @@ try:
             for doc in sanity_docs:
                 prod_id = doc.get('id')
                 if prod_id and prod_id in data:
-                    data[prod_id].update(doc)
+                    for k, v in doc.items():
+                        if k == 'image' and v and isinstance(v, dict) and 'asset' in v:
+                            ref = v['asset']['_ref']
+                            parts = ref.split('-')
+                            if len(parts) >= 4:
+                                data[prod_id]['image'] = f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}"
+                        else:
+                            data[prod_id][k] = v
 except Exception as e:
     print('Failed to fetch from Sanity, using local fallback.', e)
 
@@ -226,7 +233,7 @@ for id, p in data.items():
     html = html.replace("{{SUBTITLE}}", p["subtitle"])
     html = html.replace("{{PRICE}}", p["price"])
     html = html.replace("{{UNIT}}", p["unit"])
-    html = html.replace("{{IMAGE}}", "assets/" + p["image"])
+    html = html.replace("{{IMAGE}}", p["image"] if p["image"].startswith("http") else "assets/" + p["image"])
     html = html.replace("{{CATEGORY}}", p["category"])
     html = html.replace("{{CATEGORY_URL}}", p["category_url"])
     html = html.replace("{{ORIGIN_LABEL}}", p["origin_label"])

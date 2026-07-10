@@ -207,9 +207,14 @@ try:
             for doc in sanity_docs:
                 prod_id = doc.get('id')
                 if prod_id and prod_id in data:
-                    data[prod_id].update(doc)
-                    # Handle image URL mapping if image exists in Sanity
-                    # Since we didn't migrate images yet, keep local fallback
+                    for k, v in doc.items():
+                        if k == 'image' and v and isinstance(v, dict) and 'asset' in v:
+                            ref = v['asset']['_ref']
+                            parts = ref.split('-')
+                            if len(parts) >= 4:
+                                data[prod_id]['image'] = f"https://cdn.sanity.io/images/{PROJECT_ID}/{DATASET}/{parts[1]}-{parts[2]}.{parts[3]}"
+                        else:
+                            data[prod_id][k] = v
 except Exception as e:
     print('Failed to fetch from Sanity, using local fallback.', e)
 
@@ -319,7 +324,7 @@ def replacer(match):
                             rf'<div onclick="showDetails(\'{img_name}\')" style="cursor:pointer;">\g<1></div>', 
                             full_card)
         return card_fixed
-    elif 'View Details' in full_card:
+    elif 'View Details' in full_card and 'onclick="showDetails' not in full_card:
         card_fixed = re.sub(r'<div class="fp-clink"[^>]*>View Details.*?</div>',
                             f'<div class="fp-clink" onclick="showDetails(\'{img_name}\')" style="cursor:pointer; color:#C2185B;">View Details →</div>',
                             full_card)
