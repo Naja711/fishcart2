@@ -331,23 +331,50 @@ function showDetails(id) {{
 with open(r'.\index.html', 'r', encoding='utf-8') as f:
     index_html = f.read()
 
-# 1. Update the A tags back to div tags with onclick=showDetails(id)
-def replacer(match):
-    full_card = match.group(0)
-    img_name = match.group(1)
-    if 'details_' in full_card:
-        card_fixed = re.sub(r'<a href=\"details_[^\"]+\"[^>]*>(.*?)</a>', 
-                            rf'<div onclick="showDetails(\'{img_name}\')" style="cursor:pointer;">\g<1></div>', 
-                            full_card)
-        return card_fixed
-    elif 'View Details' in full_card and 'onclick="showDetails' not in full_card:
-        card_fixed = re.sub(r'<div class="fp-clink"[^>]*>View Details.*?</div>',
-                            f'<div class="fp-clink" onclick="showDetails(\'{img_name}\')" style="cursor:pointer; color:#C2185B;">View Details →</div>',
-                            full_card)
-        return card_fixed
-    return full_card
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(index_html, 'html.parser')
 
-index_html = re.sub(r'<div class="fp-card">.*?<img class="fp-cimg" src="assets/([^.]+)\.jpg".*?</div></div></div>', replacer, index_html, flags=re.DOTALL)
+cards = soup.find_all('div', class_='fp-card')
+for card in cards:
+    # We find the image src to extract product ID as a fallback, but the most reliable way 
+    # since we cleaned up the tags is matching by filename if it's still local, or matching 
+    # by the title text.
+    prod_id = None
+    
+    # Try to find product ID from old image src
+    img = card.find('img', class_='fp-cimg')
+    if img and 'src' in img.attrs and 'assets/' in img['src']:
+        m = re.search(r'assets/([^.]+)\.jpg', img['src'])
+        if m:
+            prod_id = m.group(1)
+            
+    # If not found from image, try matching the title with our Sanity data
+    if not prod_id:
+        title_div = card.find('div', class_='fp-ct')
+        if title_div:
+            for k, v in data.items():
+                if v.get('title') == title_div.text.strip():
+                    prod_id = k
+                    break
+
+    if prod_id:
+        # Update image source if Sanity has it
+        if prod_id in data and 'image' in data[prod_id]:
+            img = card.find('img', class_='fp-cimg')
+            if img:
+                img['src'] = data[prod_id]['image']
+                
+        # Fix the SPA link
+        cbot = card.find('div', class_='fp-cbot')
+        if cbot:
+            clink = cbot.find('div', class_='fp-clink')
+            if clink:
+                # Wrap it in a div with onclick for the SPA
+                div_tag = soup.new_tag('div', style="cursor:pointer;")
+                div_tag['onclick'] = f"showDetails('{prod_id}')"
+                clink.wrap(div_tag)
+                
+index_html = str(soup)
 
 # Insert the page-details block
 if 'id="page-details"' not in index_html:

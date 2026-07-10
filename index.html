@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>FISHCART - Daily Fresh Partner</title>
-<meta name="description" content="FISHCART - Your Daily Fresh Partner. Fresh fish, meat, chicken and eggs handpicked daily for freshness you can trust.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta content="FISHCART - Your Daily Fresh Partner. Fresh fish, meat, chicken and eggs handpicked daily for freshness you can trust." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
 *::-webkit-scrollbar { display: none; }
 * { -ms-overflow-style: none; scrollbar-width: none; }
@@ -253,707 +254,656 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 </head>
 <body>
 <div class="app">
-
 <!-- ═══ SIDEBAR ═══ -->
 <aside class="sidebar">
-  <div class="logo-area">
-    <div class="logo-row">
-      <span class="logo-chev">«</span>
-      <span class="logo-name">FISHCART</span>
+<div class="logo-area">
+<div class="logo-row">
+<span class="logo-chev">«</span>
+<span class="logo-name">FISHCART</span>
+</div>
+<div class="logo-tag">Daily Fresh Partner</div>
+</div>
+<nav class="nav">
+<div class="ni active" id="nav-home" onclick="go('home')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>Home
     </div>
-    <div class="logo-tag">Daily Fresh Partner</div>
-  </div>
-  <nav class="nav">
-    <div class="ni active" id="nav-home" onclick="go('home')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home
+<div class="ni" id="nav-fish" onclick="go('fish')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M20 12c-2.5-4-5.5-5.5-8-5.5C9.5 6.5 6.5 8 4 12c2.5 4 5.5 5.5 8 5.5s5.5-1.5 8-5.5zm-8 3c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>Fish
     </div>
-    <div class="ni" id="nav-fish" onclick="go('fish')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12c-2.5-4-5.5-5.5-8-5.5C9.5 6.5 6.5 8 4 12c2.5 4 5.5 5.5 8 5.5s5.5-1.5 8-5.5zm-8 3c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>Fish
+<div class="ni" id="nav-meat" onclick="go('meat')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M18.5 3.5A2.5 2.5 0 0016 1c-1.1 0-2 .9-2 2H10C10 1.9 9.1 1 8 1a2.5 2.5 0 00-2.5 2.5c0 1.12.74 2.07 1.75 2.4L6.5 7H5v14h14V7h-1.5l-.75-1.1a2.5 2.5 0 001.75-2.4z"></path></svg>Meat
     </div>
-    <div class="ni" id="nav-meat" onclick="go('meat')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 3.5A2.5 2.5 0 0016 1c-1.1 0-2 .9-2 2H10C10 1.9 9.1 1 8 1a2.5 2.5 0 00-2.5 2.5c0 1.12.74 2.07 1.75 2.4L6.5 7H5v14h14V7h-1.5l-.75-1.1a2.5 2.5 0 001.75-2.4z"/></svg>Meat
+<div class="ni" id="nav-chicken" onclick="go('chicken')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.5 4.5c-1.95 0-3.5 1.55-3.5 3.5 0 .72.23 1.38.6 1.93l-5.1 5.1c-.55-.37-1.21-.6-1.93-.6-1.95 0-3.5 1.55-3.5 3.5s1.55 3.5 3.5 3.5 3.5-1.55 3.5-3.5c0-.72-.23-1.38-.6-1.93l5.1-5.1c.55.37 1.21.6 1.93.6 1.95 0 3.5-1.55 3.5-3.5S19.45 4.5 17.5 4.5z"></path></svg>Chicken
     </div>
-    <div class="ni" id="nav-chicken" onclick="go('chicken')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 4.5c-1.95 0-3.5 1.55-3.5 3.5 0 .72.23 1.38.6 1.93l-5.1 5.1c-.55-.37-1.21-.6-1.93-.6-1.95 0-3.5 1.55-3.5 3.5s1.55 3.5 3.5 3.5 3.5-1.55 3.5-3.5c0-.72-.23-1.38-.6-1.93l5.1-5.1c.55.37 1.21.6 1.93.6 1.95 0 3.5-1.55 3.5-3.5S19.45 4.5 17.5 4.5z"/></svg>Chicken
+<div class="ni" id="nav-eggs" onclick="go('eggs')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 7.9 5 12.5c0 3.87 3.13 7 7 7s7-3.13 7-7C19 7.9 15.87 2 12 2z"></path></svg>Eggs
     </div>
-    <div class="ni" id="nav-eggs" onclick="go('eggs')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 7.9 5 12.5c0 3.87 3.13 7 7 7s7-3.13 7-7C19 7.9 15.87 2 12 2z"/></svg>Eggs
+<div class="ni" id="nav-cook" onclick="go('cook')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M7 21h10v-2H7v2zm0-4h10v-2H7v2zm-2-4c-1.1 0-2-.9-2-2V9c0-1.66 1.34-3 3-3 .34 0 .67.07.97.18C7.73 5.47 9.26 5 11 5h2c1.74 0 3.27.47 4.03 1.18.3-.11.63-.18.97-.18 1.66 0 3 1.34 3 3v2c0 1.1-.9 2-2 2H5z"></path></svg>How to Cook
     </div>
-    <div class="ni" id="nav-cook" onclick="go('cook')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 21h10v-2H7v2zm0-4h10v-2H7v2zm-2-4c-1.1 0-2-.9-2-2V9c0-1.66 1.34-3 3-3 .34 0 .67.07.97.18C7.73 5.47 9.26 5 11 5h2c1.74 0 3.27.47 4.03 1.18.3-.11.63-.18.97-.18 1.66 0 3 1.34 3 3v2c0 1.1-.9 2-2 2H5z"/></svg>How to Cook
+<div class="ni" id="nav-benefits" onclick="go('benefits')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>Benefits
     </div>
-    <div class="ni" id="nav-benefits" onclick="go('benefits')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Benefits
+<div class="ni" id="nav-stories" onclick="go('stories')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V6h8v2z"></path></svg>Our Stories
     </div>
-    <div class="ni" id="nav-stories" onclick="go('stories')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V6h8v2z"/></svg>Our Stories
+<div class="ni" id="nav-about" onclick="go('about')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>About Us
     </div>
-    <div class="ni" id="nav-about" onclick="go('about')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>About Us
+<div class="ni" id="nav-contact" onclick="go('contact')">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>Contact Us
     </div>
-    <div class="ni" id="nav-contact" onclick="go('contact')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Contact Us
-    </div>
-  </nav>
+</nav>
 </aside>
-
 <!-- ═══ HOME PAGE ═══ -->
-<div id="page-home" class="page active">
+<div class="page active" id="page-home">
 <div class="home">
-
-  <!-- ROW 1: Hero + Category Cards -->
-  <div class="r1">
-    <!-- Hero Banner -->
-    <div class="hero">
-      <h1 class="h1">Fresh Fish.<br>Healthy Life.</h1>
-      <p class="hp">Handpicked daily for freshness you can trust.</p>
-      <button class="btn-join" onclick="go('about')">
+<!-- ROW 1: Hero + Category Cards -->
+<div class="r1">
+<!-- Hero Banner -->
+<div class="hero">
+<h1 class="h1">Fresh Fish.<br/>Healthy Life.</h1>
+<p class="hp">Handpicked daily for freshness you can trust.</p>
+<button class="btn-join" onclick="go('about')">
         Join Us
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-      </button>
-      <img class="hero-img" src="assets/fresh_fish_on_ice_1783634420753.png" alt="Fresh Fish on Ice">
-      <div class="hero-badges">
-        <div class="hb">
-          <div class="hbc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-          <span class="hbl">100%<br>Fresh</span>
-        </div>
-        <div class="hb">
-          <div class="hbc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-          <span class="hbl">Hygienic<br>& Safe</span>
-        </div>
-        <div class="hb">
-          <div class="hbc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2.22-3c-.55-.61-1.33-1-2.22-1s-1.67.39-2.22 1H3V6h12v9H8.22zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg></div>
-          <span class="hbl">Daily<br>Delivery</span>
-        </div>
-        <div class="hb">
-          <div class="hbc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-          <span class="hbl">Best<br>Quality</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Category Cards -->
-    <div class="cat-grid">
-      <div class="cat fish" onclick="go('fish')">
-        <div class="cat-inf">
-          <div><div class="cat-name">Fish</div><div class="cat-cnt">100+ Items</div></div>
-          <div class="cat-arr">→</div>
-        </div>
-        <img class="cimg" src="assets/cat_fish.png" alt="Fish">
-      </div>
-      <div class="cat meat" onclick="go('meat')">
-        <div class="cat-inf">
-          <div><div class="cat-name">Meat</div><div class="cat-cnt">50+ Items</div></div>
-          <div class="cat-arr">→</div>
-        </div>
-        <img class="cimg" src="assets/cat_meat.png" alt="Meat">
-      </div>
-      <div class="cat chicken" onclick="go('chicken')">
-        <div class="cat-inf">
-          <div><div class="cat-name">Chicken</div><div class="cat-cnt">30+ Items</div></div>
-          <div class="cat-arr">→</div>
-        </div>
-        <img class="cimg" src="assets/cat_chicken.png" alt="Chicken">
-      </div>
-      <div class="cat eggs" onclick="go('eggs')">
-        <div class="cat-inf" style="height:auto;">
-          <div><div class="cat-name">Eggs</div><div class="cat-cnt">Farm Fresh</div></div>
-          <div class="cat-arr" style="margin-top:6px;">→</div>
-        </div>
-        <img class="cimg" src="assets/cat_eggs.png" alt="Eggs">
-      </div>
-    </div>
-  </div>
-
-  <!-- ROW 2: Cook + Benefits + Reviews -->
-  <div class="r2">
-    <!-- How to Cook -->
-    <div class="cook">
-      <div class="ct">How to Make Delicious</div>
-      <div class="cs">Step by step cooking videos for every taste</div>
-      <div class="rrow">
-        <div class="rec">
-          <div class="rthumb">
-            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=200&q=80" alt="Fish Curry">
-            <div class="play"><div class="playbtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </div>
-          <div class="rlbl">Fish Curry</div><div class="rslbl">Spicy &amp; Tangy</div>
-        </div>
-        <div class="rec">
-          <div class="rthumb">
-            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Grilled Fish">
-            <div class="play"><div class="playbtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </div>
-          <div class="rlbl">Grilled Fish</div><div class="rslbl">Healthy &amp; Tasty</div>
-        </div>
-        <div class="rec">
-          <div class="rthumb">
-            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Fish Fry">
-            <div class="play"><div class="playbtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </div>
-          <div class="rlbl">Fish Fry</div><div class="rslbl">Crispy &amp; Juicy</div>
-        </div>
-      </div>
-      <button class="btn-view" onclick="go('cook')">View All Recipes
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-      </button>
-    </div>
-
-    <div class="r2-right">
-      <!-- Benefits & Nutrition -->
-      <div class="bene">
-      <div style="font-size:13.5px;font-weight:700;color:#0A2848;">Benefits &amp; Nutrition</div>
-      <div class="bene-inner">
-        <div class="bene-left">
-          <p class="bene-desc">Fish, meat, eggs and chicken are rich in protein, vitamins and minerals for a stronger, healthier you.</p>
-          <button class="lnk" onclick="go('benefits')">Learn More
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-          </button>
-        </div>
-        <img class="bene-img" src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop&w=200&q=80" alt="Healthy food">
-      </div>
-      <div class="bicons">
-        <div class="bic">
-          <div class="bicc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></div>
-          <span>High in<br>Protein</span>
-        </div>
-        <div class="bic">
-          <div class="bicc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"/></svg></div>
-          <span>Rich in<br>Vitamins</span>
-        </div>
-        <div class="bic">
-          <div class="bicc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-          <span>Good for<br>Heart</span>
-        </div>
-      </div>
-    </div>
-
-      <!-- Reviews -->
-      <div class="rev">
-        <div class="rev-title">What Our Customers Say</div>
-        <div class="stars">★★★★★</div>
-        <div class="qm">&ldquo;</div>
-        <p class="rev-text">"Super fresh products and great variety. Fishcart is our family's choice."</p>
-        <div class="rev-name">– Priya S.</div>
-        <div class="rdots">
-          <div class="rd"></div><div class="rd off"></div><div class="rd off"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ROW 3: Product Grid -->
-  <div class="r3">
-    <div class="prod" onclick="go('fish')">
-      <img src="assets/fish_showcase.png" alt="Fish">
-      <div class="prod-ov"><div class="pn">All Fish Items</div><div class="pe">Explore Now →</div></div>
-    </div>
-    <div class="prod" onclick="go('meat')">
-      <img src="assets/meat_showcase.png" alt="Meat">
-      <div class="prod-ov"><div class="pn">All Meat Items</div><div class="pe">Explore Now →</div></div>
-    </div>
-    <div class="prod" onclick="go('chicken')">
-      <img src="assets/chicken_showcase.png" alt="Chicken">
-      <div class="prod-ov"><div class="pn">Chicken Items</div><div class="pe">Explore Now →</div></div>
-    </div>
-    <div class="prod" onclick="go('eggs')">
-      <img src="assets/eggs_showcase.png" alt="Eggs">
-      <div class="prod-ov"><div class="pn">Eggs</div><div class="pe">Explore Now →</div></div>
-    </div>
-  </div>
-
-  <!-- ROW 4: Features -->
-  <div class="r4">
-    <div class="feat fb">
-      <div class="ftop">
-        <div class="ftitle">Freshness<br>You Can Trust</div>
-        <div class="ficon fw"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-      </div>
-      <div class="fdesc">We ensure premium quality and freshness in every product we deliver.</div>
-    </div>
-    <div class="feat flb">
-      <div class="ftop">
-        <div class="ftitle">Daily Selection</div>
-        <div class="ficon fbl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-      </div>
-      <div class="fdesc">Handpicked daily from trusted suppliers for the best quality.</div>
-    </div>
-    <div class="feat ft">
-      <div class="ftop">
-        <div class="ftitle">Hygienic &amp; Safe</div>
-        <div class="ficon ftl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-      </div>
-      <div class="fdesc">Cleaned, packed and delivered with highest hygiene standards.</div>
-    </div>
-    <div class="feat fg">
-      <div class="ftop">
-        <div class="ftitle">Sourced Responsibly</div>
-        <div class="ficon fgl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"/></svg></div>
-      </div>
-      <div class="fdesc">We care for the ocean and the environment for a better future.</div>
-    </div>
-    <div class="feat fl">
-      <div class="ftop"><div class="ftitle">Join Our Community</div></div>
-      <div class="fdesc">Be a part of our journey for healthy and delicious living.</div>
-      <div class="fbot">
-        <button class="jbtn" onclick="go('about')">Join Us →</button>
-        <svg class="qr" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          <rect width="50" height="50" fill="white" rx="2"/>
-          <rect x="2" y="2" width="17" height="17" fill="#1565C0" rx="2"/><rect x="4" y="4" width="13" height="13" fill="white" rx="1"/><rect x="6" y="6" width="9" height="9" fill="#1565C0" rx="1"/>
-          <rect x="31" y="2" width="17" height="17" fill="#1565C0" rx="2"/><rect x="33" y="4" width="13" height="13" fill="white" rx="1"/><rect x="35" y="6" width="9" height="9" fill="#1565C0" rx="1"/>
-          <rect x="2" y="31" width="17" height="17" fill="#1565C0" rx="2"/><rect x="4" y="33" width="13" height="13" fill="white" rx="1"/><rect x="6" y="35" width="9" height="9" fill="#1565C0" rx="1"/>
-          <rect x="22" y="2" width="3" height="3" fill="#1565C0"/><rect x="26" y="2" width="3" height="3" fill="#1565C0"/>
-          <rect x="22" y="7" width="3" height="3" fill="#1565C0"/><rect x="26" y="12" width="3" height="3" fill="#1565C0"/>
-          <rect x="22" y="14" width="7" height="3" fill="#1565C0"/>
-          <rect x="2" y="22" width="3" height="3" fill="#1565C0"/><rect x="7" y="22" width="3" height="3" fill="#1565C0"/>
-          <rect x="14" y="22" width="5" height="3" fill="#1565C0"/>
-          <rect x="22" y="22" width="3" height="3" fill="#1565C0"/><rect x="27" y="22" width="6" height="3" fill="#1565C0"/>
-          <rect x="35" y="22" width="4" height="3" fill="#1565C0"/><rect x="41" y="22" width="7" height="3" fill="#1565C0"/>
-          <rect x="22" y="27" width="3" height="6" fill="#1565C0"/><rect x="27" y="27" width="3" height="3" fill="#1565C0"/>
-          <rect x="33" y="27" width="3" height="3" fill="#1565C0"/><rect x="40" y="27" width="3" height="3" fill="#1565C0"/>
-          <rect x="46" y="22" width="2" height="8" fill="#1565C0"/>
-          <rect x="22" y="35" width="6" height="3" fill="#1565C0"/><rect x="31" y="35" width="3" height="3" fill="#1565C0"/>
-          <rect x="37" y="35" width="5" height="3" fill="#1565C0"/><rect x="22" y="40" width="3" height="8" fill="#1565C0"/>
-          <rect x="27" y="40" width="6" height="3" fill="#1565C0"/><rect x="36" y="40" width="3" height="3" fill="#1565C0"/>
-          <rect x="42" y="40" width="6" height="3" fill="#1565C0"/><rect x="31" y="44" width="3" height="4" fill="#1565C0"/>
-          <rect x="37" y="44" width="3" height="4" fill="#1565C0"/><rect x="46" y="44" width="2" height="4" fill="#1565C0"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- ROW 5: Footer -->
-  <div class="r5">
-    <!-- About Us -->
-    <div class="fcol">
-      <div class="fct">About Us</div>
-      <div class="fctxt">We are passionate about delivering fresh and healthy food to your family.</div>
-      <svg viewBox="0 0 90 22" style="margin-top:4px;width:75px;height:16px;opacity:.5;" fill="none">
-        <ellipse cx="30" cy="11" rx="22" ry="9" stroke="#1565C0" stroke-width="1.5"/>
-        <path d="M8 5L2 11 8 17Z" stroke="#1565C0" stroke-width="1.5"/>
-        <circle cx="44" cy="8" r="2" fill="#1565C0"/>
-        <path d="M60 11 Q72 8 84 11 Q72 14 60 11Z" stroke="#1565C0" stroke-width="1" fill="none"/>
-      </svg>
-    </div>
-    <!-- Our Stories -->
-    <div class="fcol">
-      <div class="fct">Our Stories</div>
-      <svg viewBox="0 0 90 36" style="width:75px;height:28px;margin-bottom:2px;" fill="none" stroke="#1565C0" stroke-width="1.5">
-        <path d="M10 24 Q45 30 80 24 L70 34 Q45 39 20 34 Z"/>
-        <line x1="45" y1="24" x2="45" y2="7"/>
-        <path d="M45 9 L62 23 L45 23 Z"/><path d="M45 11 L30 23 L45 23 Z"/>
-        <path d="M0 36 Q22 34 45 36 Q68 38 90 36" stroke-width="1"/>
-      </svg>
-      <div class="fctxt">From ocean to your kitchen, our journey of freshness.</div>
-    </div>
-    <!-- Contact Us -->
-    <div class="fcol">
-      <div class="fct">Contact Us</div>
-      <div class="frow">
-        <img class="fimg" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=80&q=80" alt="Contact">
-        <div class="fctxt">We are here to help you. Reach out anytime.</div>
-      </div>
-    </div>
-    <!-- Contact Details -->
-    <div class="fcol" style="border-right:none;">
-      <div class="fdi">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
+</button>
+<img alt="Fresh Fish on Ice" class="hero-img" src="assets/fresh_fish_on_ice_1783634420753.png"/>
+<div class="hero-badges">
+<div class="hb">
+<div class="hbc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
+<span class="hbl">100%<br/>Fresh</span>
+</div>
+<div class="hb">
+<div class="hbc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path></svg></div>
+<span class="hbl">Hygienic<br/>&amp; Safe</span>
+</div>
+<div class="hb">
+<div class="hbc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2.22-3c-.55-.61-1.33-1-2.22-1s-1.67.39-2.22 1H3V6h12v9H8.22zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path></svg></div>
+<span class="hbl">Daily<br/>Delivery</span>
+</div>
+<div class="hb">
+<div class="hbc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div>
+<span class="hbl">Best<br/>Quality</span>
+</div>
+</div>
+</div>
+<!-- Category Cards -->
+<div class="cat-grid">
+<div class="cat fish" onclick="go('fish')">
+<div class="cat-inf">
+<div><div class="cat-name">Fish</div><div class="cat-cnt">100+ Items</div></div>
+<div class="cat-arr">→</div>
+</div>
+<img alt="Fish" class="cimg" src="assets/cat_fish.png"/>
+</div>
+<div class="cat meat" onclick="go('meat')">
+<div class="cat-inf">
+<div><div class="cat-name">Meat</div><div class="cat-cnt">50+ Items</div></div>
+<div class="cat-arr">→</div>
+</div>
+<img alt="Meat" class="cimg" src="assets/cat_meat.png"/>
+</div>
+<div class="cat chicken" onclick="go('chicken')">
+<div class="cat-inf">
+<div><div class="cat-name">Chicken</div><div class="cat-cnt">30+ Items</div></div>
+<div class="cat-arr">→</div>
+</div>
+<img alt="Chicken" class="cimg" src="assets/cat_chicken.png"/>
+</div>
+<div class="cat eggs" onclick="go('eggs')">
+<div class="cat-inf" style="height:auto;">
+<div><div class="cat-name">Eggs</div><div class="cat-cnt">Farm Fresh</div></div>
+<div class="cat-arr" style="margin-top:6px;">→</div>
+</div>
+<img alt="Eggs" class="cimg" src="assets/cat_eggs.png"/>
+</div>
+</div>
+</div>
+<!-- ROW 2: Cook + Benefits + Reviews -->
+<div class="r2">
+<!-- How to Cook -->
+<div class="cook">
+<div class="ct">How to Make Delicious</div>
+<div class="cs">Step by step cooking videos for every taste</div>
+<div class="rrow">
+<div class="rec">
+<div class="rthumb">
+<img alt="Fish Curry" src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
+<div class="play"><div class="playbtn"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div>
+</div>
+<div class="rlbl">Fish Curry</div><div class="rslbl">Spicy &amp; Tangy</div>
+</div>
+<div class="rec">
+<div class="rthumb">
+<img alt="Grilled Fish" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
+<div class="play"><div class="playbtn"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div>
+</div>
+<div class="rlbl">Grilled Fish</div><div class="rslbl">Healthy &amp; Tasty</div>
+</div>
+<div class="rec">
+<div class="rthumb">
+<img alt="Fish Fry" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
+<div class="play"><div class="playbtn"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div>
+</div>
+<div class="rlbl">Fish Fry</div><div class="rslbl">Crispy &amp; Juicy</div>
+</div>
+</div>
+<button class="btn-view" onclick="go('cook')">View All Recipes
+        <svg fill="currentColor" height="10" viewbox="0 0 24 24" width="10"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
+</button>
+</div>
+<div class="r2-right">
+<!-- Benefits & Nutrition -->
+<div class="bene">
+<div style="font-size:13.5px;font-weight:700;color:#0A2848;">Benefits &amp; Nutrition</div>
+<div class="bene-inner">
+<div class="bene-left">
+<p class="bene-desc">Fish, meat, eggs and chicken are rich in protein, vitamins and minerals for a stronger, healthier you.</p>
+<button class="lnk" onclick="go('benefits')">Learn More
+            <svg fill="currentColor" height="10" viewbox="0 0 24 24" width="10"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
+</button>
+</div>
+<img alt="Healthy food" class="bene-img" src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
+</div>
+<div class="bicons">
+<div class="bic">
+<div class="bicc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"></path></svg></div>
+<span>High in<br/>Protein</span>
+</div>
+<div class="bic">
+<div class="bicc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"></path></svg></div>
+<span>Rich in<br/>Vitamins</span>
+</div>
+<div class="bic">
+<div class="bicc"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<span>Good for<br/>Heart</span>
+</div>
+</div>
+</div>
+<!-- Reviews -->
+<div class="rev">
+<div class="rev-title">What Our Customers Say</div>
+<div class="stars">★★★★★</div>
+<div class="qm">“</div>
+<p class="rev-text">"Super fresh products and great variety. Fishcart is our family's choice."</p>
+<div class="rev-name">– Priya S.</div>
+<div class="rdots">
+<div class="rd"></div><div class="rd off"></div><div class="rd off"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 3: Product Grid -->
+<div class="r3">
+<div class="prod" onclick="go('fish')">
+<img alt="Fish" src="assets/fish_showcase.png"/>
+<div class="prod-ov"><div class="pn">All Fish Items</div><div class="pe">Explore Now →</div></div>
+</div>
+<div class="prod" onclick="go('meat')">
+<img alt="Meat" src="assets/meat_showcase.png"/>
+<div class="prod-ov"><div class="pn">All Meat Items</div><div class="pe">Explore Now →</div></div>
+</div>
+<div class="prod" onclick="go('chicken')">
+<img alt="Chicken" src="assets/chicken_showcase.png"/>
+<div class="prod-ov"><div class="pn">Chicken Items</div><div class="pe">Explore Now →</div></div>
+</div>
+<div class="prod" onclick="go('eggs')">
+<img alt="Eggs" src="assets/eggs_showcase.png"/>
+<div class="prod-ov"><div class="pn">Eggs</div><div class="pe">Explore Now →</div></div>
+</div>
+</div>
+<!-- ROW 4: Features -->
+<div class="r4">
+<div class="feat fb">
+<div class="ftop">
+<div class="ftitle">Freshness<br/>You Can Trust</div>
+<div class="ficon fw"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path></svg></div>
+</div>
+<div class="fdesc">We ensure premium quality and freshness in every product we deliver.</div>
+</div>
+<div class="feat flb">
+<div class="ftop">
+<div class="ftitle">Daily Selection</div>
+<div class="ficon fbl"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
+</div>
+<div class="fdesc">Handpicked daily from trusted suppliers for the best quality.</div>
+</div>
+<div class="feat ft">
+<div class="ftop">
+<div class="ftitle">Hygienic &amp; Safe</div>
+<div class="ficon ftl"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg></div>
+</div>
+<div class="fdesc">Cleaned, packed and delivered with highest hygiene standards.</div>
+</div>
+<div class="feat fg">
+<div class="ftop">
+<div class="ftitle">Sourced Responsibly</div>
+<div class="ficon fgl"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"></path></svg></div>
+</div>
+<div class="fdesc">We care for the ocean and the environment for a better future.</div>
+</div>
+<div class="feat fl">
+<div class="ftop"><div class="ftitle">Join Our Community</div></div>
+<div class="fdesc">Be a part of our journey for healthy and delicious living.</div>
+<div class="fbot">
+<button class="jbtn" onclick="go('about')">Join Us →</button>
+<svg class="qr" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+<rect fill="white" height="50" rx="2" width="50"></rect>
+<rect fill="#1565C0" height="17" rx="2" width="17" x="2" y="2"></rect><rect fill="white" height="13" rx="1" width="13" x="4" y="4"></rect><rect fill="#1565C0" height="9" rx="1" width="9" x="6" y="6"></rect>
+<rect fill="#1565C0" height="17" rx="2" width="17" x="31" y="2"></rect><rect fill="white" height="13" rx="1" width="13" x="33" y="4"></rect><rect fill="#1565C0" height="9" rx="1" width="9" x="35" y="6"></rect>
+<rect fill="#1565C0" height="17" rx="2" width="17" x="2" y="31"></rect><rect fill="white" height="13" rx="1" width="13" x="4" y="33"></rect><rect fill="#1565C0" height="9" rx="1" width="9" x="6" y="35"></rect>
+<rect fill="#1565C0" height="3" width="3" x="22" y="2"></rect><rect fill="#1565C0" height="3" width="3" x="26" y="2"></rect>
+<rect fill="#1565C0" height="3" width="3" x="22" y="7"></rect><rect fill="#1565C0" height="3" width="3" x="26" y="12"></rect>
+<rect fill="#1565C0" height="3" width="7" x="22" y="14"></rect>
+<rect fill="#1565C0" height="3" width="3" x="2" y="22"></rect><rect fill="#1565C0" height="3" width="3" x="7" y="22"></rect>
+<rect fill="#1565C0" height="3" width="5" x="14" y="22"></rect>
+<rect fill="#1565C0" height="3" width="3" x="22" y="22"></rect><rect fill="#1565C0" height="3" width="6" x="27" y="22"></rect>
+<rect fill="#1565C0" height="3" width="4" x="35" y="22"></rect><rect fill="#1565C0" height="3" width="7" x="41" y="22"></rect>
+<rect fill="#1565C0" height="6" width="3" x="22" y="27"></rect><rect fill="#1565C0" height="3" width="3" x="27" y="27"></rect>
+<rect fill="#1565C0" height="3" width="3" x="33" y="27"></rect><rect fill="#1565C0" height="3" width="3" x="40" y="27"></rect>
+<rect fill="#1565C0" height="8" width="2" x="46" y="22"></rect>
+<rect fill="#1565C0" height="3" width="6" x="22" y="35"></rect><rect fill="#1565C0" height="3" width="3" x="31" y="35"></rect>
+<rect fill="#1565C0" height="3" width="5" x="37" y="35"></rect><rect fill="#1565C0" height="8" width="3" x="22" y="40"></rect>
+<rect fill="#1565C0" height="3" width="6" x="27" y="40"></rect><rect fill="#1565C0" height="3" width="3" x="36" y="40"></rect>
+<rect fill="#1565C0" height="3" width="6" x="42" y="40"></rect><rect fill="#1565C0" height="4" width="3" x="31" y="44"></rect>
+<rect fill="#1565C0" height="4" width="3" x="37" y="44"></rect><rect fill="#1565C0" height="4" width="2" x="46" y="44"></rect>
+</svg>
+</div>
+</div>
+</div>
+<!-- ROW 5: Footer -->
+<div class="r5">
+<!-- About Us -->
+<div class="fcol">
+<div class="fct">About Us</div>
+<div class="fctxt">We are passionate about delivering fresh and healthy food to your family.</div>
+<svg fill="none" style="margin-top:4px;width:75px;height:16px;opacity:.5;" viewbox="0 0 90 22">
+<ellipse cx="30" cy="11" rx="22" ry="9" stroke="#1565C0" stroke-width="1.5"></ellipse>
+<path d="M8 5L2 11 8 17Z" stroke="#1565C0" stroke-width="1.5"></path>
+<circle cx="44" cy="8" fill="#1565C0" r="2"></circle>
+<path d="M60 11 Q72 8 84 11 Q72 14 60 11Z" fill="none" stroke="#1565C0" stroke-width="1"></path>
+</svg>
+</div>
+<!-- Our Stories -->
+<div class="fcol">
+<div class="fct">Our Stories</div>
+<svg fill="none" stroke="#1565C0" stroke-width="1.5" style="width:75px;height:28px;margin-bottom:2px;" viewbox="0 0 90 36">
+<path d="M10 24 Q45 30 80 24 L70 34 Q45 39 20 34 Z"></path>
+<line x1="45" x2="45" y1="24" y2="7"></line>
+<path d="M45 9 L62 23 L45 23 Z"></path><path d="M45 11 L30 23 L45 23 Z"></path>
+<path d="M0 36 Q22 34 45 36 Q68 38 90 36" stroke-width="1"></path>
+</svg>
+<div class="fctxt">From ocean to your kitchen, our journey of freshness.</div>
+</div>
+<!-- Contact Us -->
+<div class="fcol">
+<div class="fct">Contact Us</div>
+<div class="frow">
+<img alt="Contact" class="fimg" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=80&amp;q=80"/>
+<div class="fctxt">We are here to help you. Reach out anytime.</div>
+</div>
+</div>
+<!-- Contact Details -->
+<div class="fcol" style="border-right:none;">
+<div class="fdi">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
         Unit 5 Hythe Quay, Colchester, England, CO2 8JB
       </div>
-      <div class="fdi">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+<div class="fdi">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
         +44 1206 123456
       </div>
-      <div class="fdi">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+<div class="fdi">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
         hello@fishcart.co.uk
       </div>
-      <svg viewBox="0 0 120 18" style="width:100px;height:14px;opacity:.4;margin-top:2px;" fill="none">
-        <path d="M5 10 Q30 5 55 10 Q80 15 105 10" stroke="#1565C0" stroke-width="1"/>
-        <ellipse cx="95" cy="8" rx="13" ry="7" stroke="#1565C0" stroke-width="1.2"/>
-        <path d="M82 4L76 8 82 12Z" stroke="#1565C0" stroke-width="1.2"/>
-        <circle cx="101" cy="6" r="1.5" fill="#1565C0"/>
-      </svg>
-    </div>
-  </div>
-
+<svg fill="none" style="width:100px;height:14px;opacity:.4;margin-top:2px;" viewbox="0 0 120 18">
+<path d="M5 10 Q30 5 55 10 Q80 15 105 10" stroke="#1565C0" stroke-width="1"></path>
+<ellipse cx="95" cy="8" rx="13" ry="7" stroke="#1565C0" stroke-width="1.2"></ellipse>
+<path d="M82 4L76 8 82 12Z" stroke="#1565C0" stroke-width="1.2"></path>
+<circle cx="101" cy="6" fill="#1565C0" r="1.5"></circle>
+</svg>
 </div>
 </div>
-
+</div>
+</div>
 <!-- ═══ OTHER PAGES (placeholders until you guide me) ═══ -->
-<div id="page-fish" class="page">
-  <div class="fish-page">
-    
-    <!-- BANNER -->
-    <div class="fp-banner">
-      <div class="fp-bread">Home &nbsp;&rsaquo;&nbsp; Fish</div>
-      <div class="fp-title">All Fish Items</div>
-      <div class="fp-desc">Explore our wide variety of fresh fish sourced daily for unbeatable taste and nutrition.</div>
-      <img class="fp-bimg" src="assets/header_fish.png" alt="Fish Header">
-    </div>
-
-    <!-- TABS -->
-    <div class="fp-tabs">
-      <div class="fp-tab active">
-        <span class="fp-tab-ic">🐟</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n">All Fish</span><span class="fp-tab-c">120+ Items</span></div>
-      </div>
-      <div class="fp-tab">
-        <span class="fp-tab-ic">🌐</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n">By Country</span><span class="fp-tab-c">20+ Items</span></div>
-      </div>
-      <div class="fp-tab">
-        <span class="fp-tab-ic">🔥</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n">Grill Fishes</span><span class="fp-tab-c">25+ Items</span></div>
-      </div>
-      <div class="fp-tab">
-        <span class="fp-tab-ic">🍲</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n">Curry Fishes</span><span class="fp-tab-c">30+ Items</span></div>
-      </div>
-      <div class="fp-tab">
-        <span class="fp-tab-ic">🐠</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n">Other Types</span><span class="fp-tab-c">45+ Items</span></div>
-      </div>
-    </div>
-
-    <!-- MAIN -->
-    <div class="fp-main">
-      <!-- SIDEBAR -->
-      <div class="fp-sidebar">
-        <div class="fp-filters">
-          <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-          
-          <div class="fp-fgroup">
-            <div class="fp-fhead">Sort By</div>
-            <select class="fp-select"><option>Newest First</option></select>
-          </div>
-
-          <div class="fp-fgroup">
-            <div class="fp-fhead">By Country</div>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" checked> 🇬🇧 United Kingdom</div><span class="fp-fcount">45</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" checked> 🇳🇴 Norway</div><span class="fp-fcount">28</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><span class="fp-fcount">18</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> 🇮🇸 Iceland</div><span class="fp-fcount">12</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> 🇳🇱 Netherlands</div><span class="fp-fcount">10</span></label>
-            <div class="fp-flmore">View More ⌄</div>
-          </div>
-
-          <div class="fp-fgroup">
-            <div class="fp-fhead">By Type</div>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Grill Fishes</div><span class="fp-fcount">25</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Curry Fishes</div><span class="fp-fcount">30</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Steak Cuts</div><span class="fp-fcount">15</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Whole Fish</div><span class="fp-fcount">35</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Fillets</div><span class="fp-fcount">20</span></label>
-            <div class="fp-flmore">View More ⌄</div>
-          </div>
-
-          <div class="fp-fgroup">
-            <div class="fp-fhead">Size</div>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Small (0-500g)</div><span class="fp-fcount">40</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Medium (500g-1kg)</div><span class="fp-fcount">50</span></label>
-            <label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"> Large (1kg+)</div><span class="fp-fcount">30</span></label>
-          </div>
-
-          <button class="fp-fbtn">Apply Filters</button>
-        </div>
-
-        <div class="fp-join">
-          <div class="fp-jt">Join Our Community</div>
-          <div class="fp-jd">Be a part of our journey for healthy and delicious living.</div>
-          <div class="fp-jrow">
-            <button class="fp-jbtn" onclick="go('about')">Join Us →</button>
-            <svg style="width:36px;height:36px;" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-              <rect width="50" height="50" fill="white" rx="4"/>
-              <rect x="4" y="4" width="15" height="15" fill="#1565C0" rx="2"/><rect x="6" y="6" width="11" height="11" fill="white" rx="1"/><rect x="8" y="8" width="7" height="7" fill="#1565C0" rx="1"/>
-              <rect x="31" y="4" width="15" height="15" fill="#1565C0" rx="2"/><rect x="33" y="6" width="11" height="11" fill="white" rx="1"/><rect x="35" y="8" width="7" height="7" fill="#1565C0" rx="1"/>
-              <rect x="4" y="31" width="15" height="15" fill="#1565C0" rx="2"/><rect x="6" y="33" width="11" height="11" fill="white" rx="1"/><rect x="8" y="35" width="7" height="7" fill="#1565C0" rx="1"/>
-              <rect x="22" y="4" width="6" height="6" fill="#1565C0"/><rect x="22" y="13" width="6" height="6" fill="#1565C0"/><rect x="31" y="22" width="6" height="6" fill="#1565C0"/><rect x="40" y="22" width="6" height="6" fill="#1565C0"/><rect x="22" y="22" width="6" height="6" fill="#1565C0"/><rect x="22" y="31" width="6" height="6" fill="#1565C0"/><rect x="31" y="31" width="6" height="6" fill="#1565C0"/><rect x="40" y="31" width="6" height="6" fill="#1565C0"/><rect x="22" y="40" width="6" height="6" fill="#1565C0"/><rect x="31" y="40" width="6" height="6" fill="#1565C0"/><rect x="40" y="40" width="6" height="6" fill="#1565C0"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUCTS GRID -->
-      <div class="fp-products">
-        <div class="fp-phead">
-          <div class="fp-ph-l">Showing 1-8 of 120+ items</div>
-          <div class="fp-ph-r">
-            <div class="fp-view">View as: 
-              <div class="fp-vbtn active"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 0h6v6h-6z"/></svg></div>
-              <div class="fp-vbtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></div>
-            </div>
-            <div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
-          </div>
-        </div>
-
-        <div class="fp-grid">
-          <!-- Card 1 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_1_salmon.jpg" alt="Salmon">
-            <div class="fp-ct">Salmon</div>
-            <div class="fp-csub">Norway &bull; Fillet</div>
-            <div><span class="fp-ctag">Rich in Omega-3</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£14.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_1_salmon')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 2 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_2_seabass.jpg" alt="Sea Bass">
-            <div class="fp-ct">Sea Bass</div>
-            <div class="fp-csub">United Kingdom &bull; Whole</div>
-            <div><span class="fp-ctag">High in Protein</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£12.50</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_2_seabass')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_2_seabass\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_2_seabass\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_2_seabass\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 3 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_3_mackerel.jpg" alt="Mackerel">
-            <div class="fp-ct">Mackerel</div>
-            <div class="fp-csub">Scotland &bull; Whole</div>
-            <div><span class="fp-ctag">Rich in Omega-3</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£6.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_3_mackerel')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_3_mackerel\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_3_mackerel\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_3_mackerel\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 4 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_4_cod.jpg" alt="Cod Fillet">
-            <div class="fp-ct">Cod Fillet</div>
-            <div class="fp-csub">Iceland &bull; Fillet</div>
-            <div><span class="fp-ctag">Low Fat</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£11.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_4_cod')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_4_cod\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_4_cod\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_4_cod\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 5 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_5_tuna.jpg" alt="Tuna Steak">
-            <div class="fp-ct">Tuna Steak</div>
-            <div class="fp-csub">Spain &bull; Steak Cut</div>
-            <div><span class="fp-ctag">High in Protein</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£15.50</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_5_tuna')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_5_tuna\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_5_tuna\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_5_tuna\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 6 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_6_tilapia.jpg" alt="Tilapia">
-            <div class="fp-ct">Tilapia</div>
-            <div class="fp-csub">Netherlands &bull; Whole</div>
-            <div><span class="fp-ctag">Good Source of Protein</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£5.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_6_tilapia')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_6_tilapia\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_6_tilapia\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_6_tilapia\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 7 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_7_prawns.jpg" alt="Prawns (King)">
-            <div class="fp-ct">Prawns (King)</div>
-            <div class="fp-csub">Thailand &bull; Shell-on</div>
-            <div><span class="fp-ctag">High in Protein</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£16.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_7_prawns')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_7_prawns\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_7_prawns\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_7_prawns\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-          <!-- Card 8 -->
-          <div class="fp-card">
-            <div class="fp-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-            <img class="fp-cimg" src="assets/prod_8_trout.jpg" alt="Trout">
-            <div class="fp-ct">Trout</div>
-            <div class="fp-csub">United Kingdom &bull; Whole</div>
-            <div><span class="fp-ctag">Rich in Vitamins</span></div>
-            <div class="fp-cbot">
-              <div><span class="fp-cprice">£7.99</span><span class="fp-cunit"> / kg</span></div>
-              <div onclick="showDetails('prod_8_trout')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_8_trout\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_8_trout\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_8_trout\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FEATURES -->
-    <div class="fp-features">
-      <div class="fp-feat"><div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="fp-ftxt"><span class="fp-ft">100% Fresh</span><span class="fp-fd">Sourced Daily</span></div></div>
-      <div class="fp-feat"><div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div><div class="fp-ftxt"><span class="fp-ft">Hygienic &amp; Safe</span><span class="fp-fd">Cleaned with care</span></div></div>
-      <div class="fp-feat"><div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="fp-ftxt"><span class="fp-ft">Rich in Nutrition</span><span class="fp-fd">Packed with goodness</span></div></div>
-      <div class="fp-feat"><div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><div class="fp-ftxt"><span class="fp-ft">Trusted Quality</span><span class="fp-fd">Only the best for you</span></div></div>
-      <div class="fp-feat"><div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"/></svg></div><div class="fp-ftxt"><span class="fp-ft">Sustainable Sourcing</span><span class="fp-fd">For a better tomorrow</span></div></div>
-    </div>
-
-    <!-- FOOTER INFO -->
-    <div class="fp-footer">
-      <div class="fp-fcol">
-        <span class="fp-fcol-t">About Fish</span>
-        <span class="fp-fcol-d">Our fish is handpicked daily from trusted suppliers to ensure premium quality and freshness on your table.</span>
-        <svg viewBox="0 0 60 20" style="width:50px;height:16px;margin-top:6px;opacity:.5;" fill="none"><path d="M10 10 Q20 5 30 10 T50 10" stroke="#1565C0" stroke-width="1.5"/><ellipse cx="30" cy="10" rx="15" ry="6" stroke="#1565C0" stroke-width="1.5"/></svg>
-      </div>
-      <div class="fp-fcol">
-        <span class="fp-fcol-t">Nutrition Benefits</span>
-        <span class="fp-fcol-d">Fish is a great source of protein, omega-3 fatty acids, vitamins and minerals which support your overall health.</span>
-        <svg viewBox="0 0 60 20" style="width:50px;height:16px;margin-top:6px;opacity:.5;" fill="none"><rect x="10" y="5" width="40" height="10" rx="2" stroke="#1565C0" stroke-width="1.5"/><path d="M25 5 L35 15" stroke="#1565C0" stroke-width="1.5"/></svg>
-      </div>
-      <div class="fp-fcol r">
-        <div class="fp-fic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-        <div style="display:flex;flex-direction:column;gap:3px;">
-          <span class="fp-fcol-t">Need Help?</span>
-          <span class="fp-fcol-d">We are here to help you choose the best fish for your needs. Reach out anytime!</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="page" id="page-fish">
+<div class="fish-page">
+<!-- BANNER -->
+<div class="fp-banner">
+<div class="fp-bread">Home  ›  Fish</div>
+<div class="fp-title">All Fish Items</div>
+<div class="fp-desc">Explore our wide variety of fresh fish sourced daily for unbeatable taste and nutrition.</div>
+<img alt="Fish Header" class="fp-bimg" src="assets/header_fish.png"/>
 </div>
-<div id="page-meat" class="page">
-  <div class="fish-page">
-    <div class="fp-banner" style="background:linear-gradient(115deg,#fce4ec 0%,#f8bbd0 100%);">
-      <div class="fp-bread" style="color:#C2185B;">Home &nbsp;&rsaquo;&nbsp; Meat</div>
-      <div class="fp-title">All Meat Items</div>
-      <div class="fp-desc">Premium quality meat for your everyday meals.</div>
-      <img class="fp-bimg" src="assets/header_meeaat_nobg.png" alt="Meat Header">
-    </div>
-    <div class="fp-tabs">
-      <div class="fp-tab active" style="background:#C2185B;">
-        <span class="fp-tab-ic">🥩</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Meat</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">50+ Items</span></div>
-      </div>
-      <div class="fp-tab"><span class="fp-tab-ic">🐄</span><div class="fp-tab-txt"><span class="fp-tab-n">Beef</span><span class="fp-tab-c">15+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🐑</span><div class="fp-tab-txt"><span class="fp-tab-n">Mutton</span><span class="fp-tab-c">12+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">10+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🍖</span><div class="fp-tab-txt"><span class="fp-tab-n">Other</span><span class="fp-tab-c">13+ Items</span></div></div>
-    </div>
-    <div class="fp-main">
-      <div class="fp-sidebar">
-        <div class="fp-filters">
-          <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-          <div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
-          <button class="fp-fbtn" style="background:#C2185B;">Apply Filters</button>
-        </div>
-      </div>
-      <div class="fp-products">
-        <div class="fp-phead">
-          <div class="fp-ph-l">Showing items</div>
-          <div class="fp-ph-r">
-            <div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
-          </div>
-        </div>
-        <div class="fp-grid">
-          <div class="fp-card"><img class="fp-cimg" src="assets/beef_chunks.jpg"><div class="fp-ct">Beef Chunks</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">High Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£10.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('beef_chunks')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/boar_meat_bonless.jpg"><div class="fp-ct">Boar Meat</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Lean Meat</span></div><div class="fp-cbot"><div><span class="fp-cprice">£18.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boar_meat_bonless')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/boar_meat_with_bone.jpg"><div class="fp-ct">Boar Bone-in</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Flavorful</span></div><div class="fp-cbot"><div><span class="fp-cprice">£15.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boar_meat_with_bone')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/buffalo.jpg"><div class="fp-ct">Buffalo Meat</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Iron Rich</span></div><div class="fp-cbot"><div><span class="fp-cprice">£9.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('buffalo')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/deer_meat.jpg"><div class="fp-ct">Venison</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Premium</span></div><div class="fp-cbot"><div><span class="fp-cprice">£22.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('deer_meat')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/lamb.jpg"><div class="fp-ct">Lamb Meat</div><div class="fp-csub">Local</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Tender</span></div><div class="fp-cbot"><div><span class="fp-cprice">£15.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('lamb')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/mutton_leg.jpg"><div class="fp-ct">Mutton Leg</div><div class="fp-csub">Local</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Fresh</span></div><div class="fp-cbot"><div><span class="fp-cprice">£14.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('mutton_leg')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/rabbit.jpg"><div class="fp-ct">Rabbit Meat</div><div class="fp-csub">Farm</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Lean Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£12.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('rabbit')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- TABS -->
+<div class="fp-tabs">
+<div class="fp-tab active">
+<span class="fp-tab-ic">🐟</span>
+<div class="fp-tab-txt"><span class="fp-tab-n">All Fish</span><span class="fp-tab-c">120+ Items</span></div>
 </div>
-<div id="page-chicken" class="page">
-  <div class="fish-page">
-    <div class="fp-banner" style="background:linear-gradient(115deg,#fff3e0 0%,#ffe0b2 100%);">
-      <div class="fp-bread" style="color:#F57F17;">Home &nbsp;&rsaquo;&nbsp; Chicken</div>
-      <div class="fp-title">Chicken Items</div>
-      <div class="fp-desc">Fresh and tender chicken sourced locally.</div>
-      <img class="fp-bimg" src="assets/cat_chicken.png" alt="Chicken Header">
-    </div>
-    <div class="fp-tabs">
-      <div class="fp-tab active" style="background:#F57F17;">
-        <span class="fp-tab-ic">🍗</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Chicken</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">30+ Items</span></div>
-      </div>
-      <div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Whole Bird</span><span class="fp-tab-c">10+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Cuts</span><span class="fp-tab-c">15+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🥘</span><div class="fp-tab-txt"><span class="fp-tab-n">Offal</span><span class="fp-tab-c">5+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
-    </div>
-    <div class="fp-main">
-      <div class="fp-sidebar">
-        <div class="fp-filters">
-          <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-          <div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
-          <button class="fp-fbtn" style="background:#F57F17;">Apply Filters</button>
-        </div>
-      </div>
-      <div class="fp-products">
-        <div class="fp-phead">
-          <div class="fp-ph-l">Showing items</div>
-          <div class="fp-ph-r">
-            <div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
-          </div>
-        </div>
-        <div class="fp-grid">
-          <div class="fp-card"><img class="fp-cimg" src="assets/chicken_full.jpg"><div class="fp-ct">Whole Chicken</div><div class="fp-csub">Local Farm</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">Fresh</span></div><div class="fp-cbot"><div><span class="fp-cprice">£5.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('chicken_full')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/boneless_chicken.jpg"><div class="fp-ct">Boneless Chicken</div><div class="fp-csub">Premium Cuts</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">High Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£8.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boneless_chicken')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/chicken_liver.jpg"><div class="fp-ct">Chicken Liver</div><div class="fp-csub">Fresh Offal</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">Iron Rich</span></div><div class="fp-cbot"><div><span class="fp-cprice">£3.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('chicken_liver')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="fp-tab">
+<span class="fp-tab-ic">🌐</span>
+<div class="fp-tab-txt"><span class="fp-tab-n">By Country</span><span class="fp-tab-c">20+ Items</span></div>
 </div>
-<div id="page-eggs" class="page">
-  <div class="fish-page">
-    <div class="fp-banner" style="background:linear-gradient(115deg,#e8f5e9 0%,#c8e6c9 100%);">
-      <div class="fp-bread" style="color:#2E7D32;">Home &nbsp;&rsaquo;&nbsp; Eggs</div>
-      <div class="fp-title">Fresh Eggs</div>
-      <div class="fp-desc">Farm fresh eggs for a healthy start.</div>
-      <img class="fp-bimg" src="assets/cat_eggs.png" alt="Eggs Header">
-    </div>
-    <div class="fp-tabs">
-      <div class="fp-tab active" style="background:#2E7D32;">
-        <span class="fp-tab-ic">🥚</span>
-        <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Eggs</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">20+ Items</span></div>
-      </div>
-      <div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Chicken Eggs</span><span class="fp-tab-c">10+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🦆</span><div class="fp-tab-txt"><span class="fp-tab-n">Duck Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">🪹</span><div class="fp-tab-txt"><span class="fp-tab-n">Quail Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
-      <div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
-    </div>
-    <div class="fp-main">
-      <div class="fp-sidebar">
-        <div class="fp-filters">
-          <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-          <div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
-          <button class="fp-fbtn" style="background:#2E7D32;">Apply Filters</button>
-        </div>
-      </div>
-      <div class="fp-products">
-        <div class="fp-phead">
-          <div class="fp-ph-l">Showing items</div>
-          <div class="fp-ph-r">
-            <div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
-          </div>
-        </div>
-        <div class="fp-grid">
-          <div class="fp-card"><img class="fp-cimg" src="assets/chicken_egg.jpg"><div class="fp-ct">Chicken Eggs</div><div class="fp-csub">Farm Fresh</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Daily Sourced</span></div><div class="fp-cbot"><div><span class="fp-cprice">£2.99</span><span class="fp-cunit"> / dozen</span><div onclick="showDetails('chicken_egg')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/duck_egg.jpg"><div class="fp-ct">Duck Eggs</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Rich Flavor</span></div><div class="fp-cbot"><div><span class="fp-cprice">£4.50</span><span class="fp-cunit"> / dozen</span><div onclick="showDetails('duck_egg')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></div></div></div></div></div></div></div>
-          <div class="fp-card"><img class="fp-cimg" src="assets/quail_egg.jpg"><div class="fp-ct">Quail Eggs</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Nutritious</span></div><div class="fp-cbot"><div><span class="fp-cprice">£3.99</span><span class="fp-cunit"> / pack</span></div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="fp-tab">
+<span class="fp-tab-ic">🔥</span>
+<div class="fp-tab-txt"><span class="fp-tab-n">Grill Fishes</span><span class="fp-tab-c">25+ Items</span></div>
 </div>
-
-<div id="page-details" class="page" style="background:#F8FAFC; overflow-y:auto; height:100%;">
-  <style>
+<div class="fp-tab">
+<span class="fp-tab-ic">🍲</span>
+<div class="fp-tab-txt"><span class="fp-tab-n">Curry Fishes</span><span class="fp-tab-c">30+ Items</span></div>
+</div>
+<div class="fp-tab">
+<span class="fp-tab-ic">🐠</span>
+<div class="fp-tab-txt"><span class="fp-tab-n">Other Types</span><span class="fp-tab-c">45+ Items</span></div>
+</div>
+</div>
+<!-- MAIN -->
+<div class="fp-main">
+<!-- SIDEBAR -->
+<div class="fp-sidebar">
+<div class="fp-filters">
+<div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
+<div class="fp-fgroup">
+<div class="fp-fhead">Sort By</div>
+<select class="fp-select"><option>Newest First</option></select>
+</div>
+<div class="fp-fgroup">
+<div class="fp-fhead">By Country</div>
+<label class="fp-fitem"><div class="fp-fcb"><input checked="" type="checkbox"/> 🇬🇧 United Kingdom</div><span class="fp-fcount">45</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input checked="" type="checkbox"/> 🇳🇴 Norway</div><span class="fp-fcount">28</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><span class="fp-fcount">18</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🇮🇸 Iceland</div><span class="fp-fcount">12</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🇳🇱 Netherlands</div><span class="fp-fcount">10</span></label>
+<div class="fp-flmore">View More ⌄</div>
+</div>
+<div class="fp-fgroup">
+<div class="fp-fhead">By Type</div>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Grill Fishes</div><span class="fp-fcount">25</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Curry Fishes</div><span class="fp-fcount">30</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Steak Cuts</div><span class="fp-fcount">15</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Whole Fish</div><span class="fp-fcount">35</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Fillets</div><span class="fp-fcount">20</span></label>
+<div class="fp-flmore">View More ⌄</div>
+</div>
+<div class="fp-fgroup">
+<div class="fp-fhead">Size</div>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Small (0-500g)</div><span class="fp-fcount">40</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Medium (500g-1kg)</div><span class="fp-fcount">50</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Large (1kg+)</div><span class="fp-fcount">30</span></label>
+</div>
+<button class="fp-fbtn">Apply Filters</button>
+</div>
+<div class="fp-join">
+<div class="fp-jt">Join Our Community</div>
+<div class="fp-jd">Be a part of our journey for healthy and delicious living.</div>
+<div class="fp-jrow">
+<button class="fp-jbtn" onclick="go('about')">Join Us →</button>
+<svg style="width:36px;height:36px;" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+<rect fill="white" height="50" rx="4" width="50"></rect>
+<rect fill="#1565C0" height="15" rx="2" width="15" x="4" y="4"></rect><rect fill="white" height="11" rx="1" width="11" x="6" y="6"></rect><rect fill="#1565C0" height="7" rx="1" width="7" x="8" y="8"></rect>
+<rect fill="#1565C0" height="15" rx="2" width="15" x="31" y="4"></rect><rect fill="white" height="11" rx="1" width="11" x="33" y="6"></rect><rect fill="#1565C0" height="7" rx="1" width="7" x="35" y="8"></rect>
+<rect fill="#1565C0" height="15" rx="2" width="15" x="4" y="31"></rect><rect fill="white" height="11" rx="1" width="11" x="6" y="33"></rect><rect fill="#1565C0" height="7" rx="1" width="7" x="8" y="35"></rect>
+<rect fill="#1565C0" height="6" width="6" x="22" y="4"></rect><rect fill="#1565C0" height="6" width="6" x="22" y="13"></rect><rect fill="#1565C0" height="6" width="6" x="31" y="22"></rect><rect fill="#1565C0" height="6" width="6" x="40" y="22"></rect><rect fill="#1565C0" height="6" width="6" x="22" y="22"></rect><rect fill="#1565C0" height="6" width="6" x="22" y="31"></rect><rect fill="#1565C0" height="6" width="6" x="31" y="31"></rect><rect fill="#1565C0" height="6" width="6" x="40" y="31"></rect><rect fill="#1565C0" height="6" width="6" x="22" y="40"></rect><rect fill="#1565C0" height="6" width="6" x="31" y="40"></rect><rect fill="#1565C0" height="6" width="6" x="40" y="40"></rect>
+</svg>
+</div>
+</div>
+</div>
+<!-- PRODUCTS GRID -->
+<div class="fp-products">
+<div class="fp-phead">
+<div class="fp-ph-l">Showing 1-8 of 120+ items</div>
+<div class="fp-ph-r">
+<div class="fp-view">View as: 
+              <div class="fp-vbtn active"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 0h6v6h-6z"></path></svg></div>
+<div class="fp-vbtn"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></div>
+</div>
+<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+</div>
+</div>
+<div class="fp-grid">
+<!-- Card 1 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Salmon" class="fp-cimg" src="https://cdn.sanity.io/images/v5b89tvp/production/fae7bc0147b282837144d385e8abc31f1e505f62-735x412.jpg"/>
+<div class="fp-ct">Salmon</div>
+<div class="fp-csub">Norway • Fillet</div>
+<div><span class="fp-ctag">Rich in Omega-3</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£14.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_1_salmon')" style="cursor:pointer;"><a href="details_prod_1_salmon.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 2 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Sea Bass" class="fp-cimg" src="assets/prod_2_seabass.jpg"/>
+<div class="fp-ct">Sea Bass</div>
+<div class="fp-csub">United Kingdom • Whole</div>
+<div><span class="fp-ctag">High in Protein</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£12.50</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_2_seabass')" style="cursor:pointer;"><a href="details_prod_2_seabass.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 3 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Mackerel" class="fp-cimg" src="assets/prod_3_mackerel.jpg"/>
+<div class="fp-ct">Mackerel</div>
+<div class="fp-csub">Scotland • Whole</div>
+<div><span class="fp-ctag">Rich in Omega-3</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£6.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_3_mackerel')" style="cursor:pointer;"><a href="details_prod_3_mackerel.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 4 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Cod Fillet" class="fp-cimg" src="assets/prod_4_cod.jpg"/>
+<div class="fp-ct">Cod Fillet</div>
+<div class="fp-csub">Iceland • Fillet</div>
+<div><span class="fp-ctag">Low Fat</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£11.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_4_cod')" style="cursor:pointer;"><a href="details_prod_4_cod.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 5 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Tuna Steak" class="fp-cimg" src="assets/prod_5_tuna.jpg"/>
+<div class="fp-ct">Tuna Steak</div>
+<div class="fp-csub">Spain • Steak Cut</div>
+<div><span class="fp-ctag">High in Protein</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£15.50</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_5_tuna')" style="cursor:pointer;"><a href="details_prod_5_tuna.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 6 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Tilapia" class="fp-cimg" src="assets/prod_6_tilapia.jpg"/>
+<div class="fp-ct">Tilapia</div>
+<div class="fp-csub">Netherlands • Whole</div>
+<div><span class="fp-ctag">Good Source of Protein</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£5.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_6_tilapia')" style="cursor:pointer;"><a href="details_prod_6_tilapia.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 7 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Prawns (King)" class="fp-cimg" src="assets/prod_7_prawns.jpg"/>
+<div class="fp-ct">Prawns (King)</div>
+<div class="fp-csub">Thailand • Shell-on</div>
+<div><span class="fp-ctag">High in Protein</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£16.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_7_prawns')" style="cursor:pointer;"><a href="details_prod_7_prawns.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+<!-- Card 8 -->
+<div class="fp-card">
+<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+<img alt="Trout" class="fp-cimg" src="assets/prod_8_trout.jpg"/>
+<div class="fp-ct">Trout</div>
+<div class="fp-csub">United Kingdom • Whole</div>
+<div><span class="fp-ctag">Rich in Vitamins</span></div>
+<div class="fp-cbot"><div><span class="fp-cprice">£7.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_8_trout')" style="cursor:pointer;"><a href="details_prod_8_trout.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- FEATURES -->
+<div class="fp-features">
+<div class="fp-feat"><div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div><div class="fp-ftxt"><span class="fp-ft">100% Fresh</span><span class="fp-fd">Sourced Daily</span></div></div>
+<div class="fp-feat"><div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path></svg></div><div class="fp-ftxt"><span class="fp-ft">Hygienic &amp; Safe</span><span class="fp-fd">Cleaned with care</span></div></div>
+<div class="fp-feat"><div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="fp-ftxt"><span class="fp-ft">Rich in Nutrition</span><span class="fp-fd">Packed with goodness</span></div></div>
+<div class="fp-feat"><div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg></div><div class="fp-ftxt"><span class="fp-ft">Trusted Quality</span><span class="fp-fd">Only the best for you</span></div></div>
+<div class="fp-feat"><div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.17 0-1.85.17-2.47.34C14.22 14.5 17.5 12 22 10V8z"></path></svg></div><div class="fp-ftxt"><span class="fp-ft">Sustainable Sourcing</span><span class="fp-fd">For a better tomorrow</span></div></div>
+</div>
+<!-- FOOTER INFO -->
+<div class="fp-footer">
+<div class="fp-fcol">
+<span class="fp-fcol-t">About Fish</span>
+<span class="fp-fcol-d">Our fish is handpicked daily from trusted suppliers to ensure premium quality and freshness on your table.</span>
+<svg fill="none" style="width:50px;height:16px;margin-top:6px;opacity:.5;" viewbox="0 0 60 20"><path d="M10 10 Q20 5 30 10 T50 10" stroke="#1565C0" stroke-width="1.5"></path><ellipse cx="30" cy="10" rx="15" ry="6" stroke="#1565C0" stroke-width="1.5"></ellipse></svg>
+</div>
+<div class="fp-fcol">
+<span class="fp-fcol-t">Nutrition Benefits</span>
+<span class="fp-fcol-d">Fish is a great source of protein, omega-3 fatty acids, vitamins and minerals which support your overall health.</span>
+<svg fill="none" style="width:50px;height:16px;margin-top:6px;opacity:.5;" viewbox="0 0 60 20"><rect height="10" rx="2" stroke="#1565C0" stroke-width="1.5" width="40" x="10" y="5"></rect><path d="M25 5 L35 15" stroke="#1565C0" stroke-width="1.5"></path></svg>
+</div>
+<div class="fp-fcol r">
+<div class="fp-fic"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg></div>
+<div style="display:flex;flex-direction:column;gap:3px;">
+<span class="fp-fcol-t">Need Help?</span>
+<span class="fp-fcol-d">We are here to help you choose the best fish for your needs. Reach out anytime!</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page" id="page-meat">
+<div class="fish-page">
+<div class="fp-banner" style="background:linear-gradient(115deg,#fce4ec 0%,#f8bbd0 100%);">
+<div class="fp-bread" style="color:#C2185B;">Home  ›  Meat</div>
+<div class="fp-title">All Meat Items</div>
+<div class="fp-desc">Premium quality meat for your everyday meals.</div>
+<img alt="Meat Header" class="fp-bimg" src="assets/header_meeaat_nobg.png"/>
+</div>
+<div class="fp-tabs">
+<div class="fp-tab active" style="background:#C2185B;">
+<span class="fp-tab-ic">🥩</span>
+<div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Meat</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">50+ Items</span></div>
+</div>
+<div class="fp-tab"><span class="fp-tab-ic">🐄</span><div class="fp-tab-txt"><span class="fp-tab-n">Beef</span><span class="fp-tab-c">15+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🐑</span><div class="fp-tab-txt"><span class="fp-tab-n">Mutton</span><span class="fp-tab-c">12+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🍖</span><div class="fp-tab-txt"><span class="fp-tab-n">Other</span><span class="fp-tab-c">13+ Items</span></div></div>
+</div>
+<div class="fp-main">
+<div class="fp-sidebar">
+<div class="fp-filters">
+<div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<button class="fp-fbtn" style="background:#C2185B;">Apply Filters</button>
+</div>
+</div>
+<div class="fp-products">
+<div class="fp-phead">
+<div class="fp-ph-l">Showing items</div>
+<div class="fp-ph-r">
+<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+</div>
+</div>
+<div class="fp-grid">
+<div class="fp-card"><img class="fp-cimg" src="https://cdn.sanity.io/images/v5b89tvp/production/5809501df3259a01dbc49d7ebea10711b98ba63d-1200x800.jpg"/><div class="fp-ct">Beef Chunks</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">High Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£10.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('beef_chunks')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'prod_1_salmon\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"><div onclick="showDetails(\'beef_chunks\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('beef_chunks')" style="cursor:pointer;"><a href="details_beef_chunks.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="https://cdn.sanity.io/images/v5b89tvp/production/7ed76dde7cdb9585818d630444ac7cd67a2d8447-1199x903.jpg"/><div class="fp-ct">Boar Meat</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Lean Meat</span></div><div class="fp-cbot"><div><span class="fp-cprice">£18.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boar_meat_bonless')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_bonless\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('boar_meat_bonless')" style="cursor:pointer;"><a href="details_boar_meat_bonless.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/boar_meat_with_bone.jpg"/><div class="fp-ct">Boar Bone-in</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Flavorful</span></div><div class="fp-cbot"><div><span class="fp-cprice">£15.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boar_meat_with_bone')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"><div onclick="showDetails(\'boar_meat_with_bone\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('boar_meat_with_bone')" style="cursor:pointer;"><a href="details_boar_meat_with_bone.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/buffalo.jpg"/><div class="fp-ct">Buffalo Meat</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Iron Rich</span></div><div class="fp-cbot"><div><span class="fp-cprice">£9.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('buffalo')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"><div onclick="showDetails(\'buffalo\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('buffalo')" style="cursor:pointer;"><a href="details_buffalo.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/deer_meat.jpg"/><div class="fp-ct">Venison</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Premium</span></div><div class="fp-cbot"><div><span class="fp-cprice">£22.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('deer_meat')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"><div onclick="showDetails(\'deer_meat\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('deer_meat')" style="cursor:pointer;"><a href="details_deer_meat.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/lamb.jpg"/><div class="fp-ct">Lamb Meat</div><div class="fp-csub">Local</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Tender</span></div><div class="fp-cbot"><div><span class="fp-cprice">£15.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('lamb')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"><div onclick="showDetails(\'lamb\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('lamb')" style="cursor:pointer;"><a href="details_lamb.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/mutton_leg.jpg"/><div class="fp-ct">Mutton Leg</div><div class="fp-csub">Local</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Fresh</span></div><div class="fp-cbot"><div><span class="fp-cprice">£14.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('mutton_leg')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"><div onclick="showDetails(\'mutton_leg\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('mutton_leg')" style="cursor:pointer;"><a href="details_mutton_leg.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/rabbit.jpg"/><div class="fp-ct">Rabbit Meat</div><div class="fp-csub">Farm</div><div><span class="fp-ctag" style="color:#C2185B;background:#fce4ec;">Lean Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£12.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('rabbit')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"><div onclick="showDetails(\'rabbit\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('rabbit')" style="cursor:pointer;"><a href="details_rabbit.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page" id="page-chicken">
+<div class="fish-page">
+<div class="fp-banner" style="background:linear-gradient(115deg,#fff3e0 0%,#ffe0b2 100%);">
+<div class="fp-bread" style="color:#F57F17;">Home  ›  Chicken</div>
+<div class="fp-title">Chicken Items</div>
+<div class="fp-desc">Fresh and tender chicken sourced locally.</div>
+<img alt="Chicken Header" class="fp-bimg" src="assets/cat_chicken.png"/>
+</div>
+<div class="fp-tabs">
+<div class="fp-tab active" style="background:#F57F17;">
+<span class="fp-tab-ic">🍗</span>
+<div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Chicken</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">30+ Items</span></div>
+</div>
+<div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Whole Bird</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Cuts</span><span class="fp-tab-c">15+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🥘</span><div class="fp-tab-txt"><span class="fp-tab-n">Offal</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
+</div>
+<div class="fp-main">
+<div class="fp-sidebar">
+<div class="fp-filters">
+<div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<button class="fp-fbtn" style="background:#F57F17;">Apply Filters</button>
+</div>
+</div>
+<div class="fp-products">
+<div class="fp-phead">
+<div class="fp-ph-l">Showing items</div>
+<div class="fp-ph-r">
+<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+</div>
+</div>
+<div class="fp-grid">
+<div class="fp-card"><img class="fp-cimg" src="assets/chicken_full.jpg"/><div class="fp-ct">Whole Chicken</div><div class="fp-csub">Local Farm</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">Fresh</span></div><div class="fp-cbot"><div><span class="fp-cprice">£5.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('chicken_full')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_full\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('chicken_full')" style="cursor:pointer;"><a href="details_chicken_full.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/boneless_chicken.jpg"/><div class="fp-ct">Boneless Chicken</div><div class="fp-csub">Premium Cuts</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">High Protein</span></div><div class="fp-cbot"><div><span class="fp-cprice">£8.50</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('boneless_chicken')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"><div onclick="showDetails(\'boneless_chicken\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('boneless_chicken')" style="cursor:pointer;"><a href="details_boneless_chicken.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/chicken_liver.jpg"/><div class="fp-ct">Chicken Liver</div><div class="fp-csub">Fresh Offal</div><div><span class="fp-ctag" style="color:#F57F17;background:#fff3e0;">Iron Rich</span></div><div class="fp-cbot"><div><span class="fp-cprice">£3.99</span><span class="fp-cunit"> / kg</span><div onclick="showDetails('chicken_liver')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_liver\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('chicken_liver')" style="cursor:pointer;"><a href="details_chicken_liver.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page" id="page-eggs">
+<div class="fish-page">
+<div class="fp-banner" style="background:linear-gradient(115deg,#e8f5e9 0%,#c8e6c9 100%);">
+<div class="fp-bread" style="color:#2E7D32;">Home  ›  Eggs</div>
+<div class="fp-title">Fresh Eggs</div>
+<div class="fp-desc">Farm fresh eggs for a healthy start.</div>
+<img alt="Eggs Header" class="fp-bimg" src="assets/cat_eggs.png"/>
+</div>
+<div class="fp-tabs">
+<div class="fp-tab active" style="background:#2E7D32;">
+<span class="fp-tab-ic">🥚</span>
+<div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Eggs</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">20+ Items</span></div>
+</div>
+<div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Chicken Eggs</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🦆</span><div class="fp-tab-txt"><span class="fp-tab-n">Duck Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">🪹</span><div class="fp-tab-txt"><span class="fp-tab-n">Quail Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
+</div>
+<div class="fp-main">
+<div class="fp-sidebar">
+<div class="fp-filters">
+<div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<button class="fp-fbtn" style="background:#2E7D32;">Apply Filters</button>
+</div>
+</div>
+<div class="fp-products">
+<div class="fp-phead">
+<div class="fp-ph-l">Showing items</div>
+<div class="fp-ph-r">
+<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+</div>
+</div>
+<div class="fp-grid">
+<div class="fp-card"><img class="fp-cimg" src="assets/chicken_egg.jpg"/><div class="fp-ct">Chicken Eggs</div><div class="fp-csub">Farm Fresh</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Daily Sourced</span></div><div class="fp-cbot"><div><span class="fp-cprice">£2.99</span><span class="fp-cunit"> / dozen</span><div onclick="showDetails('chicken_egg')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'chicken_egg\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('chicken_egg')" style="cursor:pointer;"><a href="details_chicken_egg.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/duck_egg.jpg"/><div class="fp-ct">Duck Eggs</div><div class="fp-csub">Premium</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Rich Flavor</span></div><div class="fp-cbot"><div><span class="fp-cprice">£4.50</span><span class="fp-cunit"> / dozen</span><div onclick="showDetails('duck_egg')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"><div onclick="showDetails(\'duck_egg\')" style="cursor:pointer;"></div></div></div></div></div></div></div><div onclick="showDetails('duck_egg')" style="cursor:pointer;"><a href="details_duck_egg.html" style="text-decoration:none;"><div class="fp-clink">View Details →</div></a></div></div></div>
+<div class="fp-card"><img class="fp-cimg" src="assets/quail_egg.jpg"/><div class="fp-ct">Quail Eggs</div><div class="fp-csub">Exotic</div><div><span class="fp-ctag" style="color:#2E7D32;background:#e8f5e9;">Nutritious</span></div><div class="fp-cbot"><div><span class="fp-cprice">£3.99</span><span class="fp-cunit"> / pack</span></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page" id="page-details" style="background:#F8FAFC; overflow-y:auto; height:100%;">
+<style>
     
 
     
@@ -1161,214 +1111,198 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
     }
 
   </style>
-  <div style="padding: 16px 24px; padding-bottom:100px;">
-    <div class="top-section-row">
-        <!-- [1] Product Info -->
-        <div class="product-info-col">
-          <div class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="#" id="pd-catlink" onclick="event.preventDefault();"><span id="pd-category"></span></a> &gt; <span style="font-weight: 500; color: var(--text-main);"><span id="pd-title"></span></span></div>
-          <div class="badge-premium">⭐ Premium Choice</div>
-          <h1 class="prod-title" id="product-title"><span id="pd-title"></span></h1>
-          <p class="prod-desc"><span id="pd-subtitle"></span>. Sourced fresh and handled with care.</p>
-          <div class="star-rating">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span>4.8 (124)</span>
-          </div>
-          <div class="feature-icons-list">
-            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>100% Fresh Never Frozen</div>
-            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>Hygienically Handled</div>
-            <div class="feature-icon-row"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>Sourced Responsibly</div>
-          </div>
-        </div>
-
-        <!-- [2] Main Fish Image -->
-        <div class="product-image-col">
-          <div class="hero-image-container"><img id="main-hero-img" src="" id="pd-img" alt="<span id="pd-title"></span>"></div>
-          <div class="gallery-slider">
-            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
-            <div class="gallery-thumbnails" id="pd-thumbs">
-              <img src="" id="pd-img" class="thumb active" onclick="changeHeroImage(this.src, this)">
-              <img src="" id="pd-img" class="thumb" onclick="changeHeroImage(this.src, this)">
-              <img src="" id="pd-img" class="thumb" onclick="changeHeroImage(this.src, this)">
-              <img src="" id="pd-img" class="thumb" onclick="changeHeroImage(this.src, this)">
-              <img src="" id="pd-img" class="thumb" onclick="changeHeroImage(this.src, this)">
-              <img src="" id="pd-img" class="thumb" onclick="changeHeroImage(this.src, this)">
-            </div>
-            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
-          </div>
-        </div>
-
-        <!-- [3] Purchase Panel -->
-        <div class="purchase-panel">
-          <div class="purchase-price"><span id="display-price"><span id="pd-price"></span></span> <span style="font-size:0.8rem">/ <span id="pd-unit"></span></span></div>
-          <div class="panel-section-title">Select Size</div>
-          <div class="selector-grid" id="size-selector">
-            <div class="selector-btn" onclick="selectOption(this, 'size')">Small</div>
-            <div class="selector-btn active" onclick="selectOption(this, 'size')">Medium</div>
-            <div class="selector-btn" onclick="selectOption(this, 'size')">Large</div>
-            <div class="selector-btn" onclick="selectOption(this, 'size')">X-Large</div>
-          </div>
-          <div class="panel-section-title">Cut Options</div>
-          <div class="selector-grid" id="cut-selector" style="grid-template-columns: 1fr 1fr 1fr;">
-            <div class="selector-btn active" onclick="selectOption(this, 'cut')">Fillet</div>
-            <div class="selector-btn" onclick="selectOption(this, 'cut')">Steak</div>
-            <div class="selector-btn" onclick="selectOption(this, 'cut')">Whole</div>
-          </div>
-          <div class="serves-indicator"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Serves: 2-4 People</div>
-          <button class="btn-primary-buy" onclick="addToCart()">Add to Cart</button>
-          <div class="guarantee-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Freshness Guaranteed</div>
-          <div class="action-buttons">
-            <button class="btn-action" onclick="shareProduct()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>Share</button>
-            <button class="btn-action" id="save-btn" onclick="saveProduct()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>Save</button>
-          </div>
-          <div class="contact-card">
-            <p>Need help ordering?</p>
-            <button onclick="openContactModal()">Contact Us</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- TABS NAV -->
-      <div class="tabs-nav">
-        <div class="tab-item active" onclick="switchTab('overview', this)">Overview</div>
-        <div class="tab-item" onclick="switchTab('nutrition', this)">Nutrition</div>
-        <div class="tab-item" onclick="switchTab('cooking', this)">Cooking</div>
-        <div class="tab-item" onclick="switchTab('details', this)">Details</div>
-        <div class="tab-item" onclick="switchTab('sizes', this)">Sizes & Cuts</div>
-        <div class="tab-item" onclick="switchTab('allergy', this)">Allergy Info</div>
-      </div>
-
-      <!-- TAB CONTENT: OVERVIEW -->
-      <div id="tab-overview" class="tab-pane active">
-        <!-- INFO GRID CARDS (8 cards) -->
-        <div class="info-grid-layout">
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><h3><span id="pd-origin-label"></span></h3></div>
-            <div class="info-card-content"><p><span id="pd-origin"></span></p><img src="" id="pd-img" class="card-small-img" alt="Map"></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><h3>Best For</h3></div>
-            <div class="info-card-content"><p><span id="pd-best-for"></span></p></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><h3>Specialty</h3></div>
-            <div class="info-card-content"><p><span id="pd-speciality"></span></p></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><h3>Famous On</h3></div>
-            <div class="info-card-content"><p><span id="pd-famous-for"></span></p></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg><h3>Nutrition</h3></div>
-            <div class="info-card-content"><p><span id="pd-nutr"></span></p><img src="" id="pd-img" class="card-small-img" alt="Chart"></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><h3>Good For</h3></div>
-            <div class="info-card-content"><p>Heart health, muscle, and immunity.</p></div>
-          </div>
-          <div class="info-card allergy">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h3>Allergy Info</h3></div>
-            <div class="info-card-content"><p><span id="pd-allergy"></span></p></div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><h3>How To Cook</h3></div>
-            <div class="info-card-content"><p><span id="pd-how-cook"></span></p></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: COOKING -->
-      <div id="tab-cooking" class="tab-pane">
-        <div class="cooking-section">
-          <div class="videos-grid">
-            <div class="video-card">
-              <div class="video-iframe-container">
-                <iframe src="" id="pd-vid1" allowfullscreen></iframe>
-              </div>
-              <div class="video-info">
-                <h4><span id="pd-category"></span> Preparation Guide</h4>
-                <p>Learn the basics of preparing and cooking this item.</p>
-              </div>
-            </div>
-            <div class="video-card">
-              <div class="video-iframe-container">
-                <iframe src="" id="pd-vid2" allowfullscreen></iframe>
-              </div>
-              <div class="video-info">
-                <h4>Chef's Special <span id="pd-title"></span> Recipe</h4>
-                <p>A gourmet recipe to elevate your meal.</p>
-              </div>
-            </div>
-          </div>
-          <div class="cooking-instructions">
-            <h3>Cooking Instructions & Preparation Steps</h3>
-            <ol>
-              <div id="pd-instructions"></div>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: NUTRITION (CMS Placeholder) -->
-      <div id="tab-nutrition" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Nutritional Information</h3>
-          <p>Detailed nutritional breakdown will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: DETAILS (CMS Placeholder) -->
-      <div id="tab-details" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Product Details</h3>
-          <p>Extended description and sourcing information will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: SIZES (CMS Placeholder) -->
-      <div id="tab-sizes" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Sizes & Cuts Guide</h3>
-          <p>Detailed sizing charts and cut explanations will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: ALLERGY (CMS Placeholder) -->
-      <div id="tab-allergy" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Comprehensive Allergy Information</h3>
-          <p>Full allergen disclosures and cross-contamination warnings will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- BOTTOM FEATURES -->
-      <div class="bottom-features-row">
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>100% Fresh</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>Hygienic & Safe</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span>Fast Delivery</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span>Best Quality</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span>Sustainable</span></div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- TOAST NOTIFICATION CONTAINER -->
-  <div id="toast-container" class="toast-container"></div>
-
-  <!-- CONTACT US MODAL -->
-  </div>
+<div style="padding: 16px 24px; padding-bottom:100px;">
+<div class="top-section-row">
+<!-- [1] Product Info -->
+<div class="product-info-col">
+<div class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="#" id="pd-catlink" onclick="event.preventDefault();"><span id="pd-category"></span></a> &gt; <span style="font-weight: 500; color: var(--text-main);"><span id="pd-title"></span></span></div>
+<div class="badge-premium">⭐ Premium Choice</div>
+<h1 class="prod-title" id="product-title"><span id="pd-title"></span></h1>
+<p class="prod-desc"><span id="pd-subtitle"></span>. Sourced fresh and handled with care.</p>
+<div class="star-rating">
+<svg fill="currentColor" stroke="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<svg fill="currentColor" stroke="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<svg fill="currentColor" stroke="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<svg fill="currentColor" stroke="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<span>4.8 (124)</span>
 </div>
-
-<div id="page-cook" class="page"><div class="ph"><div class="ph-ico">👨‍🍳</div><div class="ph-title">How to Cook</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
-<div id="page-benefits" class="page"><div class="ph"><div class="ph-ico">💚</div><div class="ph-title">Benefits</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
-<div id="page-stories" class="page"><div class="ph"><div class="ph-ico">📖</div><div class="ph-title">Our Stories</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
-<div id="page-about" class="page"><div class="ph"><div class="ph-ico">ℹ️</div><div class="ph-title">About Us</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
-<div id="page-contact" class="page"><div class="ph"><div class="ph-ico">📞</div><div class="ph-title">Contact Us</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
-
+<div class="feature-icons-list">
+<div class="feature-icon-row"><div class="icon-circle"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>100% Fresh Never Frozen</div>
+<div class="feature-icon-row"><div class="icon-circle"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>Hygienically Handled</div>
+<div class="feature-icon-row"><div class="icon-circle"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>Sourced Responsibly</div>
+</div>
+</div>
+<!-- [2] Main Fish Image -->
+<div class="product-image-col">
+<div class="hero-image-container"><img alt="&lt;span id=" id="pd-img" pd-title"="" src=""/>"&gt;</div>
+<div class="gallery-slider">
+<div class="gallery-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+<div class="gallery-thumbnails" id="pd-thumbs">
+<img class="thumb active" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+<img class="thumb" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+<img class="thumb" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+<img class="thumb" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+<img class="thumb" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+<img class="thumb" id="pd-img" onclick="changeHeroImage(this.src, this)" src=""/>
+</div>
+<div class="gallery-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+</div>
+</div>
+<!-- [3] Purchase Panel -->
+<div class="purchase-panel">
+<div class="purchase-price"><span id="display-price"><span id="pd-price"></span></span> <span style="font-size:0.8rem">/ <span id="pd-unit"></span></span></div>
+<div class="panel-section-title">Select Size</div>
+<div class="selector-grid" id="size-selector">
+<div class="selector-btn" onclick="selectOption(this, 'size')">Small</div>
+<div class="selector-btn active" onclick="selectOption(this, 'size')">Medium</div>
+<div class="selector-btn" onclick="selectOption(this, 'size')">Large</div>
+<div class="selector-btn" onclick="selectOption(this, 'size')">X-Large</div>
+</div>
+<div class="panel-section-title">Cut Options</div>
+<div class="selector-grid" id="cut-selector" style="grid-template-columns: 1fr 1fr 1fr;">
+<div class="selector-btn active" onclick="selectOption(this, 'cut')">Fillet</div>
+<div class="selector-btn" onclick="selectOption(this, 'cut')">Steak</div>
+<div class="selector-btn" onclick="selectOption(this, 'cut')">Whole</div>
+</div>
+<div class="serves-indicator"><svg fill="none" stroke="var(--primary-blue)" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Serves: 2-4 People</div>
+<button class="btn-primary-buy" onclick="addToCart()">Add to Cart</button>
+<div class="guarantee-card"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Freshness Guaranteed</div>
+<div class="action-buttons">
+<button class="btn-action" onclick="shareProduct()"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>Share</button>
+<button class="btn-action" id="save-btn" onclick="saveProduct()"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>Save</button>
+</div>
+<div class="contact-card">
+<p>Need help ordering?</p>
+<button onclick="openContactModal()">Contact Us</button>
+</div>
+</div>
+</div>
+<!-- TABS NAV -->
+<div class="tabs-nav">
+<div class="tab-item active" onclick="switchTab('overview', this)">Overview</div>
+<div class="tab-item" onclick="switchTab('nutrition', this)">Nutrition</div>
+<div class="tab-item" onclick="switchTab('cooking', this)">Cooking</div>
+<div class="tab-item" onclick="switchTab('details', this)">Details</div>
+<div class="tab-item" onclick="switchTab('sizes', this)">Sizes &amp; Cuts</div>
+<div class="tab-item" onclick="switchTab('allergy', this)">Allergy Info</div>
+</div>
+<!-- TAB CONTENT: OVERVIEW -->
+<div class="tab-pane active" id="tab-overview">
+<!-- INFO GRID CARDS (8 cards) -->
+<div class="info-grid-layout">
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><h3><span id="pd-origin-label"></span></h3></div>
+<div class="info-card-content"><p><span id="pd-origin"></span></p><img alt="Map" class="card-small-img" id="pd-img" src=""/></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><h3>Best For</h3></div>
+<div class="info-card-content"><p><span id="pd-best-for"></span></p></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><h3>Specialty</h3></div>
+<div class="info-card-content"><p><span id="pd-speciality"></span></p></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><h3>Famous On</h3></div>
+<div class="info-card-content"><p><span id="pd-famous-for"></span></p></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" x2="6" y1="1" y2="4"></line><line x1="10" x2="10" y1="1" y2="4"></line><line x1="14" x2="14" y1="1" y2="4"></line></svg><h3>Nutrition</h3></div>
+<div class="info-card-content"><p><span id="pd-nutr"></span></p><img alt="Chart" class="card-small-img" id="pd-img" src=""/></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><h3>Good For</h3></div>
+<div class="info-card-content"><p>Heart health, muscle, and immunity.</p></div>
+</div>
+<div class="info-card allergy">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" x2="12" y1="9" y2="13"></line><line x1="12" x2="12.01" y1="17" y2="17"></line></svg><h3>Allergy Info</h3></div>
+<div class="info-card-content"><p><span id="pd-allergy"></span></p></div>
+</div>
+<div class="info-card">
+<div class="info-card-header"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><h3>How To Cook</h3></div>
+<div class="info-card-content"><p><span id="pd-how-cook"></span></p></div>
+</div>
+</div>
+</div>
+<!-- TAB CONTENT: COOKING -->
+<div class="tab-pane" id="tab-cooking">
+<div class="cooking-section">
+<div class="videos-grid">
+<div class="video-card">
+<div class="video-iframe-container">
+<iframe allowfullscreen="" id="pd-vid1" src=""></iframe>
+</div>
+<div class="video-info">
+<h4><span id="pd-category"></span> Preparation Guide</h4>
+<p>Learn the basics of preparing and cooking this item.</p>
+</div>
+</div>
+<div class="video-card">
+<div class="video-iframe-container">
+<iframe allowfullscreen="" id="pd-vid2" src=""></iframe>
+</div>
+<div class="video-info">
+<h4>Chef's Special <span id="pd-title"></span> Recipe</h4>
+<p>A gourmet recipe to elevate your meal.</p>
+</div>
+</div>
+</div>
+<div class="cooking-instructions">
+<h3>Cooking Instructions &amp; Preparation Steps</h3>
+<ol>
+<div id="pd-instructions"></div>
+</ol>
+</div>
+</div>
+</div>
+<!-- TAB CONTENT: NUTRITION (CMS Placeholder) -->
+<div class="tab-pane" id="tab-nutrition">
+<div class="generic-tab-content">
+<h3>Nutritional Information</h3>
+<p>Detailed nutritional breakdown will be injected here by the CMS.</p>
+</div>
+</div>
+<!-- TAB CONTENT: DETAILS (CMS Placeholder) -->
+<div class="tab-pane" id="tab-details">
+<div class="generic-tab-content">
+<h3>Product Details</h3>
+<p>Extended description and sourcing information will be injected here by the CMS.</p>
+</div>
+</div>
+<!-- TAB CONTENT: SIZES (CMS Placeholder) -->
+<div class="tab-pane" id="tab-sizes">
+<div class="generic-tab-content">
+<h3>Sizes &amp; Cuts Guide</h3>
+<p>Detailed sizing charts and cut explanations will be injected here by the CMS.</p>
+</div>
+</div>
+<!-- TAB CONTENT: ALLERGY (CMS Placeholder) -->
+<div class="tab-pane" id="tab-allergy">
+<div class="generic-tab-content">
+<h3>Comprehensive Allergy Information</h3>
+<p>Full allergen disclosures and cross-contamination warnings will be injected here by the CMS.</p>
+</div>
+</div>
+<!-- BOTTOM FEATURES -->
+<div class="bottom-features-row">
+<div class="bottom-feature-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>100% Fresh</span></div>
+<div class="bottom-feature-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>Hygienic &amp; Safe</span></div>
+<div class="bottom-feature-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="13" width="15" x="1" y="3"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span>Fast Delivery</span></div>
+<div class="bottom-feature-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span>Best Quality</span></div>
+<div class="bottom-feature-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span>Sustainable</span></div>
+</div>
+</div>
+</div>
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+<!-- CONTACT US MODAL -->
+</div>
+<div class="page" id="page-cook"><div class="ph"><div class="ph-ico">👨‍🍳</div><div class="ph-title">How to Cook</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
+<div class="page" id="page-benefits"><div class="ph"><div class="ph-ico">💚</div><div class="ph-title">Benefits</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
+<div class="page" id="page-stories"><div class="ph"><div class="ph-ico">📖</div><div class="ph-title">Our Stories</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
+<div class="page" id="page-about"><div class="ph"><div class="ph-ico">ℹ️</div><div class="ph-title">About Us</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
+<div class="page" id="page-contact"><div class="ph"><div class="ph-ico">📞</div><div class="ph-title">Contact Us</div><div class="ph-sub">Send me the reference — ready to build!</div></div></div>
 <script>
 function go(id){
   document.querySelectorAll('.ni').forEach(el=>el.classList.remove('active'));
@@ -1388,7 +1322,6 @@ window.addEventListener('load', () => {
   }
 });
 </script>
-
 <script>
 const pdData = {"prod_1_salmon": {"title": "Salmon", "subtitle": "Norway \u2022 Fillet", "price": "\u00a314.99", "unit": "kg", "image": "assets/prod_1_salmon.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Norway, North Atlantic Ocean. Wild Caught.", "best_for": "Curry, Grill, Baking.", "nutrition_protein": "20.4g", "nutrition_fat": "13.4g", "nutrition_calories": "208 kcal", "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "3", "speciality": "Rich, buttery flavor and firm texture.", "famous_for": "Norwegian Cuisine, Japanese Sushi.", "allergy": "Contains Fish.", "how_to_cook": "Grill or pan-sear. Great with lemon and herbs.", "video1": "https://www.youtube.com/embed/jH-1gV1fH-s", "video2": "https://www.youtube.com/embed/9gN2lB5B9Qo", "instructions": "<li>Preheat pan on medium-high.</li><li>Season salmon with salt and pepper.</li><li>Sear skin-side down for 4 mins.</li><li>Flip and cook 2 mins.</li>"}, "prod_2_seabass": {"title": "Sea Bass", "subtitle": "Local \u2022 Whole", "price": "\u00a318.50", "unit": "kg", "image": "assets/prod_2_seabass.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Mediterranean Sea.", "best_for": "Baking, Pan-frying.", "nutrition_protein": "18g", "nutrition_fat": "2.5g", "nutrition_calories": "97 kcal", "nutrition_extra_label": "B-Vitamins", "nutrition_extra_val": "High", "speciality": "Mild, delicate flavor.", "famous_for": "Mediterranean dishes.", "allergy": "Contains Fish.", "how_to_cook": "Bake whole with lemon and rosemary.", "video1": "", "video2": "", "instructions": "<li>Stuff with lemon.</li><li>Bake at 200C for 20 mins.</li>"}, "prod_3_tuna": {"title": "Tuna Steak", "subtitle": "Pacific \u2022 Steak", "price": "\u00a322.00", "unit": "kg", "image": "assets/prod_3_tuna.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Pacific Ocean.", "best_for": "Searing, Sashimi.", "nutrition_protein": "24g", "nutrition_fat": "1g", "nutrition_calories": "109 kcal", "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "Mod", "speciality": "Meaty texture.", "famous_for": "Sushi, Poke Bowls.", "allergy": "Contains Fish.", "how_to_cook": "Sear 1 min per side.", "video1": "", "video2": "", "instructions": "<li>Season well.</li><li>Sear on screaming hot pan for 1 min per side.</li>"}, "prod_4_cod": {"title": "Cod Fillet", "subtitle": "Atlantic \u2022 Fillet", "price": "\u00a312.99", "unit": "kg", "image": "assets/prod_4_cod.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic.", "best_for": "Fish & Chips, Baking.", "nutrition_protein": "17g", "nutrition_fat": "0.7g", "nutrition_calories": "82 kcal", "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Flaky white meat.", "famous_for": "British Fish & Chips.", "allergy": "Contains Fish.", "how_to_cook": "Batter and fry or bake.", "video1": "", "video2": "", "instructions": "<li>Batter lightly.</li><li>Deep fry until golden.</li>"}, "prod_5_mackerel": {"title": "Mackerel", "subtitle": "Local \u2022 Whole", "price": "\u00a39.50", "unit": "kg", "image": "assets/prod_5_mackerel.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "UK Coast.", "best_for": "Grilling, Smoking.", "nutrition_protein": "18g", "nutrition_fat": "13g", "nutrition_calories": "205 kcal", "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "High", "speciality": "Rich, oily fish.", "famous_for": "Smoked dishes.", "allergy": "Contains Fish.", "how_to_cook": "Grill on high heat.", "video1": "", "video2": "", "instructions": "<li>Score skin.</li><li>Grill for 5 mins each side.</li>"}, "prod_6_haddock": {"title": "Haddock", "subtitle": "Atlantic \u2022 Fillet", "price": "\u00a314.00", "unit": "kg", "image": "assets/prod_6_haddock.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic.", "best_for": "Baking, Smoking.", "nutrition_protein": "19g", "nutrition_fat": "0.5g", "nutrition_calories": "90 kcal", "nutrition_extra_label": "B12", "nutrition_extra_val": "High", "speciality": "Slightly sweet taste.", "famous_for": "Scottish Cuisine.", "allergy": "Contains Fish.", "how_to_cook": "Poach in milk or bake.", "video1": "", "video2": "", "instructions": "<li>Bake with butter and herbs.</li>"}, "prod_7_sardines": {"title": "Sardines", "subtitle": "Local \u2022 Fresh", "price": "\u00a38.50", "unit": "kg", "image": "assets/prod_7_sardines.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Cornwall Coast.", "best_for": "Grilling, BBQ.", "nutrition_protein": "20g", "nutrition_fat": "11g", "nutrition_calories": "190 kcal", "nutrition_extra_label": "Calcium", "nutrition_extra_val": "High", "speciality": "Nutrient dense.", "famous_for": "Mediterranean BBQ.", "allergy": "Contains Fish.", "how_to_cook": "Grill whole.", "video1": "", "video2": "", "instructions": "<li>Grill whole with olive oil and salt.</li>"}, "prod_8_trout": {"title": "Trout", "subtitle": "Farm \u2022 Whole", "price": "\u00a311.99", "unit": "kg", "image": "assets/prod_8_trout.jpg", "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "UK Freshwater Farms.", "best_for": "Pan-frying, Baking.", "nutrition_protein": "19g", "nutrition_fat": "6g", "nutrition_calories": "140 kcal", "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "Mod", "speciality": "Earthy flavor.", "famous_for": "European Freshwater Cuisine.", "allergy": "Contains Fish.", "how_to_cook": "Pan-fry with almonds.", "video1": "", "video2": "", "instructions": "<li>Pan fry with butter and almonds.</li>"}, "beef_chunks": {"title": "Beef Chunks", "subtitle": "Premium \u2022 Boneless", "price": "\u00a310.99", "unit": "kg", "image": "assets/beef_chunks.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Stews, Curries.", "nutrition_protein": "26g", "nutrition_fat": "15g", "nutrition_calories": "250 kcal", "nutrition_extra_label": "Iron", "nutrition_extra_val": "High", "speciality": "Tender and flavorful.", "famous_for": "Slow-cooked stews.", "allergy": "No known allergens.", "how_to_cook": "Slow cook for 3 hours.", "video1": "", "video2": "", "instructions": "<li>Brown meat.</li><li>Slow cook in broth.</li>"}, "boar_meat_bonless": {"title": "Boar Meat", "subtitle": "Exotic \u2022 Boneless", "price": "\u00a318.50", "unit": "kg", "image": "assets/boar_meat_bonless.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Roasting, Stews.", "nutrition_protein": "28g", "nutrition_fat": "9g", "nutrition_calories": "210 kcal", "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Rich, gamey flavor.", "famous_for": "Exotic dishes.", "allergy": "No known allergens.", "how_to_cook": "Roast slowly.", "video1": "", "video2": "", "instructions": "<li>Marinate overnight.</li><li>Roast slow.</li>"}, "boar_meat_with_bone": {"title": "Boar Bone-in", "subtitle": "Exotic \u2022 Bone-in", "price": "\u00a315.50", "unit": "kg", "image": "assets/boar_meat_with_bone.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Broths, Slow Cook.", "nutrition_protein": "25g", "nutrition_fat": "11g", "nutrition_calories": "220 kcal", "nutrition_extra_label": "Flavor", "nutrition_extra_val": "High", "speciality": "Flavorful bone marrow.", "famous_for": "Rich broths.", "allergy": "No known allergens.", "how_to_cook": "Simmer for hours.", "video1": "", "video2": "", "instructions": "<li>Simmer for rich broth.</li>"}, "buffalo": {"title": "Buffalo Meat", "subtitle": "Premium \u2022 Cuts", "price": "\u00a39.50", "unit": "kg", "image": "assets/buffalo.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Farmed.", "best_for": "Curries.", "nutrition_protein": "24g", "nutrition_fat": "8g", "nutrition_calories": "190 kcal", "nutrition_extra_label": "Iron", "nutrition_extra_val": "High", "speciality": "Leaner than beef.", "famous_for": "Spicy curries.", "allergy": "No known allergens.", "how_to_cook": "Pressure cook.", "video1": "", "video2": "", "instructions": "<li>Pressure cook for tenderness.</li>"}, "deer_meat": {"title": "Venison", "subtitle": "Exotic \u2022 Cuts", "price": "\u00a322.99", "unit": "kg", "image": "assets/deer_meat.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Steaks, Roasts.", "nutrition_protein": "30g", "nutrition_fat": "3g", "nutrition_calories": "150 kcal", "nutrition_extra_label": "Lean", "nutrition_extra_val": "Very High", "speciality": "Extremely lean, gamey.", "famous_for": "Gourmet dishes.", "allergy": "No known allergens.", "how_to_cook": "Sear quickly.", "video1": "", "video2": "", "instructions": "<li>Do not overcook. Sear quickly.</li>"}, "lamb": {"title": "Lamb Meat", "subtitle": "Local \u2022 Mixed", "price": "\u00a315.99", "unit": "kg", "image": "assets/lamb.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Roasting, Grilling.", "nutrition_protein": "25g", "nutrition_fat": "21g", "nutrition_calories": "290 kcal", "nutrition_extra_label": "Fat", "nutrition_extra_val": "High", "speciality": "Tender and sweet.", "famous_for": "Sunday Roasts.", "allergy": "No known allergens.", "how_to_cook": "Roast with rosemary.", "video1": "", "video2": "", "instructions": "<li>Roast with garlic and rosemary.</li>"}, "mutton_leg": {"title": "Mutton Leg", "subtitle": "Local \u2022 Bone-in", "price": "\u00a314.99", "unit": "kg", "image": "assets/mutton_leg.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Slow Roasting.", "nutrition_protein": "26g", "nutrition_fat": "18g", "nutrition_calories": "270 kcal", "nutrition_extra_label": "Iron", "nutrition_extra_val": "Mod", "speciality": "Rich, intense flavor.", "famous_for": "Traditional Roasts.", "allergy": "No known allergens.", "how_to_cook": "Slow roast.", "video1": "", "video2": "", "instructions": "<li>Slow roast for 4 hours.</li>"}, "rabbit": {"title": "Rabbit Meat", "subtitle": "Farm \u2022 Whole", "price": "\u00a312.50", "unit": "kg", "image": "assets/rabbit.jpg", "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Stews, Braising.", "nutrition_protein": "28g", "nutrition_fat": "5g", "nutrition_calories": "160 kcal", "nutrition_extra_label": "Lean", "nutrition_extra_val": "High", "speciality": "Very lean white meat.", "famous_for": "French Cuisine.", "allergy": "No known allergens.", "how_to_cook": "Braise slowly.", "video1": "", "video2": "", "instructions": "<li>Braise in white wine.</li>"}, "chicken_full": {"title": "Whole Chicken", "subtitle": "Local Farm \u2022 Fresh", "price": "\u00a35.99", "unit": "kg", "image": "assets/chicken_full.jpg", "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Free Range Farms.", "best_for": "Roasting.", "nutrition_protein": "27g", "nutrition_fat": "14g", "nutrition_calories": "239 kcal", "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Juicy and tender.", "famous_for": "Sunday Roasts.", "allergy": "No known allergens.", "how_to_cook": "Roast whole.", "video1": "", "video2": "", "instructions": "<li>Roast at 190C for 1h 20m.</li>"}, "boneless_chicken": {"title": "Boneless Chicken", "subtitle": "Premium Cuts", "price": "\u00a38.50", "unit": "kg", "image": "assets/boneless_chicken.jpg", "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Curries, Stir-fry.", "nutrition_protein": "31g", "nutrition_fat": "3g", "nutrition_calories": "165 kcal", "nutrition_extra_label": "Lean", "nutrition_extra_val": "High", "speciality": "Very lean and versatile.", "famous_for": "Quick meals.", "allergy": "No known allergens.", "how_to_cook": "Pan fry or boil.", "video1": "", "video2": "", "instructions": "<li>Pan fry for 10-15 mins.</li>"}, "chicken_liver": {"title": "Chicken Liver", "subtitle": "Fresh Offal", "price": "\u00a33.99", "unit": "kg", "image": "assets/chicken_liver.jpg", "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Farms.", "best_for": "P\u00e2t\u00e9, Saut\u00e9.", "nutrition_protein": "24g", "nutrition_fat": "6g", "nutrition_calories": "167 kcal", "nutrition_extra_label": "Iron", "nutrition_extra_val": "Very High", "speciality": "Rich in iron and vitamins.", "famous_for": "P\u00e2t\u00e9.", "allergy": "No known allergens.", "how_to_cook": "Saut\u00e9 quickly.", "video1": "", "video2": "", "instructions": "<li>Saut\u00e9 with onions until brown.</li>"}, "chicken_egg": {"title": "Chicken Eggs", "subtitle": "Farm Fresh \u2022 Dozen", "price": "\u00a32.99", "unit": "dozen", "image": "assets/chicken_egg.jpg", "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "UK Free Range.", "best_for": "Boiling, Frying, Baking.", "nutrition_protein": "12g", "nutrition_fat": "10g", "nutrition_calories": "143 kcal", "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "High", "speciality": "Daily essential.", "famous_for": "Breakfasts.", "allergy": "Contains Egg.", "how_to_cook": "Boil for 6 mins.", "video1": "", "video2": "", "instructions": "<li>Boil, fry, or scramble.</li>"}, "duck_egg": {"title": "Duck Eggs", "subtitle": "Premium \u2022 Dozen", "price": "\u00a34.50", "unit": "dozen", "image": "assets/duck_egg.jpg", "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Baking, Custards.", "nutrition_protein": "13g", "nutrition_fat": "14g", "nutrition_calories": "185 kcal", "nutrition_extra_label": "Richness", "nutrition_extra_val": "High", "speciality": "Larger yolks, creamier.", "famous_for": "Baking fluffier cakes.", "allergy": "Contains Egg.", "how_to_cook": "Fry sunny side up.", "video1": "", "video2": "", "instructions": "<li>Fry on medium heat until white is set.</li>"}, "quail_egg": {"title": "Quail Eggs", "subtitle": "Exotic \u2022 Pack", "price": "\u00a33.99", "unit": "pack", "image": "assets/quail_egg.jpg", "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "Specialty Farms.", "best_for": "Salads, Garnishes.", "nutrition_protein": "13g", "nutrition_fat": "11g", "nutrition_calories": "158 kcal", "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "High", "speciality": "Small, speckled, nutrient dense.", "famous_for": "Gourmet dishes.", "allergy": "Contains Egg.", "how_to_cook": "Boil for 2.5 mins.", "video1": "", "video2": "", "instructions": "<li>Boil for 2.5 mins for soft boiled.</li>"}};
 
@@ -1432,6 +1365,5 @@ function showDetails(id) {
     go('details');
 }
 </script>
-
 </body>
 </html>
