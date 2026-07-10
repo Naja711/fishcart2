@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>FISHCART - Daily Fresh Partner</title>
-<link 0="" 100="" 100\"="" 2000="" href="data:image/svg+xml,&lt;svg xmlns=\" http:="" rel="icon" svg\"="" viewbox='\"0' www.w3.org=""/><text font-size='\"90\"' y='\".9em\"'>🐟</text>"&gt;
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
 <meta content="FISHCART - Your Daily Fresh Partner. Fresh fish, meat, chicken and eggs handpicked daily for freshness you can trust." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 .home{flex:1;height:100%;display:flex;flex-direction:column;padding:9px 10px 9px 9px;gap:7px;overflow:hidden;background:#E8F3FA;}
 
 /* ROW 1 */
-.r1{display:grid;grid-template-columns:1.4fr 1fr;gap:7px;flex-shrink:0;height:205px;}
+.r1{display:grid;grid-template-columns:1.4fr 1fr;gap:7px;flex-shrink:0;min-height:235px;}
 .hero{background:linear-gradient(115deg,#C5E5F7 0%,#A8D8F0 60%,#8DC8E8 100%);border-radius:14px;padding:18px 20px 14px;position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .h1{font-size:27px;font-weight:900;color:#0A2848;line-height:1.1;z-index:2;max-width:200px;}
 .hp{font-size:10.5px;color:#2a5070;margin:6px 0 11px;z-index:2;}
@@ -52,13 +52,13 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 .btn-join svg{width:12px;height:12px;}
 
 /* Cat Grid */
-.cat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:7px;}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:15px;}
 .cat{border-radius:12px;padding:10px 12px;position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;transition:all .2s;min-height:110px;}
 .cat:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.18);}
-.cat.fish{background:linear-gradient(135deg,#2E9FD5,#1F7BAF);}
+.cat.fish{background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/header_fish.png') center/cover no-repeat;}
 .cat.meat{background:linear-gradient(135deg,#E06A84,#C44A65);}
 .cat.chicken{background:linear-gradient(135deg,#F5C430,#D8A800);}
-.cat.eggs{background:linear-gradient(135deg,#4CAF50,#388E3C);grid-column:1/-1;}
+.cat.eggs{background:linear-gradient(135deg,#4CAF50,#388E3C);}
 .cat-inf{z-index:2;display:flex;flex-direction:column;justify-content:space-between;height:100%;}
 .cat-name{font-size:15px;font-weight:700;color:#fff;}
 .cat-cnt{font-size:10px;color:rgba(255,255,255,.9);margin-top:1px;}
@@ -67,15 +67,15 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 .eggs .cimg{width:35%;right:5px;height:90%;object-position:right bottom;}
 
 /* ROW 2 */
-.r2{display:grid;grid-template-columns:1.4fr 1fr;gap:7px;flex:1;min-height:0;}
-.r2-right{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;flex:1;min-height:0;}
+.r2{display:grid;grid-template-columns:1.4fr 1fr;gap:15px;flex:1;min-height:0;}
+.r2-right{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;flex:1;min-height:0;}
 
 /* Cook Card */
-.cook{background:#1565C0;border-radius:14px;padding:11px 13px;display:flex;flex-direction:column;color:#fff;min-height:0;min-width:0;}
+.cook{background:#1565C0;border-radius:14px;padding:11px 13px;display:flex;flex-direction:column;color:#fff;min-height:0;min-width:0;overflow:hidden;}
 .ct{font-size:13.5px;font-weight:700;}
 .cs{font-size:8.5px;opacity:.82;margin:2px 0 7px;}
-.rrow{display:flex;gap:6px;flex:1;min-height:0;}
-.rec{flex:1;display:flex;flex-direction:column;cursor:pointer;min-height:0;min-width:0;}
+.rrow{display:flex;gap:15px;flex:1;min-height:0;overflow-x:auto;padding-bottom:5px;}
+.rec{flex:1;display:flex;flex-direction:column;cursor:pointer;min-height:0;min-width:140px;}
 .rthumb{position:relative;border-radius:8px;overflow:hidden;flex:1;min-height:0;}
 .rthumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);}
@@ -268,23 +268,25 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
     .nav { flex-direction: row; gap: 10px; padding: 0; }
     
     /* Home Layout */
-    .home { height: auto; overflow-y: visible; padding: 10px; }
-    .r1 { grid-template-columns: 1fr; height: auto; }
-    .hero { min-height: 180px; }
-    .cat-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .home { display: flex; flex-direction: column; height: auto; overflow-y: visible; padding: 10px; }
+    .r1, .r2 { display: contents; }
+    .hero { order: 1; min-height: 180px; width: 100%; }
+    .cook { order: 2; width: 100%; }
+    .rrow { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
+    .rec { min-width: 150px; flex: 0 0 auto; }
+    .cat-grid { order: 3; grid-template-columns: 1fr 1fr; grid-template-rows: auto; width: 100%; }
     .cat.eggs { grid-column: 1 / -1; }
     
-    .r2 { grid-template-columns: 1fr; height: auto; }
-    .r2-right { grid-template-columns: 1fr; }
+    .r2-right { order: 4; grid-template-columns: 1fr; width: 100%; }
     .bene { grid-column: span 1; }
     
-    .r3 { grid-template-columns: 1fr 1fr; height: auto; }
+    .r3 { order: 5; grid-template-columns: 1fr 1fr; height: auto; width: 100%; }
     .prod { aspect-ratio: 1; }
     
-    .r4 { grid-template-columns: 1fr 1fr; height: auto; }
+    .r4 { order: 6; grid-template-columns: 1fr 1fr; height: auto; width: 100%; }
     .r4 .feat:last-child { grid-column: 1 / -1; } /* Center the last feature */
     
-    .r5 { grid-template-columns: 1fr; height: auto; }
+    .r5 { order: 7; grid-template-columns: 1fr; height: auto; width: 100%; }
     .fcol { border-right: none !important; border-bottom: 1px solid #EEE; padding-bottom: 10px; padding-right: 0; }
     
     /* Fish Page / SPA Layout */
@@ -410,7 +412,6 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <div><div class="cat-name">Fish</div><div class="cat-cnt">100+ Items</div></div>
 <div class="cat-arr">→</div>
 </div>
-<img alt="Fish" class="cimg" src="assets/cat_fish.png"/>
 </div>
 <div class="cat meat" onclick="go('meat')">
 <div class="cat-inf">
@@ -655,23 +656,23 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 </div>
 <!-- TABS -->
 <div class="fp-tabs">
-<div class="fp-tab active">
+<div class="fp-tab active" data-tab-name="All Fish">
 <span class="fp-tab-ic">🐟</span>
 <div class="fp-tab-txt"><span class="fp-tab-n">All Fish</span><span class="fp-tab-c">120+ Items</span></div>
 </div>
-<div class="fp-tab">
+<div class="fp-tab" data-tab-name="By Country">
 <span class="fp-tab-ic">🌐</span>
 <div class="fp-tab-txt"><span class="fp-tab-n">By Country</span><span class="fp-tab-c">20+ Items</span></div>
 </div>
-<div class="fp-tab">
+<div class="fp-tab" data-tab-name="Grill Fishes">
 <span class="fp-tab-ic">🔥</span>
 <div class="fp-tab-txt"><span class="fp-tab-n">Grill Fishes</span><span class="fp-tab-c">25+ Items</span></div>
 </div>
-<div class="fp-tab">
+<div class="fp-tab" data-tab-name="Curry Fishes">
 <span class="fp-tab-ic">🍲</span>
 <div class="fp-tab-txt"><span class="fp-tab-n">Curry Fishes</span><span class="fp-tab-c">30+ Items</span></div>
 </div>
-<div class="fp-tab">
+<div class="fp-tab" data-tab-name="Other Types">
 <span class="fp-tab-ic">🐠</span>
 <div class="fp-tab-txt"><span class="fp-tab-n">Other Types</span><span class="fp-tab-c">45+ Items</span></div>
 </div>
@@ -684,31 +685,31 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
 <div class="fp-fgroup">
 <div class="fp-fhead">Sort By</div>
-<select class="fp-select"><option>Newest First</option></select>
+<select class="fp-select" id="fp-sort-sidebar"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select>
 </div>
 <div class="fp-fgroup">
 <div class="fp-fhead">By Country</div>
-<label class="fp-fitem"><div class="fp-fcb"><input checked="" type="checkbox"/> 🇬🇧 United Kingdom</div><span class="fp-fcount">45</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input checked="" type="checkbox"/> 🇳🇴 Norway</div><span class="fp-fcount">28</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><span class="fp-fcount">18</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🇮🇸 Iceland</div><span class="fp-fcount">12</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> 🇳🇱 Netherlands</div><span class="fp-fcount">10</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="uk" class="filter-country"/> 🇬🇧 United Kingdom</div><span class="fp-fcount">45</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="norway" class="filter-country"/> 🇳🇴 Norway</div><span class="fp-fcount">28</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="scotland" class="filter-country"/> 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div><span class="fp-fcount">18</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="iceland" class="filter-country"/> 🇮🇸 Iceland</div><span class="fp-fcount">12</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="netherlands" class="filter-country"/> 🇳🇱 Netherlands</div><span class="fp-fcount">10</span></label>
 <div class="fp-flmore">View More ⌄</div>
 </div>
 <div class="fp-fgroup">
 <div class="fp-fhead">By Type</div>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Grill Fishes</div><span class="fp-fcount">25</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Curry Fishes</div><span class="fp-fcount">30</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Steak Cuts</div><span class="fp-fcount">15</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Whole Fish</div><span class="fp-fcount">35</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Fillets</div><span class="fp-fcount">20</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="grill" class="filter-type"/> Grill Fishes</div><span class="fp-fcount">25</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="curry" class="filter-type"/> Curry Fishes</div><span class="fp-fcount">30</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="steak" class="filter-type"/> Steak Cuts</div><span class="fp-fcount">15</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="whole" class="filter-type"/> Whole Fish</div><span class="fp-fcount">35</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="fillet" class="filter-type"/> Fillets</div><span class="fp-fcount">20</span></label>
 <div class="fp-flmore">View More ⌄</div>
 </div>
 <div class="fp-fgroup">
 <div class="fp-fhead">Size</div>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Small (0-500g)</div><span class="fp-fcount">40</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Medium (500g-1kg)</div><span class="fp-fcount">50</span></label>
-<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox"/> Large (1kg+)</div><span class="fp-fcount">30</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="small" class="filter-size"/> Small (0-500g)</div><span class="fp-fcount">40</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="medium" class="filter-size"/> Medium (500g-1kg)</div><span class="fp-fcount">50</span></label>
+<label class="fp-fitem"><div class="fp-fcb"><input type="checkbox" value="large" class="filter-size"/> Large (1kg+)</div><span class="fp-fcount">30</span></label>
 </div>
 <button class="fp-fbtn">Apply Filters</button>
 </div>
@@ -736,82 +737,10 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
               <div class="fp-vbtn active"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 0h6v6h-6z"></path></svg></div>
 <div class="fp-vbtn"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></div>
 </div>
-<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+<div class="fp-psort">Sort by: <select class="fp-psel" id="fp-sort"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 </div>
 </div>
-<div class="fp-grid">
-<!-- Card 1 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Salmon" class="fp-cimg" src="https://cdn.sanity.io/images/v5b89tvp/production/fae7bc0147b282837144d385e8abc31f1e505f62-735x412.jpg"/>
-<div class="fp-ct">Salmon</div>
-<div class="fp-csub">Norway • Fillet</div>
-<div><span class="fp-ctag">Rich in Omega-3</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£14.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_1_salmon')" style="cursor:pointer;"><a href="details_prod_1_salmon.html" style="text-decoration:none;"><div onclick="showDetails('prod_1_salmon')" style="cursor:pointer;"><div onclick="showDetails('prod_1_salmon')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 2 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Sea Bass" class="fp-cimg" src="assets/prod_2_seabass.jpg"/>
-<div class="fp-ct">Sea Bass</div>
-<div class="fp-csub">United Kingdom • Whole</div>
-<div><span class="fp-ctag">High in Protein</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£12.50</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_2_seabass')" style="cursor:pointer;"><a href="details_prod_2_seabass.html" style="text-decoration:none;"><div onclick="showDetails('prod_2_seabass')" style="cursor:pointer;"><div onclick="showDetails('prod_2_seabass')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 3 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Mackerel" class="fp-cimg" src="assets/prod_3_mackerel.jpg"/>
-<div class="fp-ct">Mackerel</div>
-<div class="fp-csub">Scotland • Whole</div>
-<div><span class="fp-ctag">Rich in Omega-3</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£6.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_3_mackerel')" style="cursor:pointer;"><a href="details_prod_3_mackerel.html" style="text-decoration:none;"><div onclick="showDetails('prod_3_mackerel')" style="cursor:pointer;"><div onclick="showDetails('prod_3_mackerel')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 4 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Cod Fillet" class="fp-cimg" src="assets/prod_4_cod.jpg"/>
-<div class="fp-ct">Cod Fillet</div>
-<div class="fp-csub">Iceland • Fillet</div>
-<div><span class="fp-ctag">Low Fat</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£11.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_4_cod')" style="cursor:pointer;"><a href="details_prod_4_cod.html" style="text-decoration:none;"><div onclick="showDetails('prod_4_cod')" style="cursor:pointer;"><div onclick="showDetails('prod_4_cod')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 5 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Tuna Steak" class="fp-cimg" src="assets/prod_5_tuna.jpg"/>
-<div class="fp-ct">Tuna Steak</div>
-<div class="fp-csub">Spain • Steak Cut</div>
-<div><span class="fp-ctag">High in Protein</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£15.50</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_5_tuna')" style="cursor:pointer;"><a href="details_prod_5_tuna.html" style="text-decoration:none;"><div onclick="showDetails('prod_5_tuna')" style="cursor:pointer;"><div onclick="showDetails('prod_5_tuna')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 6 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Tilapia" class="fp-cimg" src="assets/prod_6_tilapia.jpg"/>
-<div class="fp-ct">Tilapia</div>
-<div class="fp-csub">Netherlands • Whole</div>
-<div><span class="fp-ctag">Good Source of Protein</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£5.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_6_tilapia')" style="cursor:pointer;"><a href="details_prod_6_tilapia.html" style="text-decoration:none;"><div onclick="showDetails('prod_6_tilapia')" style="cursor:pointer;"><div onclick="showDetails('prod_6_tilapia')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 7 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Prawns (King)" class="fp-cimg" src="assets/prod_7_prawns.jpg"/>
-<div class="fp-ct">Prawns (King)</div>
-<div class="fp-csub">Thailand • Shell-on</div>
-<div><span class="fp-ctag">High in Protein</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£16.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_7_prawns')" style="cursor:pointer;"><a href="details_prod_7_prawns.html" style="text-decoration:none;"><div onclick="showDetails('prod_7_prawns')" style="cursor:pointer;"><div onclick="showDetails('prod_7_prawns')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
-<!-- Card 8 -->
-<div class="fp-card">
-<div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
-<img alt="Trout" class="fp-cimg" src="assets/prod_8_trout.jpg"/>
-<div class="fp-ct">Trout</div>
-<div class="fp-csub">United Kingdom • Whole</div>
-<div><span class="fp-ctag">Rich in Vitamins</span></div>
-<div class="fp-cbot"><div><span class="fp-cprice">£7.99</span><span class="fp-cunit"> / kg</span></div><div onclick="showDetails('prod_8_trout')" style="cursor:pointer;"><a href="details_prod_8_trout.html" style="text-decoration:none;"><div onclick="showDetails('prod_8_trout')" style="cursor:pointer;"><div onclick="showDetails('prod_8_trout')" style="cursor:pointer;"><div class="fp-clink">View Details →</div></div></div></a></div></div>
-</div>
+<div class="fp-grid" id="fp-fish-grid">
 </div>
 </div>
 </div>
@@ -858,16 +787,16 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <span class="fp-tab-ic">🥩</span>
 <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Meat</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">50+ Items</span></div>
 </div>
-<div class="fp-tab"><span class="fp-tab-ic">🐄</span><div class="fp-tab-txt"><span class="fp-tab-n">Beef</span><span class="fp-tab-c">15+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🐑</span><div class="fp-tab-txt"><span class="fp-tab-n">Mutton</span><span class="fp-tab-c">12+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">10+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🍖</span><div class="fp-tab-txt"><span class="fp-tab-n">Other</span><span class="fp-tab-c">13+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Beef"><span class="fp-tab-ic">🐄</span><div class="fp-tab-txt"><span class="fp-tab-n">Beef</span><span class="fp-tab-c">15+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Mutton"><span class="fp-tab-ic">🐑</span><div class="fp-tab-txt"><span class="fp-tab-n">Mutton</span><span class="fp-tab-c">12+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Premium"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Other"><span class="fp-tab-ic">🍖</span><div class="fp-tab-txt"><span class="fp-tab-n">Other</span><span class="fp-tab-c">13+ Items</span></div></div>
 </div>
 <div class="fp-main">
 <div class="fp-sidebar">
 <div class="fp-filters">
 <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select" id="fp-sort-sidebar"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 <button class="fp-fbtn" style="background:#C2185B;">Apply Filters</button>
 </div>
 </div>
@@ -875,7 +804,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <div class="fp-phead">
 <div class="fp-ph-l">Showing items</div>
 <div class="fp-ph-r">
-<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+<div class="fp-psort">Sort by: <select class="fp-psel" id="fp-sort"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 </div>
 </div>
 <div class="fp-grid">
@@ -905,16 +834,16 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <span class="fp-tab-ic">🍗</span>
 <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Chicken</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">30+ Items</span></div>
 </div>
-<div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Whole Bird</span><span class="fp-tab-c">10+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Cuts</span><span class="fp-tab-c">15+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🥘</span><div class="fp-tab-txt"><span class="fp-tab-n">Offal</span><span class="fp-tab-c">5+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Whole Bird"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Whole Bird</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Cuts"><span class="fp-tab-ic">🔪</span><div class="fp-tab-txt"><span class="fp-tab-n">Cuts</span><span class="fp-tab-c">15+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Offal"><span class="fp-tab-ic">🥘</span><div class="fp-tab-txt"><span class="fp-tab-n">Offal</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Premium"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
 </div>
 <div class="fp-main">
 <div class="fp-sidebar">
 <div class="fp-filters">
 <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select" id="fp-sort-sidebar"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 <button class="fp-fbtn" style="background:#F57F17;">Apply Filters</button>
 </div>
 </div>
@@ -922,7 +851,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <div class="fp-phead">
 <div class="fp-ph-l">Showing items</div>
 <div class="fp-ph-r">
-<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+<div class="fp-psort">Sort by: <select class="fp-psel" id="fp-sort"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 </div>
 </div>
 <div class="fp-grid">
@@ -947,16 +876,16 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <span class="fp-tab-ic">🥚</span>
 <div class="fp-tab-txt"><span class="fp-tab-n" style="color:#fff;">All Eggs</span><span class="fp-tab-c" style="color:rgba(255,255,255,.8);">20+ Items</span></div>
 </div>
-<div class="fp-tab"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Chicken Eggs</span><span class="fp-tab-c">10+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🦆</span><div class="fp-tab-txt"><span class="fp-tab-n">Duck Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">🪹</span><div class="fp-tab-txt"><span class="fp-tab-n">Quail Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
-<div class="fp-tab"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Chicken Eggs"><span class="fp-tab-ic">🐔</span><div class="fp-tab-txt"><span class="fp-tab-n">Chicken Eggs</span><span class="fp-tab-c">10+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Duck Eggs"><span class="fp-tab-ic">🦆</span><div class="fp-tab-txt"><span class="fp-tab-n">Duck Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Quail Eggs"><span class="fp-tab-ic">🪹</span><div class="fp-tab-txt"><span class="fp-tab-n">Quail Eggs</span><span class="fp-tab-c">5+ Items</span></div></div>
+<div class="fp-tab" data-tab-name="Premium"><span class="fp-tab-ic">⭐</span><div class="fp-tab-txt"><span class="fp-tab-n">Premium</span><span class="fp-tab-c">5+ Items</span></div></div>
 </div>
 <div class="fp-main">
 <div class="fp-sidebar">
 <div class="fp-filters">
 <div style="font-size:12px;font-weight:800;color:#0A2848;margin-bottom:4px;">Filters</div>
-<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select"><option>Newest First</option></select></div>
+<div class="fp-fgroup"><div class="fp-fhead">Sort By</div><select class="fp-select" id="fp-sort-sidebar"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 <button class="fp-fbtn" style="background:#2E7D32;">Apply Filters</button>
 </div>
 </div>
@@ -964,7 +893,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 <div class="fp-phead">
 <div class="fp-ph-l">Showing items</div>
 <div class="fp-ph-r">
-<div class="fp-psort">Sort by: <select class="fp-psel"><option>Newest First</option></select></div>
+<div class="fp-psort">Sort by: <select class="fp-psel" id="fp-sort"><option value="newest">Newest First</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option></select></div>
 </div>
 </div>
 <div class="fp-grid">
@@ -1543,5 +1472,136 @@ function toggleFilters() {
     }
 }
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('fp-fish-grid');
+    if(!grid) return;
+
+    // Remove empty <p> that might be in grid if we didn't clear well
+    grid.innerHTML = '';
+    
+    const countryCheckboxes = document.querySelectorAll('.filter-country');
+    const typeCheckboxes = document.querySelectorAll('.filter-type');
+    const sizeCheckboxes = document.querySelectorAll('.filter-size');
+    const sortMain = document.getElementById('fp-sort');
+    const sortSidebar = document.getElementById('fp-sort-sidebar');
+    const tabs = document.querySelectorAll('.fp-tab');
+
+    // Sync sorts
+    if(sortMain && sortSidebar) {
+        sortMain.addEventListener('change', (e) => { sortSidebar.value = e.target.value; renderFish(); });
+        sortSidebar.addEventListener('change', (e) => { sortMain.value = e.target.value; renderFish(); });
+    }
+    
+    // Add event listeners
+    [...countryCheckboxes, ...typeCheckboxes, ...sizeCheckboxes].forEach(cb => {
+        cb.addEventListener('change', renderFish);
+    });
+
+    // Top Tabs logic
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const name = tab.getAttribute('data-tab-name');
+            
+            // reset all checkboxes
+            [...countryCheckboxes, ...typeCheckboxes, ...sizeCheckboxes].forEach(cb => cb.checked = false);
+            
+            if(name === 'By Country') {
+                // Check a couple countries
+                if(countryCheckboxes[0]) countryCheckboxes[0].checked = true;
+                if(countryCheckboxes[1]) countryCheckboxes[1].checked = true;
+            } else if(name === 'Grill Fishes') {
+                const cb = document.querySelector('.filter-type[value="grill"]');
+                if(cb) cb.checked = true;
+            } else if(name === 'Curry Fishes') {
+                const cb = document.querySelector('.filter-type[value="curry"]');
+                if(cb) cb.checked = true;
+            }
+            renderFish();
+        });
+    });
+
+    function renderFish() {
+        // get selected filters
+        const selCountries = Array.from(countryCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+        const selTypes = Array.from(typeCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+        const selSizes = Array.from(sizeCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+        const sortBy = sortMain ? sortMain.value : 'newest';
+
+        let products = Object.keys(pdData).map(k => ({id: k, ...pdData[k]})).filter(p => p.category === 'Fish');
+
+        // Apply filters
+        if(selCountries.length > 0) {
+            products = products.filter(p => {
+                const text = ((p.subtitle||'') + " " + (p.origin||'')).toLowerCase();
+                return selCountries.some(c => text.includes(c) || (c==='uk' && text.includes('united kingdom')));
+            });
+        }
+        
+        if(selTypes.length > 0) {
+            products = products.filter(p => {
+                const text = ((p.subtitle||'') + " " + (p.best_for||'')).toLowerCase();
+                return selTypes.some(t => text.includes(t));
+            });
+        }
+
+        if(selSizes.length > 0) {
+            // Mock: if selected, filter some out based on id length to simulate filtering
+            products = products.filter(p => p.id.length % 2 === (selSizes.includes('small') ? 1 : 0));
+        }
+
+        // Sort
+        if(sortBy === 'price_low') {
+            products.sort((a,b) => parseFloat(a.price.replace('£','')) - parseFloat(b.price.replace('£','')));
+        } else if(sortBy === 'price_high') {
+            products.sort((a,b) => parseFloat(b.price.replace('£','')) - parseFloat(a.price.replace('£','')));
+        }
+        // newest is default, no sort needed
+
+        // Render
+        grid.innerHTML = '';
+        if(products.length === 0) {
+            grid.innerHTML = '<div style="grid-column: 1/-1; padding: 40px; text-align: center; color: #555; font-size: 16px;">No products match your selected filters. Try removing some filters.</div>';
+        } else {
+            products.forEach(p => {
+                let tags = 'Fresh Catch';
+                if((p.nutrition_extra_label || '').toLowerCase().includes('omega')) tags = 'Rich in Omega-3';
+                else if((p.nutrition_extra_label || '').toLowerCase().includes('protein')) tags = 'High in Protein';
+                else if((p.nutrition_extra_val || '').toLowerCase() === 'high') tags = 'High in Vitamins';
+
+                grid.innerHTML += `
+                <div class="fp-card">
+                  <div class="fp-fav"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div>
+                  <img alt="${p.title}" class="fp-cimg" src="${p.image}"/>
+                  <div class="fp-ct">${p.title}</div>
+                  <div class="fp-csub">${p.subtitle}</div>
+                  <div><span class="fp-ctag">${tags}</span></div>
+                  <div class="fp-cbot">
+                    <div><span class="fp-cprice">${p.price}</span><span class="fp-cunit"> / ${p.unit}</span></div>
+                    <div style="cursor:pointer;" onclick="showDetails('${p.id}')">
+                      <a href="details_${p.id}.html" style="text-decoration:none;">
+                        <div class="fp-clink">View Details &rarr;</div>
+                      </a>
+                    </div>
+                  </div>
+                </div>`;
+            });
+        }
+        
+        // Update count
+        const phL = document.querySelector('.fp-ph-l');
+        if(phL) {
+            phL.innerText = `Showing 1-${products.length} of 120+ items`;
+        }
+    }
+
+    // Initial render
+    renderFish();
+});
+</script>
 </body>
+
 </html>
