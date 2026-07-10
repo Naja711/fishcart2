@@ -250,6 +250,55 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
 .fp-fcol.r{flex-direction:row;align-items:center;gap:12px;border-left:1px solid #EEE;padding-left:15px;}
 .fp-fcol.r .fp-fic{width:36px;height:36px;}
 .fp-fcol.r .fp-fic svg{width:18px;height:18px;}
+
+/* ── MOBILE RESPONSIVENESS ── */
+@media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+    .app { flex-direction: column; height: auto; overflow: visible; }
+    
+    /* Hide desktop sidebar, add a minimal mobile nav or just make it scrollable */
+    .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; padding: 10px; z-index: 90; }
+    .logo-area { display: none; }
+    .nav { flex-direction: row; gap: 10px; padding: 0; }
+    
+    /* Home Layout */
+    .home { height: auto; overflow-y: visible; padding: 10px; }
+    .r1 { grid-template-columns: 1fr; height: auto; }
+    .hero { min-height: 180px; }
+    .cat-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .cat.eggs { grid-column: 1 / -1; }
+    
+    .r2 { grid-template-columns: 1fr; height: auto; }
+    .r2-right { grid-template-columns: 1fr; }
+    .bene { grid-column: span 1; }
+    
+    .r3 { grid-template-columns: 1fr 1fr; height: auto; }
+    .prod { aspect-ratio: 1; }
+    
+    .r4 { grid-template-columns: 1fr 1fr; height: auto; }
+    .r4 .feat:last-child { grid-column: 1 / -1; } /* Center the last feature */
+    
+    .r5 { grid-template-columns: 1fr; height: auto; }
+    .fcol { border-right: none !important; border-bottom: 1px solid #EEE; padding-bottom: 10px; padding-right: 0; }
+    
+    /* Fish Page / SPA Layout */
+    .fish-page { height: auto; overflow-y: visible; padding: 10px; }
+    .fp-tabs { grid-template-columns: repeat(5, auto); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+    .fp-tab { padding: 10px 15px; }
+    
+    .fp-main { flex-direction: column; display: flex; }
+    .fp-products { order: 1; }
+    .fp-sidebar { order: 2; margin-top: 15px; }
+    .fp-sidebar { width: 100%; height: auto; overflow-y: visible; }
+    
+    .fp-grid { grid-template-columns: 1fr 1fr; height: auto; overflow-y: visible; gap: 10px; }
+    .fp-cimg { height: 120px; }
+    
+    .fp-features { grid-template-columns: 1fr 1fr; }
+    .fp-footer { grid-template-columns: 1fr; gap: 15px; }
+    .fp-fcol.r { border-left: none; padding-left: 0; border-top: 1px solid #EEE; padding-top: 15px; }
+}
+
 </style>
 </head>
 <body>
@@ -1110,7 +1159,56 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;
       .tab-item { min-height: 44px; display: flex; align-items: center; }
     }
 
-  </style>
+  
+/* ── MOBILE RESPONSIVENESS ── */
+@media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+    .app { flex-direction: column; height: auto; overflow: visible; }
+    
+    /* Hide desktop sidebar, add a minimal mobile nav or just make it scrollable */
+    .sidebar { width: 100%; height: auto; flex-direction: row; overflow-x: auto; padding: 10px; z-index: 90; }
+    .logo-area { display: none; }
+    .nav { flex-direction: row; gap: 10px; padding: 0; }
+    
+    /* Home Layout */
+    .home { height: auto; overflow-y: visible; padding: 10px; }
+    .r1 { grid-template-columns: 1fr; height: auto; }
+    .hero { min-height: 180px; }
+    .cat-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .cat.eggs { grid-column: 1 / -1; }
+    
+    .r2 { grid-template-columns: 1fr; height: auto; }
+    .r2-right { grid-template-columns: 1fr; }
+    .bene { grid-column: span 1; }
+    
+    .r3 { grid-template-columns: 1fr 1fr; height: auto; }
+    .prod { aspect-ratio: 1; }
+    
+    .r4 { grid-template-columns: 1fr 1fr; height: auto; }
+    .r4 .feat:last-child { grid-column: 1 / -1; } /* Center the last feature */
+    
+    .r5 { grid-template-columns: 1fr; height: auto; }
+    .fcol { border-right: none !important; border-bottom: 1px solid #EEE; padding-bottom: 10px; padding-right: 0; }
+    
+    /* Fish Page / SPA Layout */
+    .fish-page { height: auto; overflow-y: visible; padding: 10px; }
+    .fp-tabs { grid-template-columns: repeat(5, auto); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+    .fp-tab { padding: 10px 15px; }
+    
+    .fp-main { flex-direction: column; display: flex; }
+    .fp-products { order: 1; }
+    .fp-sidebar { order: 2; margin-top: 15px; }
+    .fp-sidebar { width: 100%; height: auto; overflow-y: visible; }
+    
+    .fp-grid { grid-template-columns: 1fr 1fr; height: auto; overflow-y: visible; gap: 10px; }
+    .fp-cimg { height: 120px; }
+    
+    .fp-features { grid-template-columns: 1fr 1fr; }
+    .fp-footer { grid-template-columns: 1fr; gap: 15px; }
+    .fp-fcol.r { border-left: none; padding-left: 0; border-top: 1px solid #EEE; padding-top: 15px; }
+}
+
+</style>
 <div style="padding: 16px 24px; padding-bottom:100px;">
 <div class="top-section-row">
 <!-- [1] Product Info -->
