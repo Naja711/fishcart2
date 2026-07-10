@@ -190,6 +190,30 @@ data = {
     }
 }
 
+import requests
+import urllib.parse
+
+PROJECT_ID = 'v5b89tvp'
+DATASET = 'production'
+QUERY = '*[_type == \'product\']'
+
+try:
+    url = f'https://{PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/{DATASET}?query={urllib.parse.quote(QUERY)}'
+    response = requests.get(url, timeout=5)
+    if response.status_code == 200:
+        sanity_docs = response.json().get('result', [])
+        if len(sanity_docs) > 0:
+            # Overwrite hardcoded data with sanity data
+            for doc in sanity_docs:
+                prod_id = doc.get('id')
+                if prod_id and prod_id in data:
+                    data[prod_id].update(doc)
+                    # Handle image URL mapping if image exists in Sanity
+                    # Since we didn't migrate images yet, keep local fallback
+except Exception as e:
+    print('Failed to fetch from Sanity, using local fallback.', e)
+
+
 template_path = r"d:\fishcart\product_template.html"
 with open(template_path, "r", encoding="utf-8") as f:
     template = f.read()
