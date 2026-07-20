@@ -50,15 +50,17 @@ if not recipe_html:
 with open('index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-start_marker = '<div class="cook-grid" id="cook-grid-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">'
-start = html.find(start_marker)
-if start != -1:
-    content_start = start + len(start_marker)
-    end = html.find('</div>', content_start)
-    if end != -1:
-        new_html = html[:content_start] + '\n' + recipe_html + '\n        ' + html[end:]
-        with open('index.html', 'w', encoding='utf-8') as f:
-            f.write(new_html)
-        print("Injected recipe cards into index.html")
+soup = BeautifulSoup(html, 'html.parser')
+grid = soup.find('div', id='cook-grid-container')
+if grid:
+    # Clear existing content of the grid
+    grid.clear()
+    # Parse recipe_html and append to grid
+    recipe_soup = BeautifulSoup(recipe_html, 'html.parser')
+    grid.append(recipe_soup)
+    
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(str(soup))
+    print("Injected recipe cards into index.html using BeautifulSoup")
 else:
     print("Could not find cook-grid-container in index.html")

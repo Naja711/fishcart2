@@ -2,7 +2,7 @@ import os
 
 data = {
     # FISH
-    "prod_1_salmon": {
+        "prod_1_salmon": {
         "title": "Salmon", "subtitle": "Norway • Fillet", "price": "£14.99", "unit": "kg", "image": "prod_1_salmon.jpg",
         "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From",
         "origin": "Norway, North Atlantic Ocean. Wild Caught.", "best_for": "Curry, Grill, Baking.",
@@ -14,58 +14,58 @@ data = {
         "instructions": "<li>Preheat pan on medium-high.</li><li>Season salmon with salt and pepper.</li><li>Sear skin-side down for 4 mins.</li><li>Flip and cook 2 mins.</li>"
     },
     "prod_2_seabass": {
-        "title": "Sea Bass", "subtitle": "Local • Whole", "price": "£18.50", "unit": "kg", "image": "prod_2_seabass.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Mediterranean Sea.", "best_for": "Baking, Pan-frying.",
+        "title": "Sea Bass", "subtitle": "United Kingdom • Whole", "price": "£12.50", "unit": "kg", "image": "prod_2_seabass.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "United Kingdom Coastal Waters.", "best_for": "Baking, Pan-frying.",
         "nutrition_protein": "18g", "nutrition_fat": "2.5g", "nutrition_calories": "97 kcal",
-        "nutrition_extra_label": "B-Vitamins", "nutrition_extra_val": "High", "speciality": "Mild, delicate flavor.",
+        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Mild, delicate flavor.",
         "famous_for": "Mediterranean dishes.", "allergy": "Contains Fish.", "how_to_cook": "Bake whole with lemon and rosemary.",
         "video1": "", "video2": "", "instructions": "<li>Stuff with lemon.</li><li>Bake at 200C for 20 mins.</li>"
     },
     "prod_3_tuna": {
-        "title": "Tuna Steak", "subtitle": "Pacific • Steak", "price": "£22.00", "unit": "kg", "image": "prod_3_tuna.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Pacific Ocean.", "best_for": "Searing, Sashimi.",
+        "title": "Tuna Steak", "subtitle": "Spain • Steak Cut", "price": "£15.50", "unit": "kg", "image": "prod_3_tuna.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Atlantic Ocean, Spain.", "best_for": "Searing, Sashimi.",
         "nutrition_protein": "24g", "nutrition_fat": "1g", "nutrition_calories": "109 kcal",
-        "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "Mod", "speciality": "Meaty texture.",
+        "nutrition_extra_label": "Protein", "nutrition_extra_val": "Mod", "speciality": "Meaty texture.",
         "famous_for": "Sushi, Poke Bowls.", "allergy": "Contains Fish.", "how_to_cook": "Sear 1 min per side.",
         "video1": "", "video2": "", "instructions": "<li>Season well.</li><li>Sear on screaming hot pan for 1 min per side.</li>"
     },
     "prod_4_cod": {
-        "title": "Cod Fillet", "subtitle": "Atlantic • Fillet", "price": "£12.99", "unit": "kg", "image": "prod_4_cod.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic.", "best_for": "Fish & Chips, Baking.",
+        "title": "Cod Fillet", "subtitle": "Iceland • Fillet", "price": "£11.99", "unit": "kg", "image": "prod_4_cod.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic, Iceland.", "best_for": "Fish & Chips, Baking.",
         "nutrition_protein": "17g", "nutrition_fat": "0.7g", "nutrition_calories": "82 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Flaky white meat.",
+        "nutrition_extra_label": "Low Fat", "nutrition_extra_val": "High", "speciality": "Flaky white meat.",
         "famous_for": "British Fish & Chips.", "allergy": "Contains Fish.", "how_to_cook": "Batter and fry or bake.",
         "video1": "", "video2": "", "instructions": "<li>Batter lightly.</li><li>Deep fry until golden.</li>"
     },
     "prod_5_mackerel": {
-        "title": "Mackerel", "subtitle": "Local • Whole", "price": "£9.50", "unit": "kg", "image": "prod_5_mackerel.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "UK Coast.", "best_for": "Grilling, Smoking.",
+        "title": "Mackerel", "subtitle": "Scotland • Whole", "price": "£6.99", "unit": "kg", "image": "prod_5_mackerel.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Scotland Coast.", "best_for": "Grilling, Smoking.",
         "nutrition_protein": "18g", "nutrition_fat": "13g", "nutrition_calories": "205 kcal",
         "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "High", "speciality": "Rich, oily fish.",
         "famous_for": "Smoked dishes.", "allergy": "Contains Fish.", "how_to_cook": "Grill on high heat.",
         "video1": "", "video2": "", "instructions": "<li>Score skin.</li><li>Grill for 5 mins each side.</li>"
     },
-    "prod_6_haddock": {
-        "title": "Haddock", "subtitle": "Atlantic • Fillet", "price": "£14.00", "unit": "kg", "image": "prod_6_haddock.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic.", "best_for": "Baking, Smoking.",
-        "nutrition_protein": "19g", "nutrition_fat": "0.5g", "nutrition_calories": "90 kcal",
-        "nutrition_extra_label": "B12", "nutrition_extra_val": "High", "speciality": "Slightly sweet taste.",
-        "famous_for": "Scottish Cuisine.", "allergy": "Contains Fish.", "how_to_cook": "Poach in milk or bake.",
-        "video1": "", "video2": "", "instructions": "<li>Bake with butter and herbs.</li>"
+    "prod_6_tilapia": {
+        "title": "Tilapia", "subtitle": "Netherlands • Whole", "price": "£5.99", "unit": "kg", "image": "prod_6_tilapia.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Netherlands Freshwater Farms.", "best_for": "Baking, Frying.",
+        "nutrition_protein": "20g", "nutrition_fat": "1.7g", "nutrition_calories": "96 kcal",
+        "nutrition_extra_label": "Good Source of Protein", "nutrition_extra_val": "High", "speciality": "Mild, slightly sweet flavor.",
+        "famous_for": "Fried Tilapia.", "allergy": "Contains Fish.", "how_to_cook": "Pan fry or bake.",
+        "video1": "", "video2": "", "instructions": "<li>Season and pan fry for 4 minutes each side.</li>"
     },
-    "prod_7_sardines": {
-        "title": "Sardines", "subtitle": "Local • Fresh", "price": "£8.50", "unit": "kg", "image": "prod_7_sardines.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Cornwall Coast.", "best_for": "Grilling, BBQ.",
-        "nutrition_protein": "20g", "nutrition_fat": "11g", "nutrition_calories": "190 kcal",
-        "nutrition_extra_label": "Calcium", "nutrition_extra_val": "High", "speciality": "Nutrient dense.",
-        "famous_for": "Mediterranean BBQ.", "allergy": "Contains Fish.", "how_to_cook": "Grill whole.",
-        "video1": "", "video2": "", "instructions": "<li>Grill whole with olive oil and salt.</li>"
+    "prod_7_prawns": {
+        "title": "Prawns (King)", "subtitle": "Thailand • Shell-on", "price": "£16.99", "unit": "kg", "image": "prod_7_prawns.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Thailand Coastal Waters.", "best_for": "Grilling, Curry.",
+        "nutrition_protein": "24g", "nutrition_fat": "0.3g", "nutrition_calories": "99 kcal",
+        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Sweet, juicy flavor.",
+        "famous_for": "Garlic butter prawns.", "allergy": "Contains Shellfish.", "how_to_cook": "Saute in garlic butter for 3 minutes.",
+        "video1": "", "video2": "", "instructions": "<li>Saute in pan with butter and garlic until pink.</li>"
     },
     "prod_8_trout": {
-        "title": "Trout", "subtitle": "Farm • Whole", "price": "£11.99", "unit": "kg", "image": "prod_8_trout.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "UK Freshwater Farms.", "best_for": "Pan-frying, Baking.",
+        "title": "Trout", "subtitle": "United Kingdom • Whole", "price": "£7.99", "unit": "kg", "image": "prod_8_trout.jpg",
+        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "United Kingdom Freshwater Farms.", "best_for": "Pan-frying, Baking.",
         "nutrition_protein": "19g", "nutrition_fat": "6g", "nutrition_calories": "140 kcal",
-        "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "Mod", "speciality": "Earthy flavor.",
+        "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "Mod", "speciality": "Earthy flavor.",
         "famous_for": "European Freshwater Cuisine.", "allergy": "Contains Fish.", "how_to_cook": "Pan-fry with almonds.",
         "video1": "", "video2": "", "instructions": "<li>Pan fry with butter and almonds.</li>"
     },
