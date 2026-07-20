@@ -1,194 +1,6 @@
 import json
 import re
-
-data = {
-    # FISH
-    "prod_1_salmon": {
-        "title": "Salmon", "subtitle": "Norway • Fillet", "price": "£14.99", "unit": "kg", "image": "assets/prod_1_salmon.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From",
-        "origin": "Norway, North Atlantic Ocean. Wild Caught.", "best_for": "Curry, Grill, Baking.",
-        "nutrition_protein": "20.4g", "nutrition_fat": "13.4g", "nutrition_calories": "208 kcal",
-        "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "3", "speciality": "Rich, buttery flavor and firm texture.",
-        "famous_for": "Norwegian Cuisine, Japanese Sushi.", "allergy": "Contains Fish.",
-        "how_to_cook": "Grill or pan-sear. Great with lemon and herbs.",
-        "video1": "https://www.youtube.com/embed/jH-1gV1fH-s", "video2": "https://www.youtube.com/embed/9gN2lB5B9Qo",
-        "instructions": "<li>Preheat pan on medium-high.</li><li>Season salmon with salt and pepper.</li><li>Sear skin-side down for 4 mins.</li><li>Flip and cook 2 mins.</li>"
-    },
-    "prod_2_seabass": {
-        "title": "Sea Bass", "subtitle": "United Kingdom • Whole", "price": "£12.50", "unit": "kg", "image": "assets/prod_2_seabass.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "United Kingdom Coastal Waters.", "best_for": "Baking, Pan-frying.",
-        "nutrition_protein": "18g", "nutrition_fat": "2.5g", "nutrition_calories": "97 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Mild, delicate flavor.",
-        "famous_for": "Mediterranean dishes.", "allergy": "Contains Fish.", "how_to_cook": "Bake whole with lemon and rosemary.",
-        "video1": "", "video2": "", "instructions": "<li>Stuff with lemon.</li><li>Bake at 200C for 20 mins.</li>"
-    },
-    "prod_3_tuna": {
-        "title": "Tuna Steak", "subtitle": "Spain • Steak Cut", "price": "£15.50", "unit": "kg", "image": "assets/prod_3_tuna.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Atlantic Ocean, Spain.", "best_for": "Searing, Sashimi.",
-        "nutrition_protein": "24g", "nutrition_fat": "1g", "nutrition_calories": "109 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "Mod", "speciality": "Meaty texture.",
-        "famous_for": "Sushi, Poke Bowls.", "allergy": "Contains Fish.", "how_to_cook": "Sear 1 min per side.",
-        "video1": "", "video2": "", "instructions": "<li>Season well.</li><li>Sear on screaming hot pan for 1 min per side.</li>"
-    },
-    "prod_4_cod": {
-        "title": "Cod Fillet", "subtitle": "Iceland • Fillet", "price": "£11.99", "unit": "kg", "image": "assets/prod_4_cod.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "North Atlantic, Iceland.", "best_for": "Fish & Chips, Baking.",
-        "nutrition_protein": "17g", "nutrition_fat": "0.7g", "nutrition_calories": "82 kcal",
-        "nutrition_extra_label": "Low Fat", "nutrition_extra_val": "High", "speciality": "Flaky white meat.",
-        "famous_for": "British Fish & Chips.", "allergy": "Contains Fish.", "how_to_cook": "Batter and fry or bake.",
-        "video1": "", "video2": "", "instructions": "<li>Batter lightly.</li><li>Deep fry until golden.</li>"
-    },
-    "prod_5_mackerel": {
-        "title": "Mackerel", "subtitle": "Scotland • Whole", "price": "£6.99", "unit": "kg", "image": "assets/prod_5_mackerel.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Scotland Coast.", "best_for": "Grilling, Smoking.",
-        "nutrition_protein": "18g", "nutrition_fat": "13g", "nutrition_calories": "205 kcal",
-        "nutrition_extra_label": "Omega-3", "nutrition_extra_val": "High", "speciality": "Rich, oily fish.",
-        "famous_for": "Smoked dishes.", "allergy": "Contains Fish.", "how_to_cook": "Grill on high heat.",
-        "video1": "", "video2": "", "instructions": "<li>Score skin.</li><li>Grill for 5 mins each side.</li>"
-    },
-    "prod_6_tilapia": {
-        "title": "Tilapia", "subtitle": "Netherlands • Whole", "price": "£5.99", "unit": "kg", "image": "assets/prod_6_tilapia.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Netherlands Freshwater Farms.", "best_for": "Baking, Frying.",
-        "nutrition_protein": "20g", "nutrition_fat": "1.7g", "nutrition_calories": "96 kcal",
-        "nutrition_extra_label": "Good Source of Protein", "nutrition_extra_val": "High", "speciality": "Mild, slightly sweet flavor.",
-        "famous_for": "Fried Tilapia.", "allergy": "Contains Fish.", "how_to_cook": "Pan fry or bake.",
-        "video1": "", "video2": "", "instructions": "<li>Season and pan fry for 4 minutes each side.</li>"
-    },
-    "prod_7_prawns": {
-        "title": "Prawns (King)", "subtitle": "Thailand • Shell-on", "price": "£16.99", "unit": "kg", "image": "assets/prod_7_prawns.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "Thailand Coastal Waters.", "best_for": "Grilling, Curry.",
-        "nutrition_protein": "24g", "nutrition_fat": "0.3g", "nutrition_calories": "99 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Sweet, juicy flavor.",
-        "famous_for": "Garlic butter prawns.", "allergy": "Contains Shellfish.", "how_to_cook": "Saute in garlic butter for 3 minutes.",
-        "video1": "", "video2": "", "instructions": "<li>Saute in pan with butter and garlic until pink.</li>"
-    },
-    "prod_8_trout": {
-        "title": "Trout", "subtitle": "United Kingdom • Whole", "price": "£7.99", "unit": "kg", "image": "assets/prod_8_trout.jpg",
-        "category": "Fish", "category_url": "index.html#fish", "origin_label": "Catch From", "origin": "United Kingdom Freshwater Farms.", "best_for": "Pan-frying, Baking.",
-        "nutrition_protein": "19g", "nutrition_fat": "6g", "nutrition_calories": "140 kcal",
-        "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "Mod", "speciality": "Earthy flavor.",
-        "famous_for": "European Freshwater Cuisine.", "allergy": "Contains Fish.", "how_to_cook": "Pan-fry with almonds.",
-        "video1": "", "video2": "", "instructions": "<li>Pan fry with butter and almonds.</li>"
-    },
-
-    # MEAT
-    "beef_chunks": {
-        "title": "Beef Chunks", "subtitle": "Premium • Boneless", "price": "£10.99", "unit": "kg", "image": "assets/beef_chunks.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Stews, Curries.",
-        "nutrition_protein": "26g", "nutrition_fat": "15g", "nutrition_calories": "250 kcal",
-        "nutrition_extra_label": "Iron", "nutrition_extra_val": "High", "speciality": "Tender and flavorful.",
-        "famous_for": "Slow-cooked stews.", "allergy": "No known allergens.", "how_to_cook": "Slow cook for 3 hours.",
-        "video1": "", "video2": "", "instructions": "<li>Brown meat.</li><li>Slow cook in broth.</li>"
-    },
-    "boar_meat_bonless": {
-        "title": "Boar Meat", "subtitle": "Exotic • Boneless", "price": "£18.50", "unit": "kg", "image": "assets/boar_meat_bonless.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Roasting, Stews.",
-        "nutrition_protein": "28g", "nutrition_fat": "9g", "nutrition_calories": "210 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Rich, gamey flavor.",
-        "famous_for": "Exotic dishes.", "allergy": "No known allergens.", "how_to_cook": "Roast slowly.",
-        "video1": "", "video2": "", "instructions": "<li>Marinate overnight.</li><li>Roast slow.</li>"
-    },
-    "boar_meat_with_bone": {
-        "title": "Boar Bone-in", "subtitle": "Exotic • Bone-in", "price": "£15.50", "unit": "kg", "image": "assets/boar_meat_with_bone.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Broths, Slow Cook.",
-        "nutrition_protein": "25g", "nutrition_fat": "11g", "nutrition_calories": "220 kcal",
-        "nutrition_extra_label": "Flavor", "nutrition_extra_val": "High", "speciality": "Flavorful bone marrow.",
-        "famous_for": "Rich broths.", "allergy": "No known allergens.", "how_to_cook": "Simmer for hours.",
-        "video1": "", "video2": "", "instructions": "<li>Simmer for rich broth.</li>"
-    },
-    "buffalo": {
-        "title": "Buffalo Meat", "subtitle": "Premium • Cuts", "price": "£9.50", "unit": "kg", "image": "assets/buffalo.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Farmed.", "best_for": "Curries.",
-        "nutrition_protein": "24g", "nutrition_fat": "8g", "nutrition_calories": "190 kcal",
-        "nutrition_extra_label": "Iron", "nutrition_extra_val": "High", "speciality": "Leaner than beef.",
-        "famous_for": "Spicy curries.", "allergy": "No known allergens.", "how_to_cook": "Pressure cook.",
-        "video1": "", "video2": "", "instructions": "<li>Pressure cook for tenderness.</li>"
-    },
-    "deer_meat": {
-        "title": "Venison", "subtitle": "Exotic • Cuts", "price": "£22.99", "unit": "kg", "image": "assets/deer_meat.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "Wild Sourced.", "best_for": "Steaks, Roasts.",
-        "nutrition_protein": "30g", "nutrition_fat": "3g", "nutrition_calories": "150 kcal",
-        "nutrition_extra_label": "Lean", "nutrition_extra_val": "Very High", "speciality": "Extremely lean, gamey.",
-        "famous_for": "Gourmet dishes.", "allergy": "No known allergens.", "how_to_cook": "Sear quickly.",
-        "video1": "", "video2": "", "instructions": "<li>Do not overcook. Sear quickly.</li>"
-    },
-    "lamb": {
-        "title": "Lamb Meat", "subtitle": "Local • Mixed", "price": "£15.99", "unit": "kg", "image": "assets/lamb.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Roasting, Grilling.",
-        "nutrition_protein": "25g", "nutrition_fat": "21g", "nutrition_calories": "290 kcal",
-        "nutrition_extra_label": "Fat", "nutrition_extra_val": "High", "speciality": "Tender and sweet.",
-        "famous_for": "Sunday Roasts.", "allergy": "No known allergens.", "how_to_cook": "Roast with rosemary.",
-        "video1": "", "video2": "", "instructions": "<li>Roast with garlic and rosemary.</li>"
-    },
-    "mutton_leg": {
-        "title": "Mutton Leg", "subtitle": "Local • Bone-in", "price": "£14.99", "unit": "kg", "image": "assets/mutton_leg.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Slow Roasting.",
-        "nutrition_protein": "26g", "nutrition_fat": "18g", "nutrition_calories": "270 kcal",
-        "nutrition_extra_label": "Iron", "nutrition_extra_val": "Mod", "speciality": "Rich, intense flavor.",
-        "famous_for": "Traditional Roasts.", "allergy": "No known allergens.", "how_to_cook": "Slow roast.",
-        "video1": "", "video2": "", "instructions": "<li>Slow roast for 4 hours.</li>"
-    },
-    "rabbit": {
-        "title": "Rabbit Meat", "subtitle": "Farm • Whole", "price": "£12.50", "unit": "kg", "image": "assets/rabbit.jpg",
-        "category": "Meat", "category_url": "index.html#meat", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Stews, Braising.",
-        "nutrition_protein": "28g", "nutrition_fat": "5g", "nutrition_calories": "160 kcal",
-        "nutrition_extra_label": "Lean", "nutrition_extra_val": "High", "speciality": "Very lean white meat.",
-        "famous_for": "French Cuisine.", "allergy": "No known allergens.", "how_to_cook": "Braise slowly.",
-        "video1": "", "video2": "", "instructions": "<li>Braise in white wine.</li>"
-    },
-
-    # CHICKEN
-    "chicken_full": {
-        "title": "Whole Chicken", "subtitle": "Local Farm • Fresh", "price": "£5.99", "unit": "kg", "image": "assets/chicken_full.jpg",
-        "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Free Range Farms.", "best_for": "Roasting.",
-        "nutrition_protein": "27g", "nutrition_fat": "14g", "nutrition_calories": "239 kcal",
-        "nutrition_extra_label": "Protein", "nutrition_extra_val": "High", "speciality": "Juicy and tender.",
-        "famous_for": "Sunday Roasts.", "allergy": "No known allergens.", "how_to_cook": "Roast whole.",
-        "video1": "", "video2": "", "instructions": "<li>Roast at 190C for 1h 20m.</li>"
-    },
-    "boneless_chicken": {
-        "title": "Boneless Chicken", "subtitle": "Premium Cuts", "price": "£8.50", "unit": "kg", "image": "assets/boneless_chicken.jpg",
-        "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Curries, Stir-fry.",
-        "nutrition_protein": "31g", "nutrition_fat": "3g", "nutrition_calories": "165 kcal",
-        "nutrition_extra_label": "Lean", "nutrition_extra_val": "High", "speciality": "Very lean and versatile.",
-        "famous_for": "Quick meals.", "allergy": "No known allergens.", "how_to_cook": "Pan fry or boil.",
-        "video1": "", "video2": "", "instructions": "<li>Pan fry for 10-15 mins.</li>"
-    },
-    "chicken_liver": {
-        "title": "Chicken Liver", "subtitle": "Fresh Offal", "price": "£3.99", "unit": "kg", "image": "assets/chicken_liver.jpg",
-        "category": "Chicken", "category_url": "index.html#chicken", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Pâté, Sauté.",
-        "nutrition_protein": "24g", "nutrition_fat": "6g", "nutrition_calories": "167 kcal",
-        "nutrition_extra_label": "Iron", "nutrition_extra_val": "Very High", "speciality": "Rich in iron and vitamins.",
-        "famous_for": "Pâté.", "allergy": "No known allergens.", "how_to_cook": "Sauté quickly.",
-        "video1": "", "video2": "", "instructions": "<li>Sauté with onions until brown.</li>"
-    },
-
-    # EGGS
-    "chicken_egg": {
-        "title": "Chicken Eggs", "subtitle": "Farm Fresh • Dozen", "price": "£2.99", "unit": "dozen", "image": "assets/chicken_egg.jpg",
-        "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "UK Free Range.", "best_for": "Boiling, Frying, Baking.",
-        "nutrition_protein": "12g", "nutrition_fat": "10g", "nutrition_calories": "143 kcal",
-        "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "High", "speciality": "Daily essential.",
-        "famous_for": "Breakfasts.", "allergy": "Contains Egg.", "how_to_cook": "Boil for 6 mins.",
-        "video1": "", "video2": "", "instructions": "<li>Boil, fry, or scramble.</li>"
-    },
-    "duck_egg": {
-        "title": "Duck Eggs", "subtitle": "Premium • Dozen", "price": "£4.50", "unit": "dozen", "image": "assets/duck_egg.jpg",
-        "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "UK Farms.", "best_for": "Baking, Custards.",
-        "nutrition_protein": "13g", "nutrition_fat": "14g", "nutrition_calories": "185 kcal",
-        "nutrition_extra_label": "Richness", "nutrition_extra_val": "High", "speciality": "Larger yolks, creamier.",
-        "famous_for": "Baking fluffier cakes.", "allergy": "Contains Egg.", "how_to_cook": "Fry sunny side up.",
-        "video1": "", "video2": "", "instructions": "<li>Fry on medium heat until white is set.</li>"
-    },
-    "quail_egg": {
-        "title": "Quail Eggs", "subtitle": "Exotic • Pack", "price": "£3.99", "unit": "pack", "image": "assets/quail_egg.jpg",
-        "category": "Eggs", "category_url": "index.html#eggs", "origin_label": "Source", "origin": "Specialty Farms.", "best_for": "Salads, Garnishes.",
-        "nutrition_protein": "13g", "nutrition_fat": "11g", "nutrition_calories": "158 kcal",
-        "nutrition_extra_label": "Vitamins", "nutrition_extra_val": "High", "speciality": "Small, speckled, nutrient dense.",
-        "famous_for": "Gourmet dishes.", "allergy": "Contains Egg.", "how_to_cook": "Boil for 2.5 mins.",
-        "video1": "", "video2": "", "instructions": "<li>Boil for 2.5 mins for soft boiled.</li>"
-    }
-}
+from generate_details_pages import data
 
 import requests
 import urllib.parse
@@ -244,32 +56,35 @@ else:
     css = ""
 
 # Extract just the HTML inside main-wrapper
-html_match = re.search(r'<div class="top-section-row">.*?<!-- CONTACT US MODAL -->', template, flags=re.DOTALL)
+html_match = re.search(r'<div class="main-wrapper".*?<!-- CONTACT US MODAL -->', template, flags=re.DOTALL)
 if html_match:
     details_html = html_match.group(0)
-    # Give elements specific IDs for JS updates
-    details_html = details_html.replace('{{TITLE}}', '<span id="pd-title"></span>')
-    details_html = details_html.replace('{{SUBTITLE}}', '<span id="pd-subtitle"></span>')
-    details_html = details_html.replace('{{CATEGORY}}', '<span id="pd-category"></span>')
-    details_html = details_html.replace('href="{{CATEGORY_URL}}"', 'href="#" id="pd-catlink" onclick="event.preventDefault();"')
-    details_html = details_html.replace('{{PRICE}}', '<span id="pd-price"></span>')
-    details_html = details_html.replace('{{UNIT}}', '<span id="pd-unit"></span>')
-    details_html = details_html.replace('src="{{IMAGE}}"', 'src="" id="pd-img"')
-    details_html = details_html.replace('{{ORIGIN_LABEL}}', '<span id="pd-origin-label"></span>')
-    details_html = details_html.replace('{{ORIGIN}}', '<span id="pd-origin"></span>')
-    details_html = details_html.replace('{{BEST_FOR}}', '<span id="pd-best-for"></span>')
-    details_html = details_html.replace('{{NUTRITION_PROTEIN}}, {{NUTRITION_FAT}}, {{NUTRITION_CALORIES}}', '<span id="pd-nutr"></span>')
-    details_html = details_html.replace('{{ALLERGY}}', '<span id="pd-allergy"></span>')
-    details_html = details_html.replace('{{HOW_TO_COOK}}', '<span id="pd-how-cook"></span>')
-    details_html = details_html.replace('{{SPECIALITY}}', '<span id="pd-speciality"></span>')
-    details_html = details_html.replace('{{FAMOUS_FOR}}', '<span id="pd-famous-for"></span>')
-    
-    # Let's fix the thumbs
-    details_html = details_html.replace('<div class="gallery-thumbnails">', '<div class="gallery-thumbnails" id="pd-thumbs">')
-    # Let's fix the video
-    details_html = details_html.replace('src="{{VIDEO1_URL}}"', 'src="" id="pd-vid1"')
-    details_html = details_html.replace('src="{{VIDEO2_URL}}"', 'src="" id="pd-vid2"')
-    details_html = details_html.replace('{{INSTRUCTIONS}}', '<div id="pd-instructions"></div>')
+    # Replace default placeholders so initial static HTML has valid fallbacks
+    details_html = details_html.replace("{{TITLE}}", "Salmon")
+    details_html = details_html.replace("{{PRICE}}", "£14.99")
+    details_html = details_html.replace("{{UNIT}}", "kg")
+    details_html = details_html.replace("{{IMAGE}}", "assets/prod_1_salmon.jpg")
+    details_html = details_html.replace("{{CATEGORY}}", "Fish")
+    details_html = details_html.replace("{{CATEGORY_URL}}", "index.html#fish")
+    details_html = details_html.replace("{{ORIGIN_LABEL}}", "Catch From")
+    details_html = details_html.replace("{{ORIGIN}}", "Norway, North Atlantic Ocean. Wild Caught.")
+    details_html = details_html.replace("{{BEST_FOR}}", "Curry, Grill, Baking.")
+    details_html = details_html.replace("{{NUTRITION_PROTEIN}}", "20.4g")
+    details_html = details_html.replace("{{NUTRITION_FAT}}", "13.4g")
+    details_html = details_html.replace("{{NUTRITION_CALORIES}}", "208 kcal")
+    details_html = details_html.replace("{{NUTRITION_EXTRA_LABEL}}", "Omega-3")
+    details_html = details_html.replace("{{NUTRITION_EXTRA_VAL}}", "3")
+    details_html = details_html.replace("{{SPECIALITY}}", "Rich, buttery flavor and firm texture.")
+    details_html = details_html.replace("{{FAMOUS_FOR}}", "Norwegian Cuisine, Japanese Sushi.")
+    details_html = details_html.replace("{{ALLERGY}}", "Contains Fish.")
+    details_html = details_html.replace("{{HOW_TO_COOK}}", "Grill or pan-sear. Great with lemon and herbs.")
+    details_html = details_html.replace("{{VIDEO1_URL}}", "https://www.youtube.com/embed/jH-1gV1fH-s")
+    details_html = details_html.replace("{{VIDEO2_URL}}", "https://www.youtube.com/embed/9gN2lB5B9Qo")
+    details_html = details_html.replace("{{INSTRUCTIONS}}", "<li>Preheat pan on medium-high.</li><li>Season salmon with salt and pepper.</li><li>Sear skin-side down for 4 mins.</li><li>Flip and cook 2 mins.</li>")
+    details_html = details_html.replace("{{FISH_ACTIVE}}", "active")
+    details_html = details_html.replace("{{MEAT_ACTIVE}}", "")
+    details_html = details_html.replace("{{CHICKEN_ACTIVE}}", "")
+    details_html = details_html.replace("{{EGGS_ACTIVE}}", "")
 else:
     print("Could not find HTML in template")
     exit(1)
@@ -283,16 +98,34 @@ function showDetails(id) {{
     const d = pdData[id];
     if(!d) return;
     
-    document.getElementById('pd-title').innerText = d.title;
-    document.getElementById('pd-subtitle').innerText = d.subtitle;
-    document.getElementById('pd-category').innerText = d.category;
-    document.getElementById('pd-price').innerText = d.price;
-    document.getElementById('pd-unit').innerText = d.unit;
+    const titleEl = document.getElementById('pd-title');
+    if(titleEl) titleEl.innerText = d.title;
+    
+    const titleBc = document.getElementById('pd-title-breadcrumb');
+    if(titleBc) titleBc.innerText = d.title;
+
+    const cookTitle = document.getElementById('pd-cook-title');
+    if(cookTitle) cookTitle.innerText = d.title;
+
+    const descEl = document.getElementById('pd-desc');
+    if(descEl) descEl.innerText = `Rich in Omega-3 and loaded with nutrients, ${{d.title}} is known for its incredible taste and health benefits.`;
+    
+    const catEl = document.getElementById('pd-category');
+    if(catEl) catEl.innerText = d.category;
+    
+    const priceEl = document.getElementById('pd-price');
+    if(priceEl) priceEl.innerText = d.price;
+    
+    const unitEl = document.getElementById('pd-unit');
+    if(unitEl) unitEl.innerText = d.unit;
     
     const catLink = document.getElementById('pd-catlink');
-    catLink.onclick = function(e) {{ e.preventDefault(); go(d.category.toLowerCase()); }};
+    if(catLink) {{
+        catLink.onclick = function(e) {{ e.preventDefault(); go(d.category.toLowerCase()); }};
+    }}
     
-    document.getElementById('pd-img').src = d.image;
+    const mainImg = document.getElementById('pd-img');
+    if(mainImg) mainImg.src = d.image;
     
     // Thumbs
     const thumbs = document.getElementById('pd-thumbs');
@@ -300,31 +133,209 @@ function showDetails(id) {{
         thumbs.innerHTML = '';
         if (d.gallery && d.gallery.length > 0) {{
             for(let i=0; i<d.gallery.length; i++) {{
-                thumbs.innerHTML += `<img src="${{d.gallery[i]}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)">`;
+                thumbs.innerHTML += `<img src="${{d.gallery[i]}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">`;
             }}
-            document.getElementById('pd-img').src = d.gallery[0];
+            if(mainImg) mainImg.src = d.gallery[0];
         }} else {{
             for(let i=0; i<6; i++) {{
-                thumbs.innerHTML += `<img src="${{d.image}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)">`;
+                thumbs.innerHTML += `<img src="${{d.image}}" class="thumb ${{i===0?'active':''}}" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">`;
             }}
         }}
     }}
     
-    document.getElementById('pd-origin-label').innerText = d.origin_label;
-    document.getElementById('pd-origin').innerText = d.origin;
-    document.getElementById('pd-best-for').innerText = d.best_for;
-    document.getElementById('pd-nutr').innerText = d.nutrition_protein + ", " + d.nutrition_fat + ", " + d.nutrition_calories;
-    document.getElementById('pd-allergy').innerText = d.allergy;
-    document.getElementById('pd-how-cook').innerText = d.how_to_cook;
-    document.getElementById('pd-speciality').innerText = d.speciality;
-    document.getElementById('pd-famous-for').innerText = d.famous_for;
+    const origLbl = document.getElementById('pd-origin-label');
+    if(origLbl) origLbl.innerText = d.origin_label;
     
-    if(document.getElementById('pd-vid1')) document.getElementById('pd-vid1').src = d.video1;
-    if(document.getElementById('pd-vid2')) document.getElementById('pd-vid2').src = d.video2;
-    if(document.getElementById('pd-instructions')) document.getElementById('pd-instructions').innerHTML = d.instructions;
+    const origVal = document.getElementById('pd-origin');
+    if(origVal) origVal.innerText = d.origin;
+    
+    const specVal = document.getElementById('pd-speciality');
+    if(specVal) specVal.innerText = d.speciality;
+    
+    const famVal = document.getElementById('pd-famous-for');
+    if(famVal) famVal.innerText = d.famous_for;
+
+    const protEl = document.getElementById('pd-prot');
+    if(protEl) protEl.innerText = d.nutrition_protein || '20.4g';
+
+    const calEl = document.getElementById('pd-cal');
+    if(calEl) calEl.innerText = d.nutrition_calories || '208 kcal';
+
+    const fatEl = document.getElementById('pd-fat');
+    if(fatEl) fatEl.innerText = d.nutrition_fat || '13.4g';
+    
+    const allVal = document.getElementById('pd-allergy');
+    if(allVal) allVal.innerText = d.allergy;
+    
+    // Store numeric price for size calculations
+    window.currentBasePrice = parseFloat((d.price || '14.99').replace(/[^0-9.]/g, '')) || 14.99;
+
+    // Reset size selector to Medium (default)
+    const sizeOpts = document.querySelectorAll('.pd-size-opt');
+    sizeOpts.forEach((o, idx) => {{
+        if(idx === 1) {{
+            o.classList.add('active');
+            o.style.border = '1.5px solid #0350dc';
+            o.style.background = '#ebf5ff';
+            o.style.color = '#0350dc';
+            o.style.fontWeight = '700';
+            const s = o.querySelector('span'); if(s) s.style.color = '#0350dc';
+        }} else {{
+            o.classList.remove('active');
+            o.style.border = '1px solid #e2e8f0';
+            o.style.background = '#ffffff';
+            o.style.color = '#64748b';
+            o.style.fontWeight = '400';
+            const s = o.querySelector('span'); if(s) s.style.color = '#64748b';
+        }}
+    }});
     
     go('details');
 }}
+
+function changeHeroImage(src, el) {{
+    const mainImg = document.getElementById('pd-img');
+    if(mainImg) mainImg.src = src;
+    const thumbs = document.querySelectorAll('.gallery-thumbnails .thumb');
+    thumbs.forEach(t => t.classList.remove('active'));
+    if(el) el.classList.add('active');
+}}
+
+function pdSelectSize(el, mult) {{
+    const opts = el.parentElement.querySelectorAll('.pd-size-opt');
+    opts.forEach(o => {{
+        o.classList.remove('active');
+        o.style.border = '1px solid #e2e8f0';
+        o.style.background = '#ffffff';
+        o.style.color = '#64748b';
+        o.style.fontWeight = '400';
+        const sub = o.querySelector('span'); if(sub) sub.style.color = '#64748b';
+    }});
+    el.classList.add('active');
+    el.style.border = '1.5px solid #0350dc';
+    el.style.background = '#ebf5ff';
+    el.style.color = '#0350dc';
+    el.style.fontWeight = '700';
+    const sub = el.querySelector('span'); if(sub) sub.style.color = '#0350dc';
+
+    const priceEl = document.getElementById('pd-price');
+    if(priceEl && window.currentBasePrice) {{
+        const calc = (window.currentBasePrice * mult).toFixed(2);
+        priceEl.innerText = '£' + calc;
+    }}
+}}
+
+function pdSelectCut(el) {{
+    const cuts = el.parentElement.querySelectorAll('.pd-cut-opt');
+    cuts.forEach(c => {{
+        c.classList.remove('active');
+        c.style.fontWeight = '500';
+        c.style.color = '#64748b';
+        c.style.textDecoration = 'none';
+    }});
+    el.classList.add('active');
+    el.style.fontWeight = '800';
+    el.style.color = '#0350dc';
+    el.style.textDecoration = 'underline';
+}}
+
+function pdShareEmail() {{
+    const titleEl = document.getElementById('pd-title');
+    const title = titleEl ? titleEl.innerText : 'Fishcart Product';
+    const priceEl = document.getElementById('pd-price');
+    const price = priceEl ? priceEl.innerText : '';
+    const subject = encodeURIComponent(`Fresh ${{title}} on Fishcart`);
+    const body = encodeURIComponent(`Hi, check out this fresh ${{title}} on Fishcart for ${{price}}! ${{window.location.href}}`);
+    window.location.href = `mailto:?subject=${{subject}}&body=${{body}}`;
+}}
+
+function pdToggleFav(btn) {{
+    const isFav = btn.classList.toggle('fav-saved');
+    if(isFav) {{
+        btn.style.background = '#0350dc';
+        btn.style.color = '#ffffff';
+        btn.style.borderColor = '#0350dc';
+        btn.innerHTML = `<svg fill="currentColor" stroke="none" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg> Saved to Favorites`;
+    }} else {{
+        btn.style.background = '#ffffff';
+        btn.style.color = '#0f46bd';
+        btn.style.borderColor = '#cbd5e1';
+        btn.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Save to Favorites`;
+    }}
+}}
+
+function toggleViewMore(btn) {{
+    const group = btn.parentElement;
+    const moreContainer = group.querySelector('.fp-more-items');
+    if(!moreContainer) return;
+    
+    if(moreContainer.style.display === 'none' || !moreContainer.style.display) {{
+        moreContainer.style.display = 'flex';
+        btn.innerHTML = 'View Less ⌃';
+    }} else {{
+        moreContainer.style.display = 'none';
+        btn.innerHTML = 'View More ⌄';
+    }}
+}}
+
+window.currentPage = 1;
+window.perPage = 8;
+
+window.changePage = function(delta) {{
+    window.goToPage(window.currentPage + delta);
+}};
+
+window.changePerPage = function(val) {{
+    window.perPage = parseInt(val) || 8;
+    window.goToPage(1);
+}};
+
+window.goToPage = function(p) {{
+    if(p < 1) p = 1;
+    if(p > 15) p = 15;
+    window.currentPage = p;
+    
+    const prevBtn = document.getElementById('fp-prev-btn');
+    const nextBtn = document.getElementById('fp-next-btn');
+    if(prevBtn) {{
+        prevBtn.disabled = (p === 1);
+        prevBtn.style.opacity = (p === 1) ? '0.5' : '1.0';
+    }}
+    if(nextBtn) {{
+        nextBtn.disabled = (p === 15);
+        nextBtn.style.opacity = (p === 15) ? '0.5' : '1.0';
+    }}
+    
+    const pnums = document.querySelectorAll('.fp-pnum');
+    pnums.forEach(btn => {{
+        const pageNum = parseInt(btn.innerText);
+        if(pageNum === p) {{
+            btn.classList.add('active');
+            btn.style.background = '#0350dc';
+            btn.style.color = '#ffffff';
+            btn.style.borderColor = '#0350dc';
+        }} else {{
+            btn.classList.remove('active');
+            btn.style.background = '#ffffff';
+            btn.style.color = '#0f46bd';
+            btn.style.borderColor = '#cbd5e1';
+        }}
+    }});
+
+    const startItem = (p - 1) * window.perPage + 1;
+    const endItem = p * window.perPage;
+    const rangeStr = `${{startItem}}-${{endItem}}`;
+    
+    const rangeText = document.getElementById('fp-range-text');
+    if(rangeText) rangeText.innerText = rangeStr;
+    
+    const pinfoRange = document.getElementById('fp-pinfo-range');
+    if(pinfoRange) pinfoRange.innerText = rangeStr;
+
+    if(typeof window.renderFish === 'function') {{
+        window.renderFish();
+    }}
+}};
 </script>
 """
 
@@ -406,8 +417,13 @@ if 'const pdData =' in index_html:
     # Remove the old script block containing pdData
     index_html = _re.sub(r'<script>\s*const pdData =.*?</script>', '', index_html, flags=_re.DOTALL)
 
-# Now insert the fresh block before </body>
-index_html = index_html.replace('</body>', js_block + '\n</body>')
+# Insert the fresh block BEFORE DOMContentLoaded script so pdData is defined when renderFish() runs
+if "<script>\ndocument.addEventListener('DOMContentLoaded'" in index_html:
+    index_html = index_html.replace("<script>\ndocument.addEventListener('DOMContentLoaded'", js_block + "\n<script>\ndocument.addEventListener('DOMContentLoaded'", 1)
+elif "<script>\n  document.addEventListener('DOMContentLoaded'" in index_html:
+    index_html = index_html.replace("<script>\n  document.addEventListener('DOMContentLoaded'", js_block + "\n<script>\n  document.addEventListener('DOMContentLoaded'", 1)
+else:
+    index_html = index_html.replace('</body>', js_block + '\n</body>')
 
 with open(r'.\index.html', 'w', encoding='utf-8') as f:
     f.write(index_html)

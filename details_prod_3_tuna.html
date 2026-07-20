@@ -1,1798 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fishcart - Tuna Steak Details</title>
-  <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🐟%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=8">
-  <link rel="stylesheet" href="fish.css?v=22">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E🐟%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #0057FF;
-      --light-blue: #EAF2FF;
-      --border-color: #E5E7EB;
-      --text-main: #1F2937;
-      --text-light: #6B7280;
-      --bg-color: #F8FAFC;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      font-family: 'Inter', sans-serif;
-      color: var(--text-main);
-      margin: 0;
-      font-size: 13px;
-      overflow-x: hidden;
-    }
-
-    .app-layout {
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* --- SIDEBAR --- */
-    .sidebar {
-      width: 200px;
-      background: white;
-      border-right: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      overflow-y: auto;
-    }
-
-    .sidebar-logo {
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .sidebar-logo svg {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-    }
-
-    .sidebar-logo .logo-title {
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--primary-blue);
-    }
-
-    .sidebar-logo .logo-subtitle {
-      font-size: 0.65rem;
-      color: var(--text-light);
-      display: block;
-    }
-
-    .sidebar-nav {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px;
-      text-decoration: none;
-      color: var(--text-main);
-      border-radius: 6px;
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-
-    .nav-item svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    .nav-item.active {
-      background: var(--light-blue);
-      color: var(--primary-blue);
-      font-weight: 600;
-    }
-
-    .sidebar-cta {
-      margin: auto 12px 12px 12px;
-      padding: 12px 10px;
-      background: var(--primary-blue, #1565C0);
-      border-radius: 12px;
-      text-align: center;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-family: inherit;
-    }
-
-    .cta-title {
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .cta-desc {
-      font-size: 8px;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .qr-container {
-      background: #fff;
-      border-radius: 8px;
-      padding: 5px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 8px;
-    }
-
-    .qr-svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .sidebar-cta .btn-join {
-      width: 100%;
-      background: #0A2848;
-      color: #fff;
-      border: none;
-      border-radius: 16px;
-      padding: 5px 12px;
-      font-size: 9.5px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      font-family: inherit;
-      transition: background 0.2s;
-    }
-
-    .sidebar-cta .btn-join:hover {
-      background: #10335c;
-    }
-
-    /* --- MAIN CONTENT --- */
-    .main-wrapper {
-      flex: 1;
-      padding: 12px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      overflow-y: auto;
-      height: 100%;
-    }
-
-    .top-section-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 220px;
-      gap: 8px;
-      align-items: start;
-    }
-
-    /* Column 1: Info */
-    .product-info-col {
-      max-height: 320px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .breadcrumb {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-bottom: 12px;
-    }
-
-    .breadcrumb a {
-      color: var(--text-light);
-      text-decoration: none;
-    }
-
-    .badge-premium {
-      align-self: flex-start;
-      background: #FEF3C7;
-      color: #D97706;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .prod-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.5px;
-    }
-
-    .prod-desc {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      line-height: 1.4;
-      margin-bottom: 12px;
-    }
-
-    .star-rating {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-light);
-      margin-bottom: 4px;
-    }
-
-    .star-rating svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .star-rating span {
-      color: var(--text-light);
-      margin-left: 4px;
-      font-size: 0.8rem;
-    }
-
-    .feature-icons-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .feature-icon-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--text-main);
-    }
-
-    .icon-circle {
-      width: 28px;
-      height: 28px;
-      background: var(--light-blue);
-      color: var(--primary-blue);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .icon-circle svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Column 2: Image */
-    .product-image-col {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .hero-image-container {
-      width: 100%;
-      aspect-ratio: 16/9;
-      max-height: 220px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-
-    .hero-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-slider {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .gallery-arrow {
-      width: 20px;
-      height: 20px;
-      border: 1px solid var(--border-color);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .gallery-arrow svg {
-      width: 12px;
-      height: 12px;
-    }
-
-    .gallery-thumbnails {
-      display: flex;
-      gap: 8px;
-      overflow: hidden;
-      flex: 1;
-    }
-
-    .thumb {
-      width: calc(100% / 6 - 7px);
-      aspect-ratio: 1;
-      border-radius: 4px;
-      object-fit: cover;
-      border: 2px solid transparent;
-      opacity: 0.7;
-      cursor: pointer;
-    }
-
-    .thumb.active {
-      border-color: var(--primary-blue);
-      opacity: 1;
-    }
-
-    /* Column 3: Purchase Panel */
-    .purchase-panel {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      max-height: 320px;
-      overflow-y: auto;
-    }
-
-    .purchase-price {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 2px;
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-    }
-
-    .purchase-price span {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    .panel-section-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 4px;
-      margin-top: 4px;
-    }
-
-    .selector-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .selector-btn {
-      border: 1px solid var(--border-color);
-      background: white;
-      padding: 6px;
-      border-radius: 4px;
-      font-weight: 500;
-      font-size: 0.75rem;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .selector-btn.active {
-      background: var(--light-blue);
-      border-color: var(--primary-blue);
-      color: var(--primary-blue);
-    }
-
-    .serves-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px;
-      background: #F3F4F6;
-      border-radius: 4px;
-      margin-bottom: 16px;
-      font-weight: 500;
-      font-size: 0.8rem;
-    }
-
-    .serves-indicator svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .btn-primary-buy {
-      background: var(--primary-blue);
-      color: white;
-      width: 100%;
-      padding: 6px;
-      border: none;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-      cursor: pointer;
-    }
-
-    .guarantee-card {
-      background: #ECFDF5;
-      border: 1px solid #A7F3D0;
-      color: #065F46;
-      padding: 4px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .guarantee-card svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 6px;
-    }
-
-    .btn-action {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      font-weight: 500;
-      font-size: 0.8rem;
-      background: white;
-      cursor: pointer;
-    }
-
-    .btn-action svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .btn-action.saved {
-      background: #FEE2E2;
-      color: #EF4444;
-      border-color: #FECACA;
-    }
-
-    .btn-action.saved svg {
-      fill: #EF4444;
-      stroke: #EF4444;
-    }
-
-    .contact-card {
-      background: var(--light-blue);
-      padding: 4px;
-      border-radius: 6px;
-      text-align: center;
-      font-size: 0.75rem;
-    }
-
-    .contact-card p {
-      margin: 0 0 8px 0;
-      color: var(--primary-blue);
-      font-weight: 600;
-      font-size: 0.8rem;
-    }
-
-    .contact-card button {
-      background: white;
-      color: var(--primary-blue);
-      border: 1px solid var(--primary-blue);
-      padding: 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      width: 100%;
-      cursor: pointer;
-    }
-
-    /* --- TABS --- */
-    .tabs-nav {
-      display: flex;
-      gap: 12px;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 4px;
-      overflow-x: auto;
-      padding-bottom: 2px;
-    }
-
-    .tab-item {
-      padding: 8px 0;
-      color: var(--text-light);
-      font-weight: 500;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .tab-item.active {
-      color: var(--primary-blue);
-      font-weight: 600;
-    }
-
-    .tab-item.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary-blue);
-    }
-
-    /* --- TAB CONTENT PANES --- */
-    .tab-pane {
-      display: none;
-    }
-
-    .tab-pane.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* --- INFO GRID CARDS (Overview Tab) --- */
-    .info-grid-layout {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .info-card {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px;
-      height: 140px;
-      max-height: 220px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-      overflow: hidden;
-    }
-
-    .info-card-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .info-card-header svg {
-      width: 16px;
-      height: 16px;
-      color: var(--primary-blue);
-      flex-shrink: 0;
-    }
-
-    .info-card h3 {
-      font-size: 0.85rem;
-      margin: 0;
-      color: var(--primary-blue);
-      font-weight: 600;
-    }
-
-    .info-card-content {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: var(--text-main);
-      line-height: 1.3;
-      font-size: 0.8rem;
-    }
-
-    .card-small-img {
-      width: 100%;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 4px;
-      background: #F3F4F6;
-    }
-
-    .info-card.allergy {
-      border-left: 3px solid #EF4444;
-    }
-
-    .info-card.allergy h3,
-    .info-card.allergy svg {
-      color: #EF4444 !important;
-    }
-
-    /* --- COOKING TAB --- */
-    .cooking-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .videos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .video-card {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .video-iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      /* 16:9 Aspect Ratio */
-    }
-
-    .video-iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-info {
-      padding: 12px;
-    }
-
-    .video-info h4 {
-      margin: 0 0 4px 0;
-      font-size: 0.9rem;
-      color: var(--text-main);
-    }
-
-    .video-info p {
-      margin: 0;
-      font-size: 0.75rem;
-      color: var(--text-light);
-    }
-
-    .cooking-instructions {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .cooking-instructions h3 {
-      margin: 0 0 12px 0;
-      font-size: 1rem;
-      color: var(--primary-blue);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-    }
-
-    .cooking-instructions ol {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--text-main);
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-
-    .cooking-instructions li {
-      margin-bottom: 8px;
-    }
-
-    /* --- GENERIC TAB CONTENT --- */
-    .generic-tab-content {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 24px;
-      text-align: center;
-      color: var(--text-light);
-    }
-
-    .generic-tab-content h3 {
-      color: var(--primary-blue);
-      margin-top: 0;
-    }
-
-    /* --- BOTTOM FEATURES ROW --- */
-    .bottom-features-row {
-      display: flex;
-      justify-content: space-between;
-      background: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 16px;
-      margin-top: 16px;
-    }
-
-    .bottom-feature-item {
-      text-align: center;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .bottom-feature-item svg {
-      color: var(--primary-blue);
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    .bottom-feature-item span {
-      font-weight: 600;
-      font-size: 0.8rem;
-    }
-
-    /* --- TOAST NOTIFICATIONS --- */
-    .toast-container {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 9999;
-    }
-
-    .toast {
-      background: #1F2937;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      animation: slideInRight 0.3s forwards;
-    }
-
-    .toast.hide {
-      animation: fadeOut 0.3s forwards;
-    }
-
-    .toast svg {
-      width: 16px;
-      height: 16px;
-      color: #10B981;
-    }
-
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
-    }
-
-    /* --- MODALS --- */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal-box {
-      background: white;
-      width: 400px;
-      border-radius: 12px;
-      padding: 24px;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.2s;
-    }
-
-    .modal-overlay.active .modal-box {
-      transform: translateY(0);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-light);
-    }
-
-    .modal-box h2 {
-      margin: 0 0 16px 0;
-      font-size: 1.2rem;
-      color: var(--primary-blue);
-    }
-
-    .modal-box p {
-      margin: 0 0 20px 0;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      font-size: 0.8rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-family: inherit;
-    }
-
-    .btn-submit {
-      background: var(--primary-blue);
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    /* --- MOBILE RESPONSIVENESS --- */
-    .mobile-header {
-      display: none;
-    }
-
-    .sidebar-overlay {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        overflow-y: auto;
-        height: auto;
-        font-size: 14px;
-      }
-
-      .app-layout {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .mobile-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 16px;
-        background: white;
-        border-bottom: 1px solid var(--border-color);
-        position: sticky;
-        top: 0;
-        z-index: 90;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      .mobile-logo-text {
-        font-weight: 800;
-        font-size: 1.25rem;
-        color: var(--primary-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .hamburger-btn {
-        background: none;
-        border: none;
-        padding: 8px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 44px;
-        min-height: 44px;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 100;
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        height: 100vh;
-        overflow-y: auto;
-        width: 240px;
-      }
-
-      .sidebar.open {
-        transform: translateX(0);
-      }
-
-      .sidebar-overlay {
-        display: block;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 95;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-
-      .sidebar-overlay.show {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .main-wrapper {
-        flex: 1;
-        padding: 12px 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        overflow-y: auto;
-        height: 100%;
-      }
-
-
-      /* DETAIL PAGE MOBILE OVERRIDES */
-      .top-section-row {
-        grid-template-columns: 1fr !important;
-      }
-
-      .tabs-nav {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 5px;
-      }
-
-      .tab-item {
-        display: inline-block;
-      }
-
-      .info-grid-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .product-info-col {
-        max-height: none !important;
-      }
-
-      .tab-buttons-container {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 5px;
-      }
-
-      .tab-buttons {
-        display: flex;
-        gap: 10px;
-        width: max-content;
-      }
-
-      /* Detail Page Specific Layout Reshuffle */
-      .top-section-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr 220px;
-        gap: 8px;
-        align-items: start;
-      }
-
-      .product-image-col {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .product-info-col {
-        max-height: 320px;
-        overflow-y: auto;
-        padding-right: 4px;
-      }
-
-      .purchase-panel {
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 12px;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
-        display: flex;
-        flex-direction: column;
-        max-height: 320px;
-        overflow-y: auto;
-      }
-
-      /* Ensure Tabs can scroll horizontally */
-      .tabs-nav {
-        display: flex;
-        gap: 12px;
-        border-bottom: 1px solid var(--border-color);
-        margin-bottom: 4px;
-        overflow-x: auto;
-        padding-bottom: 2px;
-      }
-
-      .tabs-nav::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* Info Grid Cards */
-      .info-grid-layout {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .info-card {
-        height: auto;
-        max-height: none;
-      }
-
-      /* Cooking */
-      .videos-grid {
-        grid-template-columns: 1fr;
-      }
-
-      /* Bottom Features */
-      .bottom-features-row {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
-      }
-
-      .bottom-feature-item {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      /* Touch Targets */
-      .nav-item {
-        min-height: 44px;
-        padding: 12px 8px;
-      }
-
-      .selector-btn {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-action {
-        min-height: 44px;
-      }
-
-      .tab-item {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-      }
-    }
+      --primary-blue: #0350dc;
+      --navy-blue: #0f46bd;
+      --light-blue: #ebf5ff;
+      --border-color: #e2e8f0;
+      --text-main: #0f46bd;
+      --text-light: #64748b;
+      --bg-color: #f8fafc;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { background-color: var(--bg-color); font-family: 'Inter', sans-serif; color: #1e293b; font-size: 13px; }
+    .app-layout { display: flex; height: 100vh; overflow: hidden; }
+
+    /* SIDEBAR */
+    .sidebar { width: 200px; background: white; border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; }
+    .sidebar-logo { padding: 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-color); }
+    .sidebar-logo .logo-title { font-weight: 800; font-size: 1.1rem; color: var(--primary-blue); }
+    .sidebar-logo .logo-subtitle { font-size: 0.65rem; color: var(--text-light); display: block; }
+    .sidebar-nav { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+    .nav-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; text-decoration: none; color: #334155; border-radius: 6px; font-weight: 500; font-size: 0.85rem; }
+    .nav-item.active { background: var(--light-blue); color: var(--primary-blue); font-weight: 700; }
   </style>
 </head>
-
 <body>
-  <div class="app-layout">
-    <div class="mobile-header">
-      <div class="mobile-logo-text">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5z" />
-        </svg>
-        FISHCART
-      </div>
-      <button class="hamburger-btn" onclick="toggleSidebar()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div><span class="logo-title">FISHCART</span><span class="logo-subtitle">Daily Fresh Partner</span></div>
     </div>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item active" href="index.html#fish">Fish</a>
+      <a class="nav-item" href="index.html#meat">Meat</a>
+      <a class="nav-item" href="index.html#chicken">Chicken</a>
+      <a class="nav-item" href="index.html#eggs">Eggs</a>
+    </nav>
+  </aside>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)"
-          stroke-width="2.5">
-          <path d="M15 6l-6 6 6 6" />
-          <path d="M21 6l-6 6 6 6" />
-        </svg>
-        <div class="logo-text"><span class="logo-title">FISHCART</span><span class="logo-subtitle">Daily Fresh
-            Partner</span></div>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="index.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>Home</a>
-        <a href="index.html#fish" class="nav-item active" onclick="toggleSidebar()"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 12c-3.6 0-6.6-2.5-7.5-6a7.5 7.5 0 0 0-9 9 7.5 7.5 0 0 0 9 9c.9-3.5 3.9-6 7.5-6z"></path>
-          </svg>Fish</a>
-        <a href="index.html#meat" class="nav-item " onclick="toggleSidebar()"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 8v4l3 3"></path>
-          </svg>Meat</a>
-        <a href="index.html#chicken" class="nav-item " onclick="toggleSidebar()"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s-2.5-3-2.5-8c0-5 3-9 3-9a3 3 0 0 0-6 0c0 0 3 4 3 9 0 5-2.5 8-2.5 8"></path>
-          </svg>Chicken</a>
-        <a href="index.html#eggs" class="nav-item " onclick="toggleSidebar()"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="6"></circle>
-          </svg>Eggs</a>
-        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
-        <a href="how_to_cook.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-          </svg>How to Cook</a>
-        <a href="benefits.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 16v-4"></path>
-            <path d="M12 8h.01"></path>
-          </svg>Benefits</a>
-        <a href="our_stories.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-          </svg>Our Stories</a>
-        <a href="about_us.html" class="nav-item" onclick="toggleSidebar()"><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>About Us</a>
-        <a href="index.html#testimonials" class="nav-item" onclick="toggleSidebar()"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>Testimonials</a>
-        <a href="#" class="nav-item" onclick="openContactModal(); toggleSidebar();"><svg
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-            </path>
-          </svg>Contact Us</a>
-      </nav>
-      <div class="sidebar-cta">
-        <div class="cta-title">Join Our Community</div>
-        <div class="cta-desc">Be a part of our journey for healthy and delicious living.</div>
-        <div class="qr-container">
-          <svg class="qr-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-            <rect fill="white" height="50" rx="4" width="50"></rect>
-            <rect fill="#1565C0" height="15" rx="2" width="15" x="4" y="4"></rect>
-            <rect fill="white" height="11" rx="1" width="11" x="6" y="6"></rect>
-            <rect fill="#1565C0" height="7" rx="1" width="7" x="8" y="8"></rect>
-            <rect fill="#1565C0" height="15" rx="2" width="15" x="31" y="4"></rect>
-            <rect fill="white" height="11" rx="1" width="11" x="33" y="6"></rect>
-            <rect fill="#1565C0" height="7" rx="1" width="7" x="35" y="8"></rect>
-            <rect fill="#1565C0" height="15" rx="2" width="15" x="4" y="31"></rect>
-            <rect fill="white" height="11" rx="1" width="11" x="6" y="33"></rect>
-            <rect fill="#1565C0" height="7" rx="1" width="7" x="8" y="35"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="22" y="4"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="26" y="4"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="22" y="9"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="26" y="14"></rect>
-            <rect fill="#1565C0" height="3" width="7" x="22" y="16"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="4" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="9" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="5" x="16" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="24" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="6" x="29" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="4" x="37" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="7" x="43" y="24"></rect>
-            <rect fill="#1565C0" height="6" width="3" x="24" y="29"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="29" y="29"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="35" y="29"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="42" y="29"></rect>
-            <rect fill="#1565C0" height="8" width="2" x="48" y="24"></rect>
-            <rect fill="#1565C0" height="3" width="6" x="24" y="37"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="33" y="37"></rect>
-            <rect fill="#1565C0" height="3" width="5" x="39" y="37"></rect>
-            <rect fill="#1565C0" height="8" width="3" x="24" y="42"></rect>
-            <rect fill="#1565C0" height="3" width="6" x="29" y="42"></rect>
-            <rect fill="#1565C0" height="3" width="3" x="38" y="42"></rect>
-            <rect fill="#1565C0" height="3" width="6" x="44" y="42"></rect>
-            <rect fill="#1565C0" height="4" width="3" x="33" y="46"></rect>
-            <rect fill="#1565C0" height="4" width="3" x="39" y="46"></rect>
-            <rect fill="#1565C0" height="4" width="2" x="48" y="46"></rect>
-            <circle cx="25" cy="25" r="5.5" fill="#25D366"></circle>
-            <path
-              d="M23.5 24.5a1.5 1.5 0 0 0 1.5 1.5h1.2l.8.8v-.8c.4-.2.6-.6.6-1a1.5 1.5 0 0 0-1.5-1.5h-1.1a1.5 1.5 0 0 0-1.5 1.5z"
-              fill="white" transform="scale(0.8) translate(6, 6)"></path>
-          </svg>
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrapper" style="background:#f8fafc; padding: 16px 20px; display:flex; flex-direction:column; gap:14px; overflow-y:auto; height:100%; width:100%;">
+
+    <!-- 1. TOP 3-COLUMN SECTION -->
+    <div class="top-section-row" style="display:grid; grid-template-columns: 1fr 1.15fr 0.85fr; gap:16px; align-items:start;">
+      
+      <!-- COL 1: Info -->
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="font-size:0.75rem; color:#64748b;">
+          <a href="index.html" style="color:#64748b; text-decoration:none;">Home</a> &gt; 
+          <a href="index.html#fish" id="pd-catlink" style="color:#64748b; text-decoration:none;">Fish</a> &gt; 
+          <span style="font-weight:600; color:#0f46bd;" id="pd-title-breadcrumb">Tuna Steak</span>
         </div>
-        <button class="btn-join" onclick="openContactModal()">Join Us <svg fill="currentColor" viewBox="0 0 24 24"
-            width="10" height="10">
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
-          </svg></button>
-      </div>
-    </aside>
 
-    <!-- MAIN WRAPPER -->
-    <div class="main-wrapper">
-      <!-- TOP 3 COLUMNS ROW -->
-      <div class="top-section-row">
-        <!-- [1] Product Info -->
-        <div class="product-info-col">
-          <div class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="index.html#fish">Fish</a> &gt;
-            <span style="font-weight: 500; color: var(--text-main);">Tuna Steak</span></div>
-          <div class="badge-premium">⭐ Premium Choice</div>
-          <h1 class="prod-title" id="product-title">Tuna Steak</h1>
-          <p class="prod-desc">Pacific • Steak. Sourced fresh and handled with care.</p>
-          <div class="star-rating">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-              </polygon>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-              </polygon>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-              </polygon>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-              </polygon>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-              </polygon>
-            </svg>
-            <span>4.8 (124)</span>
-          </div>
-          <div class="feature-icons-list">
-            <div class="feature-icon-row">
-              <div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg></div>100% Fresh Never Frozen
-            </div>
-            <div class="feature-icon-row">
-              <div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg></div>Hygienically Handled
-            </div>
-            <div class="feature-icon-row">
-              <div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                  </path>
-                </svg></div>Sourced Responsibly
-            </div>
+        <div style="display:inline-block; background:#e8f2fe; color:#0350dc; font-size:0.68rem; font-weight:700; padding:3px 10px; border-radius:12px; width:fit-content;">
+          Premium Choice
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h1 id="pd-title" style="font-size:1.6rem; font-weight:800; color:#0f46bd; margin:0;">Tuna Steak</h1>
+          <div style="width:26px; height:26px; border-radius:50%; border:1px solid #cbd5e1; display:flex; align-items:center; justify-content:center; cursor:pointer; background:#fff;">
+            <svg fill="none" stroke="#64748b" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
           </div>
         </div>
 
-        <!-- [2] Main Fish Image -->
-        <div class="product-image-col">
-          <div class="hero-image-container"><img id="main-hero-img" src="assets/prod_3_tuna.jpg" alt="Tuna Steak"></div>
-          <div class="gallery-slider">
-            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg></div>
-            <div class="gallery-thumbnails"><img src="assets/prod_3_tuna.jpg" class="thumb active" onclick="changeHeroImage(this.src, this)"><img src="assets/prod_3_tuna.jpg" class="thumb " onclick="changeHeroImage(this.src, this)"><img src="assets/prod_3_tuna.jpg" class="thumb " onclick="changeHeroImage(this.src, this)"><img src="assets/prod_3_tuna.jpg" class="thumb " onclick="changeHeroImage(this.src, this)"><img src="assets/prod_3_tuna.jpg" class="thumb " onclick="changeHeroImage(this.src, this)"><img src="assets/prod_3_tuna.jpg" class="thumb " onclick="changeHeroImage(this.src, this)"></div>
-            <div class="gallery-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg></div>
-          </div>
+        <p id="pd-desc" style="font-size:0.78rem; color:#64748b; margin:0; line-height:1.4;">
+          Rich in Omega-3 and loaded with nutrients, Tuna Steak is known for its incredible taste and health benefits.
+        </p>
+
+        <div style="display:flex; align-items:center; gap:4px; font-size:0.76rem; font-weight:700; color:#0f46bd;">
+          <span style="color:#f59e0b; font-size:0.9rem;">★★★★★</span> 4.8 <span style="font-weight:400; color:#64748b;">(128 Reviews)</span>
         </div>
 
-        <!-- [3] Purchase Panel -->
-        <div class="purchase-panel">
-          <div class="purchase-price"><span id="display-price">£22.00</span> <span style="font-size:0.8rem">/
-              kg</span></div>
-          <div class="panel-section-title">Select Size</div>
-          <div class="selector-grid" id="size-selector">
-            <div class="selector-btn" onclick="selectOption(this, 'size')">Small</div>
-            <div class="selector-btn active" onclick="selectOption(this, 'size')">Medium</div>
-            <div class="selector-btn" onclick="selectOption(this, 'size')">Large</div>
-            <div class="selector-btn" onclick="selectOption(this, 'size')">X-Large</div>
+        <!-- 3 Feature Badges -->
+        <div style="display:flex; gap:16px; margin-top:8px;">
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:3px;">
+            <div style="width:36px; height:36px; border-radius:50%; border:1.5px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+              <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:18px; height:18px;" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </div>
+            <span style="font-size:0.65rem; font-weight:800; color:#0f46bd; line-height:1.1;">100% Fresh<br><span style="font-weight:500; color:#64748b;">Never Frozen</span></span>
           </div>
-          <div class="panel-section-title">Cut Options</div>
-          <div class="selector-grid" id="cut-selector" style="grid-template-columns: 1fr 1fr 1fr;">
-            <div class="selector-btn active" onclick="selectOption(this, 'cut')">Fillet</div>
-            <div class="selector-btn" onclick="selectOption(this, 'cut')">Steak</div>
-            <div class="selector-btn" onclick="selectOption(this, 'cut')">Whole</div>
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:3px;">
+            <div style="width:36px; height:36px; border-radius:50%; border:1.5px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+              <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:18px; height:18px;" viewBox="0 0 24 24"><path d="M12 21.7C17.3 16.5 20 12.3 20 9a8 8 0 1 0-16 0c0 3.3 2.7 7.5 8 12.7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            </div>
+            <span style="font-size:0.65rem; font-weight:800; color:#0f46bd; line-height:1.1;">Hygienically<br><span style="font-weight:500; color:#64748b;">Handled</span></span>
           </div>
-          <div class="serves-indicator"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="var(--primary-blue)" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>Serves: 2-4 People</div>
-          <button class="btn-primary-buy" onclick="addToCart()">Add to Cart</button>
-          <div class="guarantee-card"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>Freshness Guaranteed</div>
-          <div class="action-buttons">
-            <button class="btn-action" onclick="shareProduct()"><svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="18" cy="5" r="3"></circle>
-                <circle cx="6" cy="12" r="3"></circle>
-                <circle cx="18" cy="19" r="3"></circle>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-              </svg>Share</button>
-            <button class="btn-action" id="save-btn" onclick="saveProduct()"><svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>Save</button>
-          </div>
-          <div class="contact-card">
-            <p>Need help ordering?</p>
-            <button onclick="openContactModal()">Contact Us</button>
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:3px;">
+            <div style="width:36px; height:36px; border-radius:50%; border:1.5px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+              <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:18px; height:18px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.6 9h16.8M3.6 15h16.8"></path><path d="M11.5 3a13 13 0 0 0 0 18M12.5 3a13 13 0 0 1 0 18"></path></svg>
+            </div>
+            <span style="font-size:0.65rem; font-weight:800; color:#0f46bd; line-height:1.1;">Sourced<br><span style="font-weight:500; color:#64748b;">Responsibly</span></span>
           </div>
         </div>
       </div>
 
-      <!-- TABS NAV -->
-      <div class="tabs-nav">
-        <div class="tab-item active" onclick="switchTab('overview', this)">Overview</div>
-        <div class="tab-item" onclick="switchTab('nutrition', this)">Nutrition</div>
-        <div class="tab-item" onclick="switchTab('cooking', this)">Cooking</div>
-        <div class="tab-item" onclick="switchTab('details', this)">Details</div>
-        <div class="tab-item" onclick="switchTab('sizes', this)">Sizes & Cuts</div>
-        <div class="tab-item" onclick="switchTab('allergy', this)">Allergy Info</div>
-      </div>
+      <!-- COL 2: Image & Thumbnails -->
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="position:relative; width:100%; height:200px; border-radius:12px; overflow:hidden; border:1px solid #e2e8f0; background:#fff;">
+          <img id="pd-img" src="assets/prod_3_tuna.jpg" alt="Tuna Steak" style="width:100%; height:100%; object-fit:cover;">
+          <button onclick="go('fish')" style="position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.88); backdrop-filter:blur(4px); border:1px solid #cbd5e1; border-radius:16px; padding:4px 10px; font-size:0.68rem; font-weight:700; color:#0f46bd; cursor:pointer; display:flex; align-items:center; gap:4px;">
+            &larr; Back to All Fish
+          </button>
+        </div>
 
-      <!-- TAB CONTENT: OVERVIEW -->
-      <div id="tab-overview" class="tab-pane active">
-        <!-- INFO GRID CARDS (8 cards) -->
-        <div class="info-grid-layout">
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <h3>Catch From</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Pacific Ocean.</p>
-            </div>
+        <!-- Thumbnails Slider -->
+        <div style="display:flex; align-items:center; gap:6px;">
+          <button style="width:20px; height:20px; border-radius:50%; border:1px solid #cbd5e1; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:0.7rem; color:#64748b;">&lsaquo;</button>
+          <div class="gallery-thumbnails" id="pd-thumbs" style="display:flex; gap:6px; flex:1; overflow-x:auto;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb active" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
+            <img src="assets/prod_3_tuna.jpg" class="thumb" onclick="changeHeroImage(this.src, this)" style="width:36px; height:36px; border-radius:6px; object-fit:cover; cursor:pointer;">
           </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 16v-4"></path>
-                <path d="M12 8h.01"></path>
-              </svg>
-              <h3>Best For</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Searing, Sashimi.</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                </polygon>
-              </svg>
-              <h3>Specialty</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Meaty texture.</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-              <h3>Famous On</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Sushi, Poke Bowls.</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                <line x1="6" y1="1" x2="6" y2="4"></line>
-                <line x1="10" y1="1" x2="10" y2="4"></line>
-                <line x1="14" y1="1" x2="14" y2="4"></line>
-              </svg>
-              <h3>Nutrition</h3>
-            </div>
-            <div class="info-card-content">
-              <p>24g, 1g, 109 kcal</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-              <h3>Good For</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Heart health, muscle, and immunity.</p>
-            </div>
-          </div>
-          <div class="info-card allergy">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                </path>
-                <line x1="12" y1="9" x2="12" y2="13"></line>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-              <h3>Allergy Info</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Contains Fish.</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-              </svg>
-              <h3>How To Cook</h3>
-            </div>
-            <div class="info-card-content">
-              <p>Sear 1 min per side.</p>
-            </div>
-          </div>
+          <button style="width:20px; height:20px; border-radius:50%; border:1px solid #cbd5e1; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:0.7rem; color:#64748b;">&rsaquo;</button>
         </div>
       </div>
 
-      <!-- TAB CONTENT: COOKING -->
-      <div id="tab-cooking" class="tab-pane">
-        <div class="cooking-section">
-          <div class="videos-grid">
-            <div class="video-card">
-              <div class="video-iframe-container">
-                <iframe src="" allowfullscreen></iframe>
-              </div>
-              <div class="video-info">
-                <h4>Fish Preparation Guide</h4>
-                <p>Learn the basics of preparing and cooking this item.</p>
-              </div>
-            </div>
-            <div class="video-card">
-              <div class="video-iframe-container">
-                <iframe src="" allowfullscreen></iframe>
-              </div>
-              <div class="video-info">
-                <h4>Chef's Special Tuna Steak Recipe</h4>
-                <p>A gourmet recipe to elevate your meal.</p>
-              </div>
-            </div>
-          </div>
-          <div class="cooking-instructions">
-            <h3>Cooking Instructions & Preparation Steps</h3>
-            <ol>
-              <li>Season well.</li><li>Sear on screaming hot pan for 1 min per side.</li>
-            </ol>
+      <!-- COL 3: Purchase Panel -->
+      <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px 14px; display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:baseline; gap:4px;">
+          <span id="pd-price" style="font-size:1.3rem; font-weight:900; color:#0f46bd;">£22.00</span>
+          <span style="font-size:0.75rem; color:#64748b;">/ <span id="pd-unit">kg</span></span>
+        </div>
+
+        <div>
+          <div style="font-size:0.7rem; font-weight:800; color:#0f46bd; margin-bottom:4px;">Select Size</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
+            <div class="pd-size-opt" onclick="pdSelectSize(this, 0.75)" style="border:1px solid #e2e8f0; border-radius:6px; padding:4px; text-align:center; font-size:0.62rem; cursor:pointer; color:#64748b;">Small<br><span style="color:#64748b; font-size:0.55rem;">(500g - 1kg)</span></div>
+            <div class="pd-size-opt active" onclick="pdSelectSize(this, 1.0)" style="border:1.5px solid #0350dc; background:#ebf5ff; border-radius:6px; padding:4px; text-align:center; font-size:0.62rem; font-weight:700; color:#0350dc; cursor:pointer;">Medium<br><span style="color:#0350dc; font-size:0.55rem;">(1kg - 2kg)</span></div>
+            <div class="pd-size-opt" onclick="pdSelectSize(this, 1.5)" style="border:1px solid #e2e8f0; border-radius:6px; padding:4px; text-align:center; font-size:0.62rem; cursor:pointer; color:#64748b;">Large<br><span style="color:#64748b; font-size:0.55rem;">(2kg - 3kg)</span></div>
+            <div class="pd-size-opt" onclick="pdSelectSize(this, 2.0)" style="border:1px solid #e2e8f0; border-radius:6px; padding:4px; text-align:center; font-size:0.62rem; cursor:pointer; color:#64748b;">Extra Large<br><span style="color:#64748b; font-size:0.55rem;">(3kg+)</span></div>
           </div>
         </div>
-      </div>
 
-      <!-- TAB CONTENT: NUTRITION (CMS Placeholder) -->
-      <div id="tab-nutrition" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Nutritional Information</h3>
-          <p>Detailed nutritional breakdown will be injected here by the CMS.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:6px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:0.68rem; font-weight:800; color:#0f46bd;">Cut Options</span>
+            <div style="display:flex; gap:4px; font-size:0.6rem; color:#64748b;">
+              <span class="pd-cut-opt active" onclick="pdSelectCut(this)" style="font-weight:800; color:#0350dc; text-decoration:underline; cursor:pointer;">Fillet</span> • <span class="pd-cut-opt" onclick="pdSelectCut(this)" style="font-weight:500; color:#64748b; cursor:pointer;">Steak</span> • <span class="pd-cut-opt" onclick="pdSelectCut(this)" style="font-weight:500; color:#64748b; cursor:pointer;">Whole</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:4px; font-size:0.62rem; font-weight:700; color:#0f46bd;">
+            <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg> Serves 2 - 4 People
+          </div>
+        </div>
+
+        <div style="background:#eaf4ff; border-radius:8px; padding:6px 10px; display:flex; align-items:center; gap:8px;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:16px; height:16px; flex-shrink:0;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <div style="display:flex; flex-direction:column; line-height:1.2;">
+            <span style="font-size:0.68rem; font-weight:800; color:#0f46bd;">Freshness Guaranteed</span>
+            <span style="font-size:0.58rem; color:#64748b;">Delivered fresh and ready to cook for the best taste and nutrition.</span>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:6px;">
+          <button onclick="pdShareEmail()" style="background:#0350dc; color:#fff; border:none; border-radius:8px; padding:7px 10px; font-size:0.68rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:4px;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Share to Email
+          </button>
+          <button onclick="pdToggleFav(this)" style="background:#fff; border:1px solid #cbd5e1; color:#0f46bd; border-radius:8px; padding:7px 10px; font-size:0.68rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:4px;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Save to Favorites
+          </button>
+        </div>
+
+        <div style="background:#0350dc; border-radius:8px; padding:8px 12px; color:#fff; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:0.72rem; font-weight:800;">Got Questions?</div>
+            <div style="font-size:0.58rem; opacity:0.85;">Our team is here to help you choose the best fish for your needs.</div>
+          </div>
+          <button onclick="openContactModal()" style="background:#fff; color:#0350dc; border:none; border-radius:6px; padding:4px 8px; font-size:0.62rem; font-weight:800; cursor:pointer; flex-shrink:0;">Contact Us &rarr;</button>
         </div>
       </div>
-
-      <!-- TAB CONTENT: DETAILS (CMS Placeholder) -->
-      <div id="tab-details" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Product Details</h3>
-          <p>Extended description and sourcing information will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: SIZES (CMS Placeholder) -->
-      <div id="tab-sizes" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Sizes & Cuts Guide</h3>
-          <p>Detailed sizing charts and cut explanations will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- TAB CONTENT: ALLERGY (CMS Placeholder) -->
-      <div id="tab-allergy" class="tab-pane">
-        <div class="generic-tab-content">
-          <h3>Comprehensive Allergy Information</h3>
-          <p>Full allergen disclosures and cross-contamination warnings will be injected here by the CMS.</p>
-        </div>
-      </div>
-
-      <!-- BOTTOM FEATURES -->
-      <div class="bottom-features-row">
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg><span>100% Fresh</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg><span>Hygienic & Safe</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-          </svg><span>Fast Delivery</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-            </polygon>
-          </svg><span>Best Quality</span></div>
-        <div class="bottom-feature-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg><span>Sustainable</span></div>
-      </div>
-
     </div>
+
+    <!-- 2. MIDDLE NAVIGATION TABS -->
+    <div style="display:flex; border-bottom:1.5px solid #e2e8f0; background:#fff; border-radius:10px 10px 0 0; padding:0 12px; gap:20px;">
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:800; color:#0350dc; border-bottom:2.5px solid #0350dc; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg> Overview
+      </div>
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:600; color:#64748b; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Nutrition
+      </div>
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:600; color:#64748b; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M6 13.87A6 6 0 0 1 7.41 6a6 6 0 0 1 10.59 0A6 6 0 0 1 18 13.87V21H6z"></path></svg> Cooking
+      </div>
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:600; color:#64748b; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4l3 3"></path></svg> Details
+      </div>
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:600; color:#64748b; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.6 9h16.8M3.6 15h16.8"></path></svg> Sizes &amp; Cuts
+      </div>
+      <div style="padding:10px 4px; font-size:0.78rem; font-weight:600; color:#64748b; display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Allergy Info
+      </div>
+    </div>
+
+    <!-- 3. OVERVIEW FEATURE CARDS (2 ROWS × 4 COLUMNS) -->
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <!-- ROW 1 -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px;">
+        
+        <!-- CARD 1: Catch From -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M12 21.7C17.3 16.5 20 12.3 20 9a8 8 0 1 0-16 0c0 3.3 2.7 7.5 8 12.7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;" id="pd-origin-label">Catch From</span>
+            </div>
+            <div style="font-size:0.75rem; font-weight:800; color:#0f46bd; margin-bottom:4px;" id="pd-origin">Pacific Ocean.</div>
+            <div style="font-size:0.65rem; color:#64748b; line-height:1.35; padding-right:50px;">
+              Sustainably wild-caught from cold, clean waters, ensuring premium quality and taste.
+            </div>
+          </div>
+          <img src="assets/our_stories_boat.png" alt="Boat" style="position:absolute; right:8px; bottom:8px; width:55px; height:auto; opacity:0.9;">
+        </div>
+
+        <!-- CARD 2: Best For -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M6 13.87A6 6 0 0 1 7.41 6a6 6 0 0 1 10.59 0A6 6 0 0 1 18 13.87V21H6z"></path></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;">Best For</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <div style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Curry</div>
+                  <div style="font-size:0.6rem; color:#64748b;">Perfect for creamy, spicy or tangy curries.</div>
+                </div>
+                <img src="assets/prod_1_salmon.jpg" alt="Curry" style="width:32px; height:32px; border-radius:6px; object-fit:cover;">
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px dashed #e2e8f0; padding-top:4px;">
+                <div>
+                  <div style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Grill</div>
+                  <div style="font-size:0.6rem; color:#64748b;">Great for grilling with herbs, lemon &amp; pepper.</div>
+                </div>
+                <img src="assets/prod_3_tuna.jpg" alt="Grill" style="width:32px; height:32px; border-radius:6px; object-fit:cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Specialty -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;">Specialty</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px; font-size:0.63rem; color:#0f46bd; padding-right:45px;">
+              <div style="display:flex; align-items:center; gap:4px;">✓ <span id="pd-speciality">Meaty texture.</span></div>
+              <div style="display:flex; align-items:center; gap:4px;">✓ High in Omega-3 fatty acids</div>
+              <div style="display:flex; align-items:center; gap:4px;">✓ Excellent source of protein</div>
+              <div style="display:flex; align-items:center; gap:4px;">✓ Low in saturated fat</div>
+            </div>
+          </div>
+          <!-- Omega 3 Badge -->
+          <div style="position:absolute; right:8px; bottom:12px; width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg, #ebf5ff, #c8e2ff); border:2px solid #0350dc; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#0350dc; text-align:center; box-shadow:0 2px 6px rgba(3,80,220,0.15);">
+            <span style="font-size:0.5rem; font-weight:800; line-height:1;">OMEGA</span>
+            <span style="font-size:0.9rem; font-weight:900; line-height:1;">3</span>
+          </div>
+        </div>
+
+        <!-- CARD 4: Famous On -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M12 15l-2 5l9-9l-9-9l2 5l-7 4z"></path></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;">Famous On</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px; font-size:0.63rem; color:#0f46bd; padding-right:45px;">
+              <div style="display:flex; align-items:center; gap:4px;">🎯 <span id="pd-famous-for">Sushi, Poke Bowls.</span></div>
+              <div style="display:flex; align-items:center; gap:4px;">🎯 Japanese Sushi &amp; Sashimi</div>
+              <div style="display:flex; align-items:center; gap:4px;">🎯 Mediterranean Dishes</div>
+              <div style="display:flex; align-items:center; gap:4px;">🎯 Healthy Diet Plans</div>
+            </div>
+          </div>
+          <img src="assets/prod_1_salmon.jpg" alt="Dish" style="position:absolute; right:8px; bottom:12px; width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        </div>
+
+      </div>
+
+      <!-- ROW 2 -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px;">
+
+        <!-- CARD 1: Nutrition -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; min-height:150px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                  <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </div>
+                <span style="font-size:0.75rem; font-weight:800; color:#0f46bd;">Nutrition <span style="font-weight:500; font-size:0.6rem; color:#64748b;">(Per 100g)</span></span>
+              </div>
+              <span style="font-size:0.58rem; color:#0350dc; font-weight:700; cursor:pointer;">View Full Nutrition &rarr;</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:4px; margin-bottom:6px; text-align:center;">
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:4px 2px;">
+                <div style="font-size:0.55rem; color:#64748b;">Protein</div>
+                <div style="font-size:0.7rem; font-weight:800; color:#0f46bd;" id="pd-prot">20.4g</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:4px 2px;">
+                <div style="font-size:0.55rem; color:#64748b;">Calories</div>
+                <div style="font-size:0.7rem; font-weight:800; color:#0f46bd;" id="pd-cal">208 kcal</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:4px 2px;">
+                <div style="font-size:0.55rem; color:#64748b;">Omega-3</div>
+                <div style="font-size:0.7rem; font-weight:800; color:#0f46bd;">2.3g</div>
+              </div>
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:4px 2px;">
+                <div style="font-size:0.55rem; color:#64748b;">Fat</div>
+                <div style="font-size:0.7rem; font-weight:800; color:#0f46bd;" id="pd-fat">13.4g</div>
+              </div>
+            </div>
+            <div style="font-size:0.58rem; color:#64748b;">High in protein and essential nutrients for a healthy body.</div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Good For -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;">Good For</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:3px; font-size:0.62rem; color:#0f46bd; padding-right:40px;">
+              <div>✓ Heart Health</div>
+              <div>✓ Brain Function</div>
+              <div>✓ Eye Health</div>
+              <div>✓ Supports Immunity</div>
+              <div>✓ Healthy Skin &amp; Hair</div>
+            </div>
+          </div>
+          <img src="assets/benefits_salmon.png" alt="Benefits" style="position:absolute; right:8px; bottom:8px; width:45px; height:auto; opacity:0.95;">
+        </div>
+
+        <!-- CARD 3: Allergy Info -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:150px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:6px;">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #ef4444; background:#fef2f2; display:flex; align-items:center; justify-content:center;">
+                <svg fill="none" stroke="#ef4444" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <span style="font-size:0.8rem; font-weight:800; color:#0f46bd;">Allergy Info</span>
+            </div>
+            <div style="font-size:0.72rem; font-weight:800; color:#0f46bd; margin-bottom:2px;" id="pd-allergy">Contains Fish.</div>
+            <div style="font-size:0.6rem; color:#64748b; line-height:1.3; padding-right:35px;">
+              People with fish allergies should avoid consuming this product.<br><br>
+              Processed in a facility that handles crustaceans.
+            </div>
+          </div>
+          <div style="position:absolute; right:8px; bottom:8px; width:22px; height:22px; border-radius:50%; background:#fef3c7; color:#d97706; font-size:0.7rem; font-weight:900; display:flex; align-items:center; justify-content:center;">!</div>
+        </div>
+
+        <!-- CARD 4: How to Cook -->
+        <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between; min-height:150px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <span style="font-size:0.75rem; font-weight:800; color:#0f46bd;">How to Cook <span id="pd-cook-title">Tuna Steak</span></span>
+              <span style="font-size:0.58rem; color:#0350dc; font-weight:700; cursor:pointer;">View All &rsaquo;</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <!-- Video 1 -->
+              <div style="position:relative; border-radius:6px; overflow:hidden; border:1px solid #e2e8f0; background:#000;">
+                <img src="assets/prod_1_salmon.jpg" alt="Vid 1" style="width:100%; height:50px; object-fit:cover; opacity:0.85;">
+                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; color:#0350dc; font-size:0.6rem;">▶</div>
+                </div>
+                <div style="position:absolute; bottom:0; inset-x:0; background:rgba(0,0,0,0.7); padding:2px 4px; color:#fff; font-size:0.52rem; display:flex; justify-content:space-between;">
+                  <span>Curry Recipe</span><span>06:12</span>
+                </div>
+              </div>
+              <!-- Video 2 -->
+              <div style="position:relative; border-radius:6px; overflow:hidden; border:1px solid #e2e8f0; background:#000;">
+                <img src="assets/prod_3_tuna.jpg" alt="Vid 2" style="width:100%; height:50px; object-fit:cover; opacity:0.85;">
+                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+                  <div style="width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; color:#0350dc; font-size:0.6rem;">▶</div>
+                </div>
+                <div style="position:absolute; bottom:0; inset-x:0; background:rgba(0,0,0,0.7); padding:2px 4px; color:#fff; font-size:0.52rem; display:flex; justify-content:space-between;">
+                  <span>Grilled Recipe</span><span>06:48</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. BOTTOM FEATURES BAR -->
+    <div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; padding:8px 16px; display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; margin-top:auto;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; border:1.2px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:13px; height:13px;" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+        </div>
+        <div style="display:flex; flex-direction:column; line-height:1.1;">
+          <span style="font-size:0.72rem; font-weight:800; color:#0f46bd;">100% Fresh</span>
+          <span style="font-size:0.58rem; color:#64748b;">Sourced Daily</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; border:1.2px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:13px; height:13px;" viewBox="0 0 24 24"><path d="M12 21.7C17.3 16.5 20 12.3 20 9a8 8 0 1 0-16 0c0 3.3 2.7 7.5 8 12.7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+        </div>
+        <div style="display:flex; flex-direction:column; line-height:1.1;">
+          <span style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Hygienic &amp; Safe</span>
+          <span style="font-size:0.58rem; color:#64748b;">Cleaned with care</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; border:1.2px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:13px; height:13px;" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </div>
+        <div style="display:flex; flex-direction:column; line-height:1.1;">
+          <span style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Fast Delivery</span>
+          <span style="font-size:0.58rem; color:#64748b;">On time, every time</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; border:1.2px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:13px; height:13px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div style="display:flex; flex-direction:column; line-height:1.1;">
+          <span style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Best Quality</span>
+          <span style="font-size:0.58rem; color:#64748b;">Only the best for you</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; border:1.2px solid #0350dc; background:#ebf5ff; display:flex; align-items:center; justify-content:center;">
+          <svg fill="none" stroke="#0350dc" stroke-width="2" style="width:13px; height:13px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3.6 9h16.8M3.6 15h16.8"></path><path d="M11.5 3a13 13 0 0 0 0 18M12.5 3a13 13 0 0 1 0 18"></path></svg>
+        </div>
+        <div style="display:flex; flex-direction:column; line-height:1.1;">
+          <span style="font-size:0.72rem; font-weight:800; color:#0f46bd;">Sustainable Sourcing</span>
+          <span style="font-size:0.58rem; color:#64748b;">For a better tomorrow</span>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
-  <!-- TOAST NOTIFICATION CONTAINER -->
-  <div id="toast-container" class="toast-container"></div>
-
-  <!-- CONTACT US MODAL -->
-  <div id="contact-modal" class="modal-overlay">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeContactModal()"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg></button>
-      <h2>Contact Us</h2>
-      <p>Have a question about the Tuna Steak? Send us a message and our team will get back to you shortly.</p>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" placeholder="Your Name">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="Your Email">
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="4" placeholder="How can we help?"></textarea>
-      </div>
-      <button class="btn-submit" onclick="submitContactForm()">Send Message</button>
-    </div>
+<!-- CONTACT US MODAL -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999;">
+  <div style="background:#fff; padding:20px; border-radius:12px; width:300px; text-align:center;">
+    <h3 style="color:#0f46bd; margin-bottom:8px;">Need Help?</h3>
+    <p style="font-size:0.75rem; color:#64748b; margin-bottom:16px;">Reach out to our customer care team anytime.</p>
+    <button onclick="document.getElementById('contactModal').style.display='none'" style="background:#0350dc; color:#fff; border:none; border-radius:6px; padding:6px 16px; font-weight:700; cursor:pointer;">Close</button>
   </div>
+</div>
 
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
-    function toggleSidebar() {
-      if (window.innerWidth <= 768) {
-        document.querySelector('.sidebar').classList.toggle('open');
-        document.querySelector('.sidebar-overlay').classList.toggle('show');
-      }
+<script>
+window.currentBasePrice = parseFloat(('£22.00' || '14.99').replace(/[^0-9.]/g, '')) || 14.99;
+
+function pdSelectSize(el, mult) {
+  const opts = el.parentElement.querySelectorAll('.pd-size-opt');
+  opts.forEach(o => {
+    o.classList.remove('active');
+    o.style.border = '1px solid #e2e8f0';
+    o.style.background = '#ffffff';
+    o.style.color = '#64748b';
+    o.style.fontWeight = '400';
+    const sub = o.querySelector('span'); if(sub) sub.style.color = '#64748b';
+  });
+  el.classList.add('active');
+  el.style.border = '1.5px solid #0350dc';
+  el.style.background = '#ebf5ff';
+  el.style.color = '#0350dc';
+  el.style.fontWeight = '700';
+  const sub = el.querySelector('span'); if(sub) sub.style.color = '#0350dc';
+
+  const priceEl = document.getElementById('pd-price');
+  if(priceEl) {
+    if(!window.currentBasePrice) {
+      window.currentBasePrice = parseFloat((priceEl.innerText || '14.99').replace(/[^0-9.]/g, '')) || 14.99;
     }
+    const calc = (window.currentBasePrice * mult).toFixed(2);
+    priceEl.innerText = '£' + calc;
+  }
+}
 
-    // Handle Image Gallery
-    function changeHeroImage(src, element) {
-      document.getElementById('main-hero-img').src = src;
-      document.querySelectorAll('.thumb').forEach(img => img.classList.remove('active'));
-      element.classList.add('active');
-    }
+function pdSelectCut(el) {
+  const cuts = el.parentElement.querySelectorAll('.pd-cut-opt');
+  cuts.forEach(c => {
+    c.classList.remove('active');
+    c.style.fontWeight = '500';
+    c.style.color = '#64748b';
+    c.style.textDecoration = 'none';
+  });
+  el.classList.add('active');
+  el.style.fontWeight = '800';
+  el.style.color = '#0350dc';
+  el.style.textDecoration = 'underline';
+}
 
-    // Handle Tab Switching
-    function switchTab(tabId, element) {
-      // Hide all panes
-      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-      // Remove active class from all tabs
-      document.querySelectorAll('.tab-item').forEach(tab => tab.classList.remove('active'));
+function pdShareEmail() {
+  const titleEl = document.getElementById('pd-title');
+  const title = titleEl ? titleEl.innerText : 'Tuna Steak';
+  const priceEl = document.getElementById('pd-price');
+  const price = priceEl ? priceEl.innerText : '£22.00';
+  const subject = encodeURIComponent('Fresh ' + title + ' on Fishcart');
+  const body = encodeURIComponent('Hi, check out this fresh ' + title + ' on Fishcart for ' + price + '! ' + window.location.href);
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+}
 
-      // Show selected pane and set tab active
-      document.getElementById('tab-' + tabId).classList.add('active');
-      element.classList.add('active');
-    }
+function pdToggleFav(btn) {
+  const isFav = btn.classList.toggle('fav-saved');
+  if(isFav) {
+    btn.style.background = '#0350dc';
+    btn.style.color = '#ffffff';
+    btn.style.borderColor = '#0350dc';
+    btn.innerHTML = '<svg fill="currentColor" stroke="none" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg> Saved to Favorites';
+  } else {
+    btn.style.background = '#ffffff';
+    btn.style.color = '#0f46bd';
+    btn.style.borderColor = '#cbd5e1';
+    btn.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" style="width:12px; height:12px;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Save to Favorites';
+  }
+}
 
-    // Handle Size/Cut Selectors
-    function selectOption(element, group) {
-      const parent = document.getElementById(group + '-selector');
-      parent.querySelectorAll('.selector-btn').forEach(btn => btn.classList.remove('active'));
-      element.classList.add('active');
-    }
+function changeHeroImage(src, el) {
+  const mainImg = document.getElementById('pd-img');
+  if(mainImg) mainImg.src = src;
+  const thumbs = document.querySelectorAll('.gallery-thumbnails .thumb');
+  thumbs.forEach(t => t.classList.remove('active'));
+  if(el) el.classList.add('active');
+}
 
-    // Toast Notification System
-    function showToast(message) {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> ${message}`;
-
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.classList.add('hide');
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    // Functional Buttons
-    function addToCart() {
-      const size = document.querySelector('#size-selector .active').innerText;
-      const cut = document.querySelector('#cut-selector .active').innerText;
-      const title = document.getElementById('product-title').innerText;
-
-      // Prepare for backend cart API integration
-      console.log(`Adding to cart: ${title} | Size: ${size} | Cut: ${cut}`);
-      showToast(`Successfully added ${size} ${cut} ${title} to cart!`);
-    }
-
-    function shareProduct() {
-      const url = window.location.href;
-      if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          url: url
-        }).catch(console.error);
-      } else {
-        navigator.clipboard.writeText(url);
-        showToast("Product link copied to clipboard!");
-      }
-    }
-
-    function saveProduct() {
-      const btn = document.getElementById('save-btn');
-      btn.classList.toggle('saved');
-      if (btn.classList.contains('saved')) {
-        showToast("Product saved to favorites!");
-      } else {
-        showToast("Product removed from favorites.");
-      }
-    }
-
-    // Contact Modal Logic
-    function openContactModal() {
-      document.getElementById('contact-modal').classList.add('active');
-    }
-
-    function closeContactModal() {
-      document.getElementById('contact-modal').classList.remove('active');
-    }
-
-    function submitContactForm() {
-      closeContactModal();
-      showToast("Message sent successfully. We will be in touch!");
-    }
-  </script>
+function openContactModal() {
+  const m = document.getElementById('contactModal');
+  if(m) m.style.display = 'flex';
+}
+</script>
 </body>
-
 </html>
