@@ -71,20 +71,16 @@
 
     /* Outer Frame Layout */
     .app {
-      display: flex;
-      flex-direction: column;
-      width: 1448px;
-      height: 1086px;
+      width: 100vw;
+      height: 100vh;
       border: 16px solid var(--frame-border);
       border-radius: 24px;
-      background: #ffffff;
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      position: relative;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
       box-sizing: border-box;
-      transform-origin: top left;
+      overflow: hidden;
     }
 
     /* ── HEADER ── */
@@ -290,7 +286,10 @@
       gap: 14px;
       overflow: hidden;
       min-height: 0;
-    }
+          width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
     /* Hero Banner */
     .hero {
@@ -516,7 +515,10 @@
       gap: 14px;
       overflow: hidden;
       min-height: 0;
-    }
+          width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
     .recipes-card {
       background: var(--recipes-card);
@@ -804,7 +806,10 @@
       gap: 14px;
       overflow: hidden;
       min-height: 0;
-    }
+          width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
     .product-tile {
       position: relative;
@@ -873,7 +878,10 @@
       gap: 14px;
       overflow: hidden;
       min-height: 0;
-    }
+          width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
     .feature-card {
       border-radius: 16px;
@@ -1023,7 +1031,10 @@
       overflow: hidden;
       min-height: 0;
       box-sizing: border-box;
-    }
+          width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
     .footer-card {
       background: #ffffff;
@@ -1100,10 +1111,17 @@
       }
 
       .app {
-        flex-direction: column;
-        height: 100vh;
-        overflow: hidden;
-      }
+      width: 100vw;
+      height: 100vh;
+      border: 16px solid var(--frame-border);
+      border-radius: 24px;
+      position: relative;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
       .sidebar {
         width: 100%;
@@ -1130,11 +1148,17 @@
 
       .r1 {
         grid-template-columns: 1fr 1fr;
-      }
+            width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
       .r2 {
         grid-template-columns: 1fr;
-      }
+            width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
+}
 
       .mobile-filter-btn {
         display: flex;
@@ -1190,6 +1214,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+      width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
 }
 
 .fp-bread {
@@ -1233,6 +1260,9 @@
   gap: 10px;
   flex-shrink: 0;
   height: 52px;
+      width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
 }
 
 .fp-tab {
@@ -1548,6 +1578,9 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
+      width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
 }
 
 .fp-card {
@@ -1664,6 +1697,9 @@
   gap: 8px;
   flex-shrink: 0;
   height: 48px;
+      width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
 }
 
 .fp-feat {
@@ -1724,6 +1760,9 @@
   flex-shrink: 0;
   height: 65px;
   align-items: center;
+      width: 100%;
+      max-width: 1158px;
+      margin: 0 auto;
 }
 
 .fp-fcol {
@@ -2491,7 +2530,7 @@
 </div>
 </div>
 <!-- PAGINATION BAR -->
-<div class="fp-pagination" style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding:12px 16px; background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+<div class="fp-pagination" style="width: 100%; max-width: 1158px; margin: 0 auto; display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding:12px 16px; background:#fff; border:1.5px solid #e2e8f0; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
 <div id="fp-page-info" style="font-size:0.75rem; color:#64748b;">Showing <strong id="fp-pinfo-range" style="color:#0f46bd;">1-8</strong> of <strong style="color:#0f46bd;">120+</strong> items</div>
 <div style="display:flex; align-items:center; gap:6px;">
 <button class="fp-page-btn" disabled="" id="fp-prev-btn" onclick="changePage(-1)" style="border:1px solid #cbd5e1; background:#fff; color:#0f46bd; padding:5px 12px; border-radius:6px; font-size:0.7rem; font-weight:700; cursor:pointer; opacity:0.5;">‹ Prev</button>
@@ -3259,26 +3298,7 @@ window.toggleViewMore = function(btn) {
       }
     });
 
-    /* ── VIEWPORT FIT SCALER ── */
-    function fitApp() {
-      var app = document.querySelector('.app');
-      if (!app) return;
-      var appW = 1448;
-      var appH = 1086;
-      var vw = window.innerWidth;
-      var vh = window.innerHeight;
-      var scale = Math.min(vw / appW, vh / appH);
-      var scaledW = appW * scale;
-      var scaledH = appH * scale;
-      var left = Math.round((vw - scaledW) / 2);
-      var top = Math.round((vh - scaledH) / 2);
-      app.style.transform = 'scale(' + scale + ')';
-      app.style.left = left + 'px';
-      app.style.top = top + 'px';
-    }
-    window.addEventListener('resize', fitApp);
-    window.addEventListener('orientationchange', fitApp);
-    fitApp();
+    
   </script>
 <div class="filter-overlay" id="filterOverlay" onclick="toggleFilters()"></div>
 <div class="mobile-filter-btn" onclick="toggleFilters()">
